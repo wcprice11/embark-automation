@@ -1,5 +1,5 @@
 *.cpy
 drivers/
 .env
-
-
+*.pyc
+.vscode/
