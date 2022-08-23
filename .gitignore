@@ -1,5 +1,6 @@
 *.cpy
 drivers/
+.\\drivers/
 .env
 *.pyc
 .vscode/
