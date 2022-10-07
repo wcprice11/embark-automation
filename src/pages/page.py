@@ -1,6 +1,3 @@
-from ensurepip import version
-from element import *
-import URLs
 
 class Page:
     def __init__(self, driver):
@@ -21,10 +18,9 @@ class Page:
 
 #---PROD---#
 class ProdBase(Page):
-    url = URLs.PROD_BASE
+    pass
 
 class ProdLogin(Page):
-    url = URLs.PROD_LOGIN
     pass
 
 class ProdHome(Page):

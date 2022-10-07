@@ -17,8 +17,13 @@ class User():
         self.username :str
     
     def reset(self) -> None:
+        # TO_DO
         pass
         # Should be a requests call taking the two IDs as parameters
+
+    def copy_user(source_user_id, target_user_id):
+        # TO_DO
+        pass
     
     def get_password(self) -> str:
         return getenv(self.username + "_PASSWORD")

@@ -4,3 +4,4 @@ drivers/
 .env
 *.pyc
 .vscode/
+report/

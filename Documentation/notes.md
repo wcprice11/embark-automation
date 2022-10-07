@@ -170,3 +170,69 @@ session.change_language()
 ```
 
 No need to worry about clearing the browser cache. Each instance of the driver starts fresh.
+
+# tech stack
+Angular
+ionic
+ - native
+ - storage
+ - angular
+ionicons
+lodash
+cordova
+ - android
+ - browser
+ - ios
+ - plugin
+    - app-version
+    - background-mode
+    - device
+    - dialogs
+    - extended-device-information
+    - file
+    - globalization
+    - inappbrowser
+    - ionic
+    - keyboard
+    - ionic-webview
+    - media
+    - media-capture
+    - nativeaudio
+    - network-information
+    - speechrecognition
+    - splashscreen
+    - statusbar
+    - whitelist
+ - sqlite-storage
+dragula
+rx-js
+sw-toolbox
+zone.js
+ng-select
+ajv
+core-js
+instabug-cordova
+ng-circle-progress
+ng2-pdf-viewer
+ng2-dragula
+ngx-logger
+ngx-translate
+videogular2
+open-native-settings
+
+# Direction
+What needs to be implemented is as follows:
+* Strong support for the Page Object Model.
+* Test runner which can take in sessions and tests and run everything appropriately.
+
+## Wednesday
+- [ ] Reorganize to fit POM as close as possible.
+    - []
+
+However, there needs to be some visual sharing of results soon. Thus this will need to be broken down into more manageable tasks to get a MVP out ASAP.
+
+# Road blocks
+
+* Login and API handling of Users
+* fragile tests due to ionic
+* cross platform implementation.

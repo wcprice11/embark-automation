@@ -46,9 +46,9 @@ class TestStringMethods(unittest.TestCase):
     def test_upper(self): 
         self.assertEqual('foo'.upper(), 'FOO')
 
-    def test_isupper(self):
-        self.assertTrue('FOO'.isupper())
-        self.assertFalse('Foo'.isupper())
+    def test_is_upper(self):
+        self.assertTrue('FOO'.is_upper())
+        self.assertFalse('Foo'.is_upper())
 
     def test_split(self):
         s = 'hello world'
@@ -83,3 +83,20 @@ test-runner
 
 continuous integration system
 : A development pipeline of merging, unit tests, and integration tests before production. Generally, these will handle git merges, testing, and deployment automatically
+
+
+Angular
+: Google-made Typescript app development framework 
+
+Angular components
+: Building blocks of the framework. Contain templates and styles
+
+
+Ionic
+: UI toolkit integrated with Angular
+
+Lodash
+: JS Utility library
+
+Cordova
+: A bridge that wraps the native device code in a JS API so that a webview application can use platform features.
