@@ -16,6 +16,7 @@ This is the test organization that the team has been using thus far. (this is sp
 #### Settings
  - [ ] Delete a language
  - [ ] Switch between languages
+ - [ ] Turn On/Off sound
  - [ ] Progress updates when switching languages
  - [ ] Contact Us
  - [ ] Troubleshooting Menu

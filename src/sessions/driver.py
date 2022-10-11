@@ -5,12 +5,14 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 class Driver(webdriver.Chrome):
-    def __init__(self):
+    def __init__(self, headless = True):
         driver_path = ".\\drivers"
         self.service = ChromeService(ChromeDriverManager(os_type="mac_arm64", path=driver_path).install())
         
         self.options = webdriver.ChromeOptions()
         self.options.add_experimental_option('excludeSwitches', ['enable-logging'])
+        if(headless):
+            self.options.add_argument('headless')
 
     def launch(self):
 

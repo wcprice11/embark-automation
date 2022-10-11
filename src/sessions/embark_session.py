@@ -1,7 +1,6 @@
 from sessions.embark_user import *
 from sessions.driver import *
 from sessions.embark_branch import *
-from pages.element import Elements
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -10,7 +9,7 @@ class Session():
         self.user = user
         self.branch = branch
         self.driver = driver
-        self.elements = Elements
+        self.elements = self.branch.elements
         self.URLs = self.branch.urls
 
     # WebDriver control
@@ -18,7 +17,7 @@ class Session():
     # starts the webdriver
     def start(self):
         self.driver.launch()
-        # navigates to a url
+    # navigates to a url
     def get(self, url:str):
         self.driver.get(url)
         pass

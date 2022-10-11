@@ -4,16 +4,18 @@ import os.path
 from HTMLTestRunner.runner import HTMLTestRunner
 from tests.test_login import *
 from tests.test_language_select_screen import *
+from tests.test_settings import *
 
 tests = []
 tests += unittest.TestLoader().loadTestsFromTestCase(TestProdLogin)
-tests += unittest.TestLoader().loadTestsFromTestCase(TestStageLogin)
-tests += unittest.TestLoader().loadTestsFromTestCase(TestRCLogin)
-tests += unittest.TestLoader().loadTestsFromTestCase(TestDevLogin)
-tests += unittest.TestLoader().loadTestsFromTestCase(TestProdLanguageSelectScreen)
-tests += unittest.TestLoader().loadTestsFromTestCase(TestStageLanguageSelectScreen)
-tests += unittest.TestLoader().loadTestsFromTestCase(TestRCLanguageSelectScreen)
-tests += unittest.TestLoader().loadTestsFromTestCase(TestDevLanguageSelectScreen)
+# tests += unittest.TestLoader().loadTestsFromTestCase(TestStageLogin)
+# tests += unittest.TestLoader().loadTestsFromTestCase(TestRCLogin)
+# tests += unittest.TestLoader().loadTestsFromTestCase(TestDevLogin)
+# tests += unittest.TestLoader().loadTestsFromTestCase(TestProdLanguageSelectScreen)
+# tests += unittest.TestLoader().loadTestsFromTestCase(TestStageLanguageSelectScreen)
+# tests += unittest.TestLoader().loadTestsFromTestCase(TestRCLanguageSelectScreen)
+# tests += unittest.TestLoader().loadTestsFromTestCase(TestDevLanguageSelectScreen)
+# tests += unittest.TestLoader().loadTestsFromTestCase(TestStageSettings)
 
 
 suite = unittest.TestSuite(tests)

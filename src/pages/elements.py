@@ -51,11 +51,7 @@ class Elements:
 
     start_button            = (By.CSS_SELECTOR , "#start-btn")
 
-    log_out_button          = (By.CSS_SELECTOR , "app-home-settings-popover ion-button")
-    languages_button        = (By.CSS_SELECTOR , "ion-item:nth-of-type(2)")
-    contact_us_button       = (By.CSS_SELECTOR , "ion-item:nth-of-type(3)")
-    troubleshooting_button  = (By.CSS_SELECTOR , "ion-item:nth-of-type(4)")
-    about_button            = (By.CSS_SELECTOR , "ion-item:nth-of-type(5)")
+
 
     # = (By.CSS_SELECTOR , "ion-segment-button:nth-of-type(5)")
 
@@ -64,15 +60,29 @@ class ProdElements(Elements):
     pass
 
 class StageElements(Elements):
-    my_added_phrases        = (By.CSS_SELECTOR , "app-for-you-group > ion-card:nth-of-type(2)")
+    whats_new_card_close_button         = (By.CSS_SELECTOR , "ion-card ion-button:nth-of-type(1)")
+    whats_new_card_learn_more_button    = (By.CSS_SELECTOR , "ion-card ion-button:nth-of-type(2)")
 
-    added_phrase_group      = (By.CSS_SELECTOR, "div.section:nth-of-type(2) p")
-    embark_topics_view_all  = (By.CSS_SELECTOR, "div.section:nth-of-type(2) div.header button")
+    my_added_phrases                    = (By.CSS_SELECTOR , "app-for-you-group > ion-card:nth-of-type(2)")
+
+    added_phrase_group                  = (By.CSS_SELECTOR, "div.section:nth-of-type(2) p")
+    embark_topics_view_all              = (By.CSS_SELECTOR, "div.section:nth-of-type(2) div.header button")
+    
+    log_out_button                      = (By.CSS_SELECTOR , "app-home-settings-popover ion-button")
+    languages_button                    = (By.CSS_SELECTOR , "ion-item:nth-of-type(2)")
+    sound_effects                       = (By.CSS_SELECTOR , "ion-item:nth-of-type(3)")
+    sound_effects_toggle                = (By.CSS_SELECTOR , "ion-item:nth-of-type(3) ion-toggle")
+    contact_us_button                   = (By.CSS_SELECTOR , "ion-item:nth-of-type(4)")
+    troubleshooting_button              = (By.CSS_SELECTOR , "ion-item:nth-of-type(5)")
+    whats_new_button                    = (By.CSS_SELECTOR , "ion-item:nth-of-type(6)")
+    about_button                        = (By.CSS_SELECTOR , "ion-item:nth-of-type(7)")
 
     #---RC---#
-
+class RCElements(Elements):
+    pass
     #---DEV---#
-
+class DevElements(Elements):
+    pass
 
     ################################################
     #..............................................#
