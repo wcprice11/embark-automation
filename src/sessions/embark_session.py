@@ -1,8 +1,11 @@
+
 from sessions.embark_user import *
 from sessions.driver import *
 from sessions.embark_branch import *
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.keys import Keys
 
 # This is being implemented as a mix-in so be careful with namespace errors
 class SessionMixIn:
@@ -62,7 +65,7 @@ class SessionMixIn:
             WebDriverWait(self.driver, time).until(
                 EC.presence_of_element_located(element)
             )
-        except:
+        except TimeoutException:
             return None
         return self.driver.find_element(*element)
         
@@ -72,17 +75,19 @@ class SessionMixIn:
                 EC.element_to_be_clickable(element)
             )
             self.driver.find_element(*element).click()
-        except:
+        except TimeoutException:
             return None
         return True
 
-    def _fill(self, element, text: str, time=30):
+    def _fill(self, element, text: str, time=30, enter=False):
         try:
             WebDriverWait(self.driver, time).until(
                 EC.element_to_be_clickable(element)
             )
             self.driver.find_element(*element).send_keys(text)
-        except:
+            if (enter):
+                self.driver.find_element(*element).send_keys(Keys.ENTER)
+        except TimeoutException:
             return None
         return self.driver.find_element(*element)
 
@@ -118,6 +123,11 @@ class SessionMixIn:
         self.click(self.session.elements.logout)
         pass
 
-class BasicVisualSession:
+class BasicVisualProdSession:
+    def __init__(self, methodName:str) -> None:
+        super().__init__(methodName=methodName, user=test_user_00, branch=web_prod, driver=Driver(False))
+
+class BasicVisualStageSession:
     def __init__(self, methodName:str) -> None:
         super().__init__(methodName=methodName, user=test_user_00, branch=web_stage, driver=Driver(False))
+

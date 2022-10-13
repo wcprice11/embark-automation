@@ -33,8 +33,12 @@ class EmbarkTest(SessionMixIn, unittest.TestCase):
     def click(self, element, time=30):
         self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely a broken test")
 
-    def fill(self, element, text:str, time=30):
-        self.assertTrue(self._fill(element[0:2], text, time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely a broken test")
+    def fill(self, element, text:str, time=30, enter=False):
+        self.assertTrue(self._fill(element[0:2], text, time, enter), f"couldn't find element {element[2]} by {element[0:2]}. This is likely a broken test")
+    
+    def get_element(self, element, time=30):
+        self.find(element)
+        return self._find(element[0:2])
 
     # MACRO FUNCTIONS
     def login(self, language=None):
@@ -59,20 +63,22 @@ class EmbarkTest(SessionMixIn, unittest.TestCase):
 
     def i_want_to_learn(self, language="spanish"):
         # self.click(self.elements.i_want_to_learn)
-        self.fill(self.elements.i_want_to_learn, language)
+        self.fill(self.elements.i_want_to_learn, language, enter=True)
         self.click(self.elements.language_submit)
-        self.click(self.elements.whats_new_card_close_button)
-        self.click(self.elements.home_button)
-        self.validate_url_contains(self.urls.BLANK_HOME)
+        # self.click(self.elements.whats_new_card_close_button) # This doesn't feel appropriate here
+        # self.click(self.elements.home_button)
+        # self.validate_url_contains(self.urls.BLANK_HOME)
         return True
 
+class VisualEmbarkProdTest(BasicVisualProdSession, EmbarkTest):
+    def setUpVars(self):
+        self.load_branch(web_prod)
 
 class EmbarkProdTest(EmbarkTest):
     def setUpVars(self):
         self.load_branch(web_prod)
-    
 
-class VisualEmbarkStageTest(BasicVisualSession, EmbarkTest):
+class VisualEmbarkStageTest(BasicVisualStageSession, EmbarkTest):
     def setUpVars(self):
         self.load_branch(web_stage)
 

@@ -6,12 +6,12 @@ This is the test organization that the team has been using thus far. (this is sp
  - [x] Load a non-core language
  - [ ] Verify on different internet speeds
  - [ ] Progress is consistent across devices
- - [ ] Verify that passages are not in Stage
+ - [?] Verify that passages are not in Stage
 
 #### Deep Links
- - [ ] Ensure deep link opens to "Pray Often lesson"
- - [ ] Link opens "La Creación"
- - [ ] Link opens "Articles" lesson (Spanish)
+ - [x] Ensure deep link opens to "Pray Often lesson"
+ - [?] Link opens "La Creación"
+ - [x] Link opens "Articles" lesson (Spanish)
 
 #### Settings
  - [ ] Delete a language
