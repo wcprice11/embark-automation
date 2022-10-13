@@ -7,3 +7,4 @@ drivers/
 report/
 embark-automation-venv/
 *.jar
+*.sh

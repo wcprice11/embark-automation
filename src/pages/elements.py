@@ -54,7 +54,7 @@ class Elements:
     basic_alphabet_card     = (By.CSS_SELECTOR , "app-task-card:nth-of-type(1)>ion-card ion-icon", "alphabet card in basic(og:korean)")
     first_card_in_alphabet  = (By.CSS_SELECTOR , "app-flashcard:nth-of-type(1)>ion-card h1", "first card in alphabet discover(og:korean)")
 
-    spanish_resources_grammar=(By.CSS_SELECTOR , "app-lesson-collection-card:nth-of-type(2)>ion-card", "Grammar Lessons in resources(og:spanish)")
+    spanish_resources_grammar=(By.CSS_SELECTOR , "app-lesson-collection-card:last-of-type>ion-card", "Grammar Lessons in resources(og:spanish)")
     spanish_grammar_articles= (By.CSS_SELECTOR , "ion-content>ion-card:nth-of-type(3)", "articles card in grammar lessons(og:spanish)")
     grammar_lesson_header   = (By.CSS_SELECTOR , "app-lesson ion-toolbar", "Header of grammar lesson(og:spanish-articles")
     spanish_resources_vocab = (By.CSS_SELECTOR , "div>ion-card:nth-of-type(9)", "Vocabulary and Phrases card(og:spanish)")

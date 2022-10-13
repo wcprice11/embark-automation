@@ -86,6 +86,10 @@ class EmbarkStageTest(EmbarkTest):
     def setUpVars(self):
         self.load_branch(web_stage)
 
+class VisualEmbarkRCTest(BasicVisualRCSession, EmbarkTest):
+    def setUpVars(self):
+        self.load_branch(web_rc)
+
 class EmbarkRCTest(EmbarkTest):
     def setUpVars(self):
         self.load_branch(web_rc)
