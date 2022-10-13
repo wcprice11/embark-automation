@@ -4,13 +4,15 @@ from sessions.embark_branch import *
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-class Session():
-    def __init__(self, user=test_user_00, branch=web_prod, driver=Driver()) -> None:
+# This is being implemented as a mix-in so be careful with namespace errors
+class SessionMixIn:
+    def __init__(self, methodName:str, user=test_user_00, branch=web_stage, driver=Driver()) -> None:
         self.user = user
         self.branch = branch
         self.driver = driver
         self.elements = self.branch.elements
-        self.URLs = self.branch.urls
+        self.urls = self.branch.urls
+        super().__init__(methodName=methodName)
 
     # WebDriver control
 
@@ -40,16 +42,22 @@ class Session():
 
     # Branch Control
 
-    # this might not be needed
     def load_branch(self, branch):
         self.branch = branch
-        self.driver.close()
-        self.driver.launch()
+
+
+    # Driver Control
+
+    def load_driver(self, driver: Driver):
+        if(self.driver.launched and self.driver.session_id):
+            self.driver.close()
+        self.driver = driver
+        self.start()
     
 
     # Basic Navigation
 
-    def find(self, element, time=30):
+    def _find(self, element, time=30):
         try:
             WebDriverWait(self.driver, time).until(
                 EC.presence_of_element_located(element)
@@ -58,7 +66,7 @@ class Session():
             return None
         return self.driver.find_element(*element)
         
-    def click(self, element, time=30):
+    def _click(self, element, time=30):
         try:
             WebDriverWait(self.driver, time).until(
                 EC.element_to_be_clickable(element)
@@ -68,7 +76,7 @@ class Session():
             return None
         return True
 
-    def fill(self, element, text: str, time=30):
+    def _fill(self, element, text: str, time=30):
         try:
             WebDriverWait(self.driver, time).until(
                 EC.element_to_be_clickable(element)
@@ -87,7 +95,6 @@ class Session():
 
     # macros
     # these have to be completely general
-
     def login(self):
         # either login via LDS account or API if available
         # FIX_ME
@@ -106,9 +113,11 @@ class Session():
             if (self.get_url()==u.ONBOARDING): return True
         return False
 
-
-  
     def logout(self):
         self.click(self.session.elements.settings)
         self.click(self.session.elements.logout)
         pass
+
+class BasicVisualSession:
+    def __init__(self, methodName:str) -> None:
+        super().__init__(methodName=methodName, user=test_user_00, branch=web_stage, driver=Driver(False))

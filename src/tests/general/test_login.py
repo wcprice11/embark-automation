@@ -6,7 +6,6 @@ class TestProdLogin(EmbarkProdTest):
         e = self.elements
         self.get(u.LOGIN)
         self.validate_url_contains(u.LOGIN)
-
         self.click(e.sign_in_button)
         self.find(e.sign_in_username_field)
         self.fill(e.sign_in_username_field, self.session.user.username)
@@ -19,23 +18,23 @@ class TestProdLogin(EmbarkProdTest):
 
     
     def test_macro_login(self):
-        self.assertTrue(self.session.login(), "login macro failed")
-        self.validate_url_contains(self.session.URLs.ONBOARDING)
+        self.assertTrue(self.login(), "login macro failed")
+        self.validate_url_contains(self.urls.ONBOARDING)
 
 
 class TestStageLogin(EmbarkStageTest):
     def test_macro_login(self):
-        self.assertTrue(self.session.login(), "login macro failed")
-        self.validate_url_contains(self.session.URLs.ONBOARDING)
+        self.assertTrue(self.login(), "login macro failed")
+        self.validate_url_contains(self.urls.ONBOARDING)
 
 
 class TestRCLogin(EmbarkRCTest):
     def test_macro_login(self):
-        self.assertTrue(self.session.login(), "login macro failed")
-        self.validate_url_contains(self.session.URLs.ONBOARDING)
+        self.assertTrue(self.login(), "login macro failed")
+        self.validate_url_contains(self.urls.ONBOARDING)
 
 
 class TestDevLogin(EmbarkDevTest):
     def test_macro_login(self):
-        self.assertTrue(self.session.login(), "login macro failed")
-        self.validate_url_contains(self.session.URLs.ONBOARDING)
+        self.assertTrue(self.login(), "login macro failed")
+        self.validate_url_contains(self.urls.ONBOARDING)

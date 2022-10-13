@@ -13,8 +13,9 @@ class Driver(webdriver.Chrome):
         self.options.add_experimental_option('excludeSwitches', ['enable-logging'])
         if(headless):
             self.options.add_argument('headless')
+        self.launched = False
 
     def launch(self):
-
+        self.launched = True
         super().__init__(service=self.service, options=self.options)
 

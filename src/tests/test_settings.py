@@ -1,6 +1,8 @@
 from tests.embark_tests import *
 
-class TestStageSettings(EmbarkStageTest):
+
+class TestStageSettings(VisualEmbarkStageTest):
+    """
     def test_stage_settings_validation(self):
         s = self.session
         u = s.URLs
@@ -31,3 +33,10 @@ class TestStageSettings(EmbarkStageTest):
         self.validate_text(elem.text, "What's new?")
         elem = s.find(e.about_button)
         self.validate_text(elem.text, "About")
+    """
+
+    def test_stage_logout(self):
+        self.assertTrue(self.login("spanish"))
+
+
+

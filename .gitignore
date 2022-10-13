@@ -5,3 +5,4 @@ drivers/
 *.pyc
 .vscode/
 report/
+embark-automation-venv/

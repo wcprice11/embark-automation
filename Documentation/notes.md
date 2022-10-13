@@ -229,10 +229,31 @@ What needs to be implemented is as follows:
 - [ ] Reorganize to fit POM as close as possible.
     - []
 
-However, there needs to be some visual sharing of results soon. Thus this will need to be broken down into more manageable tasks to get a MVP out ASAP.
+
 
 # Road blocks
 
 * Login and API handling of Users
 * fragile tests due to ionic
 * cross platform implementation.
+
+class TestClass(
+    Sessions = [
+        1,
+        2,
+        3,]
+    Dependencies=[
+        Template):
+    def test(self ):
+        self.click(self.elem.START)
+        textEq
+
+
+Each test should be "multiplied" according to the sessions it requests. 
+
+Session(User, Branch/platform, driver, language?)
+
+
+test runner:
+    create all tests needed
+    while unfinished
