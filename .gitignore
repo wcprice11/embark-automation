@@ -6,3 +6,4 @@ drivers/
 .vscode/
 report/
 embark-automation-venv/
+.jar
