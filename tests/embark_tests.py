@@ -66,7 +66,8 @@ class EmbarkTest(SessionMixIn, unittest.TestCase):
         self.find(e.i_want_to_learn)
         self.assertEqual(self.get_url(), self.urls.ONBOARDING)
         if(language):
-            self.assertTrue(self.i_want_to_learn(language))
+            self.fill(self.elements.i_want_to_learn, language, enter=True)
+            self.click(self.elements.language_submit)
         return True
 
 
