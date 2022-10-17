@@ -26,6 +26,14 @@ class EmbarkTest(SessionMixIn, unittest.TestCase):
 
     def validate_url_contains(self, truth:str):
         self.assertTrue(truth in self.get_url(), f"Unexpected text: '{self.get_url()}'\n does not contain '{truth}'")
+    
+    def validate_element_text(self, element, truth:str, contains=False):
+        test = self.get_element(element).text
+        if(contains): self.assertTrue(truth in test, f"Unexpected text: '{test}'\n does not contain '{truth}'")
+        else: self.assertEqual(test, truth, f"Unexpected text: '{test}'\n does not match '{truth}'")
+
+    def wait_for_text_in_element(self, element, text: str, time=30):
+        return super()._wait_for_text_in_element(element[0:2], text, time)
 
     def find(self, element, time=30):
         self.assertTrue(self._find(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely a broken test")

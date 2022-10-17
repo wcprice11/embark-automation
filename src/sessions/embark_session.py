@@ -23,10 +23,15 @@ class SessionMixIn:
     # starts the webdriver
     def start(self):
         self.driver.launch()
+        self.driver.set_window_size(1366, 768)
     # navigates to a url
-    def get(self, url:str):
+    def get(self, url:str, tries=0):
         self.driver.get(url)
-        pass
+        if (False and tries < 5): #FIX_ME: Find condition to catch 503 errors
+            time.sleep(5)
+            return self.get(url, tries + 1)
+        if (tries >= 5):
+            raise Exception("Server error is preventing page load")
     # closes webdriver
     def quit(self):
         self.driver.close()
@@ -62,13 +67,15 @@ class SessionMixIn:
     # Basic Navigation
 
     def _find(self, element, time=30):
-        elem = None
         try:
             WebDriverWait(self.driver, time).until(
                 EC.presence_of_element_located(element)
             )
             elem = self.driver.find_element(*element)
             if(not elem.is_displayed()):
+                WebDriverWait(self.driver, time).until(
+                    EC.presence_of_element_located(element)
+                )
                 ActionChains(self.driver).move_to_element(elem).perform()
         except TimeoutException:
             return None
@@ -98,6 +105,16 @@ class SessionMixIn:
             return None
         return self.driver.find_element(*element)
 
+    def _wait_for_text_in_element(self, element, text: str, time=30):
+        try: 
+            WebDriverWait(self.driver, time).until(
+                EC.text_to_be_present_in_element(element, text)
+            )
+        except TimeoutException:
+            return None
+        return 1
+
+        
     def get_url(self) -> str:
         return self.driver.current_url
     
