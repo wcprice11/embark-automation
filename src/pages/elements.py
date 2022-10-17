@@ -44,7 +44,7 @@ class Elements:
 
     # Settings dropdown menu
     loaded_language_subtext = (By.CSS_SELECTOR , "app-home-settings-popover p", "language listed in settings menu")
-
+    log_out_button          = (By.CSS_SELECTOR , "ion-item ion-button", "settings menu logout button")
     tip_pop_up              = (By.CSS_SELECTOR , "div.tip-popover-box", "tip pop-up box")
     tip_pop_up_close        = (By.CSS_SELECTOR , "div.tip-popover-box ion-icon", "close pop-up button")
 
@@ -61,6 +61,8 @@ class Elements:
     resources_pray_often    = (By.CSS_SELECTOR , "ion-card:nth-of-type(24)", "Pray often in vocab in resources(og:spanish)")
     pdf_header_title        = (By.CSS_SELECTOR , "div.headerWrapper ion-title", "title in header of pdf viewer(og:spanish pray often)")
 
+    # MISC
+    church_site_header  = (By.CSS_SELECTOR , "platform-header", "Church site header")
 
 
 class ProdElements(Elements):
