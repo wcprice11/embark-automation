@@ -1,4 +1,4 @@
-### Regression Test
+# Regression Test
 This is the test organization that the team has been using thus far. (this is specifically the web version, but they were nearly identical)
 #### General
  - [x] Language selection screen
