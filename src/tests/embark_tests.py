@@ -62,6 +62,7 @@ class EmbarkTest(SessionMixIn, unittest.TestCase):
         self.find(e.sign_in_password_field)
         self.fill(e.sign_in_password_field, self.user.get_password())
         self.click(e.sign_in_submit)
+        self.wait_for_text_in_element(e.language_submit, "Submit")
         self.find(e.i_want_to_learn)
         self.assertEqual(self.get_url(), self.urls.ONBOARDING)
         if(language):
