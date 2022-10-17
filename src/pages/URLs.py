@@ -11,15 +11,15 @@
 #---HELPERS---#
 class URLs:
     common_urls = {
-        "LOGIN":        "/#/login",
-        "RESOURCES":    "/#/home/resources",
-        "SEARCH":       "/#/home/search",
-        "SETTINGS": "/#/home/settings",
-        "LANGUAGES": "/#/home/settings/languages",
-        "CONTACT_US": "/#/home/settings/contact-us",
-        "TROUBLESHOOT": "/#/home/settings/troubleshoot",
-        "ABOUT":            "/#/home/settings/about",
-        "ACKNOWLEDGEMENTS": "/#/home/settings/acknowledgements",
+        "LOGIN":                "/#/login",
+        "RESOURCES":            "/#/home/resources",
+        "SEARCH":               "/#/home/search",
+        "SETTINGS":             "/#/home/settings",
+        "LANGUAGES":            "/#/home/settings/languages",
+        "CONTACT_US":           "/#/home/settings/contact-us",
+        "TROUBLESHOOT":         "/#/home/settings/troubleshoot",
+        "ABOUT":                "/#/home/settings/about",
+        "ACKNOWLEDGEMENTS":     "/#/home/settings/acknowledgements",
         "BLANK_HOME":           "/#/home/learn",
         "HOME_PAGE":            "/#/home/learn?taskGroup=636000000",
         "BASIC":                "/#/home/learn?taskGroup=2",
@@ -36,6 +36,7 @@ class URLs:
         "EXTEND_AN_INVITATION": "/#/home/tasks/8",
         "CLASSROOM_VOCABULARY": "/#/home/tasks/11",
         "ONBOARDING":           "/#/language-onboarding?redirectUrl=%2Fhome",
+        "TONES_LESSON":         "/#/home/tasks/634000000/tones"
     }
 
 
