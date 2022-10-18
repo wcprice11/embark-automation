@@ -1,0 +1,7 @@
+Welcome to the Embark Automatic Testing repo!
+
+There are several important steps to get set up.
+
+1. Clone the Git repo
+2. Run "pip install -r requirements.txt". This is best to do in a virtual environment. It may also be different depending upon your OS.
+3. To run tests, run "python embark_test_runner.py"

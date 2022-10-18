@@ -45,6 +45,13 @@ class Elements:
     # Settings dropdown menu
     loaded_language_subtext = (By.CSS_SELECTOR , "app-home-settings-popover p", "language listed in settings menu")
 
+    about_page_hyperlinks_privacy_notice    = (By.CSS_SELECTOR , "ion-card>a:nth-of-type(1)", "about page hyperlinks, for example, 'Privacy notice'")
+    about_page_hyperlinks_terms_of_use      = (By.CSS_SELECTOR , "ion-card>a:nth-of-type(2)", "about page hyperlinks, for example, 'Privacy notice'")
+    about_page_hyperlinks_acknowledgements  = (By.CSS_SELECTOR , "ion-card>a:nth-of-type(3)", "about page hyperlinks, for example, 'Privacy notice'")
+    
+    language_select_page_language_name  = (By.CSS_SELECTOR , "ion-label>a:nth-of-type(1)", "Label for first language on language select page")
+    language_select_page_delete_button  = (By.CSS_SELECTOR , "ion-button>a:nth-of-type(1)", "Delete button on select language page, trash icon")
+
     tip_pop_up              = (By.CSS_SELECTOR , "div.tip-popover-box", "tip pop-up box")
     tip_pop_up_close        = (By.CSS_SELECTOR , "div.tip-popover-box ion-icon", "close pop-up button")
 
