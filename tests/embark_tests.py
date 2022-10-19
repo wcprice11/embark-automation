@@ -21,6 +21,9 @@ class EmbarkTest(SessionMixIn, unittest.TestCase):
     def validate_text_contains(self, test:str, truth:str):
         self.assertTrue(truth in test, f"Unexpected text: '{test}'\n does not contain '{truth}'")
 
+    def vaildate_text_absent(self, test:str, truth:str):
+        self.assertFalse(truth in test, f"Unexpected text: '{test}'\n should not contain '{truth}'")
+
     def validate_url(self, truth:str):
         self.assertEqual(self.get_url(), truth, f"Unexpected text: '{self.get_url()}'\n does not match '{truth}'")
 
