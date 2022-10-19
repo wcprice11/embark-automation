@@ -49,8 +49,14 @@ class Elements:
     about_page_hyperlinks_terms_of_use      = (By.CSS_SELECTOR , "ion-card>a:nth-of-type(2)", "about page hyperlinks, for example, 'Privacy notice'")
     about_page_hyperlinks_acknowledgements  = (By.CSS_SELECTOR , "ion-card>a:nth-of-type(3)", "about page hyperlinks, for example, 'Privacy notice'")
     
-    language_select_page_language_name  = (By.CSS_SELECTOR , "ion-label>a:nth-of-type(1)", "Label for first language on language select page")
-    language_select_page_delete_button  = (By.CSS_SELECTOR , "ion-button>a:nth-of-type(1)", "Delete button on select language page, trash icon")
+    language_manage_page_language_name      = (By.CSS_SELECTOR , "ion-radio-group ion-item:nth-of-type(1) ion-label", "Label for first language on language select page")
+    language_manage_page_delete_button      = (By.CSS_SELECTOR , "ion-radio-group ion-item:nth-of-type(1) ion-buttons ion-button", "Delete button on select language page, trash icon")
+    language_manage_page_add_language_button    = (By.CSS_SELECTOR , "app-language-manage div ion-button", "Add language button")
+    language_manage_page_confirm_delete_button  = (By.CSS_SELECTOR , "ion-alert div div:nth-of-type(3) button:nth-of-type(2)", "Add language button")
+
+    language_select_page_target_language_dropdown = (By.CSS_SELECTOR , "ng-select:nth-of-type(1)", "Target language select dropdown")
+    language_select_page_choose_japanese = (By.CSS_SELECTOR , "ng-dropdown-panel div div div:nth-of-type(30)", "Select japanese from language select dropdown")
+    language_select_page_submit_button = (By.CSS_SELECTOR , "app-add-language div div ion-button", "Submit language on selection page")
 
     tip_pop_up              = (By.CSS_SELECTOR , "div.tip-popover-box", "tip pop-up box")
     tip_pop_up_close        = (By.CSS_SELECTOR , "div.tip-popover-box ion-icon", "close pop-up button")
@@ -82,7 +88,7 @@ class StageElements(Elements):
     embark_topics_view_all              = (By.CSS_SELECTOR, "div.section:nth-of-type(2) div.header button", "FIX_ME")
     
     log_out_button                      = (By.CSS_SELECTOR , "app-home-settings-popover ion-button", "FIX_ME")
-    languages_button                    = (By.CSS_SELECTOR , "ion-item:nth-of-type(2)", "FIX_ME")
+    languages_button                    = (By.CSS_SELECTOR , "app-home-settings-popover ion-item:nth-of-type(2)", "FIX_ME")
     sound_effects                       = (By.CSS_SELECTOR , "ion-item:nth-of-type(3)", "FIX_ME")
     sound_effects_toggle                = (By.CSS_SELECTOR , "ion-item:nth-of-type(3) ion-toggle", "FIX_ME")
     contact_us_button                   = (By.CSS_SELECTOR , "ion-item:nth-of-type(4)", "FIX_ME")

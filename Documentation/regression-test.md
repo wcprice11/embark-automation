@@ -1,4 +1,4 @@
-### Regression Test
+# Regression Test
 This is the test organization that the team has been using thus far. (this is specifically the web version, but they were nearly identical)
 #### General
  - [x] Language selection screen
@@ -18,15 +18,15 @@ This is the test organization that the team has been using thus far. (this is sp
  - [ ] Switch between languages
  - [ ] Turn On/Off sound
  - [ ] Progress updates when switching languages
- - [x] Contact Us
- - [x] Troubleshooting Menu
+ - [ ] Contact Us
+ - [ ] Troubleshooting Menu
  - [x] About hyperlinks
  - [x] Sign out
  - [ ] Sign into different account (progress updates)
 
 #### Discover/Review/Manage
  - [ ] Tones- 
-    - [ ] Individual (Mandarin)
+    - [x] Individual (Mandarin)
     - [ ] Combination (Mandarin)
  - [ ] Alphabet
     - [-] Discover
