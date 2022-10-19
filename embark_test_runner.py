@@ -2,8 +2,8 @@ import unittest
 import os.path
 
 from HTMLTestRunner.runner import HTMLTestRunner
-from src.tests.settings.test_delete_language import TestDeleteLanguage
-from src.tests.settings.test_about_hyperlinks import TestAboutHyperlinks
+
+from tests.settings.test_delete_language import TestDeleteLanguage
 
 
 def run_full_suite():
