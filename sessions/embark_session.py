@@ -7,6 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
+from time import sleep
 
 # This is being implemented as a mix-in so be careful with namespace errors
 class SessionMixIn:
@@ -27,8 +28,12 @@ class SessionMixIn:
     # navigates to a url
     def get(self, url:str, tries=0):
         self.driver.get(url)
-        if (False and tries < 5): #FIX_ME: Find condition to catch 503 errors
-            time.sleep(5)
+        if (   # Clause to catch 503 errors when the app is updating.
+            self.driver.find_elements(*self.elements.error_message[0:2]) and 
+            "503" in self.driver.find_element(*self.elements.error_message[0:2]).text and 
+            tries < 5
+        ): 
+            sleep(5)
             return self.get(url, tries + 1)
         if (tries >= 5):
             raise Exception("Server error is preventing page load")
