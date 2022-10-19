@@ -4,36 +4,33 @@ class Elements:
     #---HELPERS---#
 
     sign_in_button          = (By.CSS_SELECTOR, "#login-button", "sign in button")
-
+    # Church of Jesus Christ authentication page
     sign_in_username_field  = (By.CSS_SELECTOR, "#okta-signin-username", "username field (sign in)")
     sign_in_next            = (By.CSS_SELECTOR, "#okta-signin-submit", "next (sign in page)")
     sign_in_password_field  = (By.CSS_SELECTOR, "#input73", "password field (sign in)")
     sign_in_submit          = (By.CSS_SELECTOR, "input[type=submit]", "submit (sign in)")
 
+    # language selection
     i_want_to_learn         = (By.CSS_SELECTOR, "#target-language-select input", "i want to learn dropdown menu")
     i_want_to_learn_close   = (By.CSS_SELECTOR, "#target-language-select span.ng-arrow", "collapse menu button")
-
     learn_english           = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(15)", "learn english")
     learn_french            = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(19)", "learn french")
     learn_korean            = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(32)", "learn korean")
     learn_spanish           = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(56)", "learn spanish")
     learn_vietnamese        = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(65)", "learn vietnamese")
-    
     native_language         = (By.CSS_SELECTOR, "#native-language-select", "FIX_ME")
-
     native_english          = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(15)", "native english")
     native_french           = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(19)", "native french")
     native_korean           = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(32)", "native korean")
     native_spanish          = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(56)", "native spanish")
     native_vietnamese       = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(65)", "native vietnamese")
-
     language_submit         = (By.CSS_SELECTOR, "#add-language-submit", "Submit language-choose your adventure")
 
+    # Home page
     home_button             = (By.CSS_SELECTOR, "#tab-button-learn", "Home tab")
     resources_button        = (By.CSS_SELECTOR, "#tab-button-resources", "Resources Button")
     search_button           = (By.CSS_SELECTOR, "#tab-button-search", "Search Button")
     settings_button         = (By.CSS_SELECTOR, "#tab-button-search + ion-tab-button", "Settings Button")
-
     for_you_tab             = (By.CSS_SELECTOR, "ion-segment-button:nth-of-type(1)", "FIX_ME")
     basic_tab               = (By.CSS_SELECTOR, "ion-segment-button:nth-of-type(2)", "FIX_ME")
     prework_tab             = (By.CSS_SELECTOR, "ion-segment-button:nth-of-type(3)", "FIX_ME")
@@ -43,15 +40,29 @@ class Elements:
     # Generic elements, may exist on any page
     start_button            = (By.CSS_SELECTOR, "#start-btn", "FIX_ME")
     page_title              = (By.CSS_SELECTOR, "div#title", "Page title")
-
+    error_message           = (By.CSS_SELECTOR, "h1", "error message (og: 503 server error page)")
+    
     # Settings dropdown menu
     loaded_language_subtext = (By.CSS_SELECTOR, "app-home-settings-popover p", "language listed in settings menu")
+    about_page_hyperlinks_privacy_notice    = (By.CSS_SELECTOR , "ion-card>a:nth-of-type(1)", "about page hyperlinks, for example, 'Privacy notice'")
+    about_page_hyperlinks_terms_of_use      = (By.CSS_SELECTOR , "ion-card>a:nth-of-type(2)", "about page hyperlinks, for example, 'Privacy notice'")
+    about_page_hyperlinks_acknowledgements  = (By.CSS_SELECTOR , "ion-card>a:nth-of-type(3)", "about page hyperlinks, for example, 'Privacy notice'")
+
+    language_manage_page_language_name      = (By.CSS_SELECTOR , "ion-radio-group ion-item:nth-of-type(1) ion-label", "Label for first language on language select page")
+    language_manage_page_delete_button      = (By.CSS_SELECTOR , "ion-radio-group ion-item:nth-of-type(1) ion-buttons ion-button", "Delete button on select language page, trash icon")
+    language_manage_page_add_language_button    = (By.CSS_SELECTOR , "app-language-manage div ion-button", "Add language button")
+    language_manage_page_confirm_delete_button  = (By.CSS_SELECTOR , "ion-alert div div:nth-of-type(3) button:nth-of-type(2)", "Add language button")
+
+    language_select_page_target_language_dropdown = (By.CSS_SELECTOR , "ng-select:nth-of-type(1)", "Target language select dropdown")
+    language_select_page_choose_japanese = (By.CSS_SELECTOR , "ng-dropdown-panel div div div:nth-of-type(30)", "Select japanese from language select dropdown")
+    language_select_page_submit_button = (By.CSS_SELECTOR , "app-add-language div div ion-button", "Submit language on selection page")
+
     log_out_button          = (By.CSS_SELECTOR, "ion-item ion-button", "settings menu logout button")
+
     tip_pop_up              = (By.CSS_SELECTOR, "div.tip-popover-box", "tip pop-up box")
     tip_pop_up_close        = (By.CSS_SELECTOR, "div.tip-popover-box ion-icon", "close pop-up button")
 
     recommended_tones_lesson= (By.CSS_SELECTOR, "app-for-you-group ion-card:has(div.tones-icon) span.title", "tones lesson (og:mandarin(traditional)")
-
     lesson_1_heavenly_father= (By.CSS_SELECTOR, "app-task-card:nth-of-type(1)>ion-card", "Heavenly Father task in PMG lesson 1(og:spanish)")
     heavenly_father_listening=(By.CSS_SELECTOR, "app-lesson-card[iconname='listening']>ion-card", "listening task in Heavenly Father(og:spanish)")
     # = (By.CSS_SELECTOR, "ion-segment-button:nth-of-type(5)", "FIX_ME")
