@@ -18,5 +18,5 @@ class TestDeleteLanguage(VisualEmbarkStageTest):
         self.click(e.language_manage_page_delete_button)
         self.click(e.language_manage_page_confirm_delete_button)
         check = self.get_element(e.language_manage_page_language_name)   
-        self.vaildate_text_absent(language_name, check.text)
+        self.validate_text_absent(language_name, check.text)
         # We could put this in a while loop  and have it delete more languages, then check if it only has one language left

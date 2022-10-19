@@ -116,8 +116,17 @@ class SessionMixIn:
                 EC.text_to_be_present_in_element(element, text)
             )
         except TimeoutException:
-            return None
-        return 1
+            return False
+        return True
+
+    def _wait_for_element_to_be_clickable(self, element, time=30):
+        try: 
+            WebDriverWait(self.driver, time).until(
+                EC.element_to_be_clickable(element)
+            )
+        except TimeoutException:
+            return False
+        return True
 
         
     def get_url(self) -> str:

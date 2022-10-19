@@ -25,7 +25,7 @@ The embark-automation package is a testing suite intended to work in tandem with
     - [ ] Link opens "La Creación"
     - [x] Link opens "Articles" lesson (Spanish)
 - [ ] Settings
-    - [ ] Delete a language
+    - [x] Delete a language
     - [ ] Switch between languages
     - [ ] Turn On/Off sound
     - [ ] Progress updates when switching languages
@@ -35,9 +35,9 @@ The embark-automation package is a testing suite intended to work in tandem with
     - [x] Sign out
     - [ ] Sign into different account (progress updates)
 - [ ] Discover/Review/Manage
-    - [ ] Tones- 
-        - [ ] Individual (Mandarin)
-        - [ ] Combination (Mandarin)
+    - [x] Tones- 
+        - [x] Individual (Mandarin)
+        - [x] Combination (Mandarin)
     - [ ] Alphabet
         - [-] Discover
         - [ ] Review

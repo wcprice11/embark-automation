@@ -1,6 +1,6 @@
-from tests.embark_tests import VisualEmbarkStageTest
+from tests.embark_tests import EmbarkStageTest
 
-class TestTonesInMandarin(VisualEmbarkStageTest):
+class TestTonesInMandarin(EmbarkStageTest):
     def test_tones_in_mandarin(self):
         e = self.elements
         self.login("mandarin")
