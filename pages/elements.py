@@ -93,11 +93,31 @@ class Elements:
     individual_tones_fourth = (By.CSS_SELECTOR, "ion-row.tone-card>ion-col:nth-of-type(4)", "individual tones fourth (og:mandarin (traditional))")
     individual_tones_fifth  = (By.CSS_SELECTOR, "ion-row.tone-card>ion-col:nth-of-type(5)", "individual tones fifth (og:mandarin (traditional))")
     
-    combination_tones_first  = (By.CSS_SELECTOR, "app-tone-combinations ion-row>ion-col:nth-of-type(1)", "individual tones first (og:mandarin (traditional))")
-    combination_tones_second = (By.CSS_SELECTOR, "app-tone-combinations ion-row>ion-col:nth-of-type(2)", "individual tones second (og:mandarin (traditional))")
-    combination_tones_third  = (By.CSS_SELECTOR, "app-tone-combinations ion-row>ion-col:nth-of-type(3)", "individual tones third (og:mandarin (traditional))")
-    combination_tones_fourth = (By.CSS_SELECTOR, "app-tone-combinations ion-row>ion-col:nth-of-type(4)", "individual tones fourth (og:mandarin (traditional))")    # MISC
-    church_site_header  = (By.CSS_SELECTOR, "platform-header", "Church site header")
+    language_manage_page_language_name      = (By.CSS_SELECTOR , "ion-radio-group ion-item:nth-of-type(1) ion-label", "Label for first language on language select page")
+    language_manage_page_delete_button      = (By.CSS_SELECTOR , "ion-radio-group ion-item:nth-of-type(1) ion-buttons ion-button", "Delete button on select language page, trash icon")
+    language_manage_page_add_language_button    = (By.CSS_SELECTOR , "app-language-manage div ion-button", "Add language button")
+    language_manage_page_confirm_delete_button  = (By.CSS_SELECTOR , "ion-alert div div:nth-of-type(3) button:nth-of-type(2)", "Add language button")
+
+    language_select_page_target_language_dropdown = (By.CSS_SELECTOR , "ng-select:nth-of-type(1)", "Target language select dropdown")
+    language_select_page_choose_japanese = (By.CSS_SELECTOR , "ng-dropdown-panel div div div:nth-of-type(30)", "Select japanese from language select dropdown")
+    language_select_page_submit_button = (By.CSS_SELECTOR , "app-add-language div div ion-button", "Submit language on selection page")
+
+    tip_pop_up              = (By.CSS_SELECTOR , "div.tip-popover-box", "tip pop-up box")
+    tip_pop_up_close        = (By.CSS_SELECTOR , "div.tip-popover-box ion-icon", "close pop-up button")
+
+    lesson_1_heavenly_father= (By.CSS_SELECTOR , "app-task-card:nth-of-type(1)>ion-card", "Heavenly Father task in PMG lesson 1(og:spanish)")
+    heavenly_father_listening=(By.CSS_SELECTOR , "app-lesson-card[iconname='listening']>ion-card", "listening task in Heavenly Father(og:spanish)")
+    # = (By.CSS_SELECTOR , "ion-segment-button:nth-of-type(5)", "FIX_ME")
+    basic_alphabet_card     = (By.CSS_SELECTOR , "app-task-card:nth-of-type(1)>ion-card ion-icon", "alphabet card in basic(og:korean)")
+    first_card_in_alphabet  = (By.CSS_SELECTOR , "app-flashcard:nth-of-type(1)>ion-card h1", "first card in alphabet discover(og:korean)")
+
+    spanish_resources_grammar=(By.CSS_SELECTOR , "app-lesson-collection-card:last-of-type>ion-card", "Grammar Lessons in resources(og:spanish)")
+    spanish_grammar_articles= (By.CSS_SELECTOR , "ion-content>ion-card:nth-of-type(3)", "articles card in grammar lessons(og:spanish)")
+    grammar_lesson_header   = (By.CSS_SELECTOR , "app-lesson ion-toolbar", "Header of grammar lesson(og:spanish-articles")
+    spanish_resources_vocab = (By.CSS_SELECTOR , "div>ion-card:nth-of-type(9)", "Vocabulary and Phrases card(og:spanish)")
+    resources_pray_often    = (By.CSS_SELECTOR , "ion-card:nth-of-type(24)", "Pray often in vocab in resources(og:spanish)")
+    pdf_header_title        = (By.CSS_SELECTOR , "div.headerWrapper ion-title", "title in header of pdf viewer(og:spanish pray often)")
+
 
     # Lesson Discover
     lesson_discover_button  = (By.CSS_SELECTOR, "app-task-nav-button[heading='Practice']>ion-button", "lesson page discover button (og: spanish alphabet")
@@ -111,24 +131,24 @@ class ProdElements(Elements):
     pass
 
 class StageElements(Elements):
-    whats_new_card_close_button         = (By.CSS_SELECTOR, "ion-card ion-button:nth-of-type(1)", "FIX_ME")
-    whats_new_card_learn_more_button    = (By.CSS_SELECTOR, "ion-card ion-button:nth-of-type(2)", "FIX_ME")
-    my_added_phrases                    = (By.CSS_SELECTOR, "app-for-you-group > ion-card:nth-of-type(2)", "FIX_ME")
+    whats_new_card_close_button         = (By.CSS_SELECTOR , "ion-card ion-button:nth-of-type(1)", "FIX_ME")
+    whats_new_card_learn_more_button    = (By.CSS_SELECTOR , "ion-card ion-button:nth-of-type(2)", "FIX_ME")
+    my_added_phrases                    = (By.CSS_SELECTOR , "app-for-you-group > ion-card:nth-of-type(2)", "FIX_ME")
 
     added_phrase_group                  = (By.CSS_SELECTOR, "div.section:nth-of-type(2) p", "FIX_ME")
     embark_topics_view_all              = (By.CSS_SELECTOR, "div.section:nth-of-type(2) div.header button", "FIX_ME")
     
-    log_out_button                      = (By.CSS_SELECTOR, "app-home-settings-popover ion-button", "FIX_ME")
-    languages_button                    = (By.CSS_SELECTOR, "ion-item:nth-of-type(2)", "FIX_ME")
-    sound_effects                       = (By.CSS_SELECTOR, "ion-item:nth-of-type(3)", "FIX_ME")
-    sound_effects_toggle                = (By.CSS_SELECTOR, "ion-item:nth-of-type(3) ion-toggle", "FIX_ME")
-    contact_us_button                   = (By.CSS_SELECTOR, "ion-item:nth-of-type(4)", "FIX_ME")
-    troubleshooting_button              = (By.CSS_SELECTOR, "ion-item:nth-of-type(5)", "FIX_ME")
-    whats_new_button                    = (By.CSS_SELECTOR, "ion-item:nth-of-type(6)", "FIX_ME")
-    about_button                        = (By.CSS_SELECTOR, "ion-item:nth-of-type(7)", "FIX_ME")
+    log_out_button                      = (By.CSS_SELECTOR , "app-home-settings-popover ion-button", "FIX_ME")
+    languages_button                    = (By.CSS_SELECTOR , "app-home-settings-popover ion-item:nth-of-type(2)", "FIX_ME")
+    sound_effects                       = (By.CSS_SELECTOR , "ion-item:nth-of-type(3)", "FIX_ME")
+    sound_effects_toggle                = (By.CSS_SELECTOR , "ion-item:nth-of-type(3) ion-toggle", "FIX_ME")
+    contact_us_button                   = (By.CSS_SELECTOR , "ion-item:nth-of-type(4)", "FIX_ME")
+    troubleshooting_button              = (By.CSS_SELECTOR , "ion-item:nth-of-type(5)", "FIX_ME")
+    whats_new_button                    = (By.CSS_SELECTOR , "ion-item:nth-of-type(6)", "FIX_ME")
+    about_button                        = (By.CSS_SELECTOR , "ion-item:nth-of-type(7)", "FIX_ME")
 
-    lesson_1_heavenly_father            = (By.CSS_SELECTOR, "div.learnTab__container:last-of-type>app-task-card:first-of-type>ion-card", "Heavenly Father task in PMG lesson 1(og:spanish)")
-    heavenly_father_listening           = (By.CSS_SELECTOR, "app-study-list-card[iconname='listening']>ion-card", "listening task in Heavenly Father(og:spanish)")
+    lesson_1_heavenly_father            = (By.CSS_SELECTOR , "div.learnTab__container:last-of-type>app-task-card:first-of-type>ion-card", "Heavenly Father task in PMG lesson 1(og:spanish)")
+    heavenly_father_listening           = (By.CSS_SELECTOR , "app-study-list-card[iconname='listening']>ion-card", "listening task in Heavenly Father(og:spanish)")
     #---RC---#
 class RCElements(Elements):
     pass
