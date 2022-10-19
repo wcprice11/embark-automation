@@ -70,4 +70,24 @@ The modules needed for this project are all listed in the requirements.txt file.
 You can automatically pass this to pip with:
 `pip install -r requirements.txt`
 
-Once this is finished running you should have all the requirements satisfied and be ready to test!
+Once this is finished running you should have all the modules python will need.
+
+## Environment Variables
+
+It's bad practice to store passwords in a GitHub repository. 
+Instead, what this project does is store the passwords in a `.env` file in the project directory.
+You can create this file with the following command
+### **Windows**:
+```
+text nul > .env
+```
+### **MacOS**:
+```
+touch .env
+```
+Inside that file you can store passwords and other environment variables.
+The passwords are stored in the format:
+```
+[username]_PASSWORD = "[password]"
+```
+You'll have to get the test account password directly from a team member, but once it's saved in your project you'll be ready to start testing!

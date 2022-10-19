@@ -37,11 +37,18 @@ class Elements:
     daily_life_tab          = (By.CSS_SELECTOR, "ion-segment-button:nth-of-type(4)", "FIX_ME")
     PMG_lessons_tab         = (By.CSS_SELECTOR, "ion-segment-button:nth-of-type(5)", "FIX_ME")
 
+    recommended_alphabet_lesson         = (By.CSS_SELECTOR, "app-for-you-group>app-task-card:nth-of-type(2)>ion-card", "recommended alphabet lesson (og:spanish")
+    recommended_alphabet_lesson_title   = (By.CSS_SELECTOR, "app-for-you-group>app-task-card:nth-of-type(2)>ion-card span.title", "recommended alphabet lesson (og:spanish")
+    recommended_tones_lesson            = (By.CSS_SELECTOR, "app-for-you-group ion-card:has(div.tones-icon) span.title", "tones lesson (og:mandarin(traditional)")
+
     # Generic elements, may exist on any page
     start_button            = (By.CSS_SELECTOR, "#start-btn", "FIX_ME")
     page_title              = (By.CSS_SELECTOR, "div#title", "Page title")
     error_message           = (By.CSS_SELECTOR, "h1", "error message (og: 503 server error page)")
-    
+    back_button             = (By.CSS_SELECTOR, "ion-icon[title='Back Arrow']", "Back Arrow (og: spanish alphabet lesson")
+    lesson_section_title    = (By.CSS_SELECTOR, "h3.task__section-title", "Section title (og: spanish alphabet lesson")
+    lesson_card             = (By.CSS_SELECTOR, "app-study-list-card>ion-card", "lesson card item (og: spanish alphabet Symbols and Sounds")
+
     # Settings dropdown menu
     loaded_language_subtext = (By.CSS_SELECTOR, "app-home-settings-popover p", "language listed in settings menu")
     about_page_hyperlinks_privacy_notice    = (By.CSS_SELECTOR , "ion-card>a:nth-of-type(1)", "about page hyperlinks, for example, 'Privacy notice'")
@@ -62,7 +69,6 @@ class Elements:
     tip_pop_up              = (By.CSS_SELECTOR, "div.tip-popover-box", "tip pop-up box")
     tip_pop_up_close        = (By.CSS_SELECTOR, "div.tip-popover-box ion-icon", "close pop-up button")
 
-    recommended_tones_lesson= (By.CSS_SELECTOR, "app-for-you-group ion-card:has(div.tones-icon) span.title", "tones lesson (og:mandarin(traditional)")
     lesson_1_heavenly_father= (By.CSS_SELECTOR, "app-task-card:nth-of-type(1)>ion-card", "Heavenly Father task in PMG lesson 1(og:spanish)")
     heavenly_father_listening=(By.CSS_SELECTOR, "app-lesson-card[iconname='listening']>ion-card", "listening task in Heavenly Father(og:spanish)")
     # = (By.CSS_SELECTOR, "ion-segment-button:nth-of-type(5)", "FIX_ME")
@@ -111,6 +117,13 @@ class Elements:
     spanish_resources_vocab = (By.CSS_SELECTOR , "div>ion-card:nth-of-type(9)", "Vocabulary and Phrases card(og:spanish)")
     resources_pray_often    = (By.CSS_SELECTOR , "ion-card:nth-of-type(24)", "Pray often in vocab in resources(og:spanish)")
     pdf_header_title        = (By.CSS_SELECTOR , "div.headerWrapper ion-title", "title in header of pdf viewer(og:spanish pray often)")
+
+
+    # Lesson Discover
+    lesson_discover_button  = (By.CSS_SELECTOR, "app-task-nav-button[heading='Practice']>ion-button", "lesson page discover button (og: spanish alphabet")
+    lesson_practice_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(2)>ion-button", "lesson page button (og: spanish alphabet")
+    lesson_pass_off_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(3)>ion-button", "lesson page button (og: spanish alphabet")
+
 
 
 

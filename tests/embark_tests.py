@@ -21,7 +21,7 @@ class EmbarkTest(SessionMixIn, unittest.TestCase):
     def validate_text_contains(self, test:str, truth:str):
         self.assertTrue(truth in test, f"Unexpected text: '{test}'\n does not contain '{truth}'")
 
-    def vaildate_text_absent(self, test:str, truth:str):
+    def validate_text_absent(self, test:str, truth:str):
         self.assertFalse(truth in test, f"Unexpected text: '{test}'\n should not contain '{truth}'")
 
     def validate_url(self, truth:str):
@@ -34,18 +34,22 @@ class EmbarkTest(SessionMixIn, unittest.TestCase):
         test = self.get_element(element).text
         if(contains): self.assertTrue(truth in test, f"Unexpected text: '{test}'\n does not contain '{truth}'")
         else: self.assertEqual(test, truth, f"Unexpected text: '{test}'\n does not match '{truth}'")
-
+    
+    # Waits
     def wait_for_text_in_element(self, element, text: str, time=30):
-        return super()._wait_for_text_in_element(element[0:2], text, time)
+        self.assertTrue(super()._wait_for_text_in_element(element[0:2], text, time), f"Took too long to find {element[2]} with text {text}")
+    
+    def wait_for_element_to_be_clickable(self, element, time=30):
+        self.assertTrue(super()._wait_for_element_to_be_clickable(element[0:2], time), f"Took too long for {element[2]} to be clickable")
 
     def find(self, element, time=30):
-        self.assertTrue(self._find(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely a broken test")
+        self.assertTrue(self._find(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
 
     def click(self, element, time=30):
-        self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely a broken test")
+        self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
 
     def fill(self, element, text:str, time=30, enter=False):
-        self.assertTrue(self._fill(element[0:2], text, time, enter), f"couldn't find element {element[2]} by {element[0:2]}. This is likely a broken test")
+        self.assertTrue(self._fill(element[0:2], text, time, enter), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
     
     def get_element(self, element, time=30):
         self.find(element)
