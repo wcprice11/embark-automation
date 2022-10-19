@@ -1,6 +1,6 @@
 import pages.page
 import pages.URLs as URLs
-import src.pages.elements as elements
+import pages.elements as elements
 
 class Branch:
     def __init__(self, urls, pages, elements) -> None:

@@ -1,14 +1,11 @@
 import unittest
 import os.path
-
 from HTMLTestRunner.runner import HTMLTestRunner
-
-from tests.settings.test_delete_language import TestDeleteLanguage
 
 
 def run_full_suite():
     l = unittest.TestLoader()
-    suite = l.discover("./src/tests", "test*.py", ".")
+    suite = l.discover("./tests", "test*.py", ".")
 
     if os.path.exists("report/additional-stylesheet.css"):
         with open("report/additional-stylesheet.css") as stylesheet:
