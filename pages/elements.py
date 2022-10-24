@@ -1,3 +1,4 @@
+from email.quoprimime import body_check
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 
@@ -43,13 +44,15 @@ class Elements:
     recommended_tones_lesson            = (By.CSS_SELECTOR, "app-for-you-group ion-card:has(div.tones-icon) span.title", "tones lesson (og:mandarin(traditional)")
 
     # Generic elements, may exist on any page
+    body                    = (By.CSS_SELECTOR, "body", "page body, good for simulating key presses")
     start_button            = (By.CSS_SELECTOR, "#start-btn", "FIX_ME")
     page_title              = (By.CSS_SELECTOR, "div#title", "Page title")
     error_message           = (By.CSS_SELECTOR, "h1", "error message (og: 503 server error page)")
     back_button             = (By.CSS_SELECTOR, "ion-icon[title='Back Arrow']", "Back Arrow (og: spanish alphabet lesson")
     lesson_section_title    = (By.CSS_SELECTOR, "h3.task__section-title", "Section title (og: spanish alphabet lesson")
     lesson_card             = (By.CSS_SELECTOR, "app-study-list-card>ion-card", "lesson card item (og: spanish alphabet Symbols and Sounds")
-
+    close_button            = (By.CSS_SELECTOR, "#close", "Close button in activity (og: spanish alphabet flashcards")
+    close_popover           = (By.CSS_SELECTOR, "ion-popover", "close popover")
     # Settings dropdown menu
     loaded_language_subtext = (By.CSS_SELECTOR, "app-home-settings-popover p", "language listed in settings menu")
     about_page_hyperlinks_privacy_notice    = (By.CSS_SELECTOR , "ion-card>a:nth-of-type(1)", "about page hyperlinks, for example, 'Privacy notice'")
@@ -69,8 +72,9 @@ class Elements:
     lesson_1_heavenly_father= (By.CSS_SELECTOR, "app-task-card:nth-of-type(1)>ion-card", "Heavenly Father task in PMG lesson 1(og:spanish)")
     heavenly_father_listening=(By.CSS_SELECTOR, "app-lesson-card[iconname='listening']>ion-card", "listening task in Heavenly Father(og:spanish)")
     # = (By.CSS_SELECTOR, "ion-segment-button:nth-of-type(5)", "FIX_ME")
-    basic_alphabet_card     = (By.CSS_SELECTOR, "app-task-card:nth-of-type(1)>ion-card ion-icon", "alphabet card in basic(og:korean)")
-    first_card_in_alphabet  = (By.CSS_SELECTOR, "app-flashcard:nth-of-type(1)>ion-card h1", "first card in alphabet discover(og:korean)")
+    basic_alphabet_card     = (By.CSS_SELECTOR, "div.learnTab>div:nth-of-type(2)>app-task-card:first-of-type>ion-card", "alphabet card in basic(og:korean)")
+    basic_alphabet_card_title=(By.CSS_SELECTOR, "div.learnTab>div:nth-of-type(2)>app-task-card:first-of-type>ion-card span.title", "alphabet card in basic(og:korean)")
+    first_card_in_alphabet  = (By.CSS_SELECTOR, "app-flashcard:first-of-type>ion-card h1", "first card in alphabet discover(og:korean)")
 
     spanish_resources_grammar=(By.CSS_SELECTOR, "app-lesson-collection-card:last-of-type>ion-card", "Grammar Lessons in resources(og:spanish)")
     spanish_grammar_articles= (By.CSS_SELECTOR, "ion-content>ion-card:nth-of-type(3)", "articles card in grammar lessons(og:spanish)")
@@ -105,7 +109,6 @@ class Elements:
     lesson_1_heavenly_father= (By.CSS_SELECTOR , "app-task-card:nth-of-type(1)>ion-card", "Heavenly Father task in PMG lesson 1(og:spanish)")
     heavenly_father_listening=(By.CSS_SELECTOR , "app-lesson-card[iconname='listening']>ion-card", "listening task in Heavenly Father(og:spanish)")
     # = (By.CSS_SELECTOR , "ion-segment-button:nth-of-type(5)", "FIX_ME")
-    basic_alphabet_card     = (By.CSS_SELECTOR , "app-task-card:nth-of-type(1)>ion-card ion-icon", "alphabet card in basic(og:korean)")
     first_card_in_alphabet  = (By.CSS_SELECTOR , "app-flashcard:nth-of-type(1)>ion-card h1", "first card in alphabet discover(og:korean)")
 
     spanish_resources_grammar=(By.CSS_SELECTOR , "app-lesson-collection-card:last-of-type>ion-card", "Grammar Lessons in resources(og:spanish)")
@@ -117,9 +120,27 @@ class Elements:
 
 
     # Lesson Discover
-    lesson_discover_button  = (By.CSS_SELECTOR, "app-task-nav-button[heading='Practice']>ion-button", "lesson page discover button (og: spanish alphabet")
-    lesson_practice_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(2)>ion-button", "lesson page button (og: spanish alphabet")
-    lesson_pass_off_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(3)>ion-button", "lesson page button (og: spanish alphabet")
+    lesson_discover_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(1)>ion-button", "lesson page discover button (og: spanish alphabet)")
+    lesson_practice_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(2)>ion-button", "lesson page button (og: spanish alphabet)")
+    lesson_pass_off_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(3)>ion-button", "lesson page button (og: spanish alphabet)")
+    alphabet_first_letter   = (By.CSS_SELECTOR, "#alphabet-grid>button:first-of-type", "First card on alphabet lesson (og: spanish alphabet 'a')")
+    
+    symbol_popover_symbols  = (By.CSS_SELECTOR, "app-symbol-popover div.symbol-row", "Symbol popup top row symbols (og: spanish alphabet 'a')")
+    symbol_popover_play     = (By.CSS_SELECTOR, "#volume-icon", "Symbol popup bottom row play sound (og: spanish alphabet 'a')")
+    symbol_popover_playing  = (By.CSS_SELECTOR, "#volume-icon-playing", "Symbol popup bottom row play sound (og: spanish alphabet 'a')")
+    symbol_popover_favorite = (By.CSS_SELECTOR, "ion-icon[title='Star']", "Symbol popup bottom row favorite (og: spanish alphabet 'a')")
+    symbol_popover_unfavorite=(By.CSS_SELECTOR, "ion-icon[title='Unstar']", "Symbol popup bottom row unfavorite (og: spanish alphabet 'a')")
+
+    symbol_popover_example          = (By.CSS_SELECTOR, "div.examples:nth-of-type(2)>span.example-words", "Symbol popup first example word (og: spanish alphabet 'a')")
+    symbol_popover_example_play     = (By.CSS_SELECTOR, "div.examples:nth-of-type(2) ion-icon.example-sound", "Symbol popup first example word play button (og: spanish alphabet 'a')")
+    symbol_popover_example_playing  = (By.CSS_SELECTOR, "div.examples:nth-of-type(2) ion-icon.ion-color-primary", "Symbol popup first example word play button (og: spanish alphabet 'a')")
+
+    symbol_popover_discovered   =(By.CSS_SELECTOR, "span[title='Mark as Discovered']", "Symbol popup bottom row unmarked (og: spanish alphabet 'a')")
+    symbol_popover_mastered     =(By.CSS_SELECTOR, "span[title='Mark as Mastered']", "Symbol popup bottom row unmarked (og: spanish alphabet 'a')")
+    symbol_popover_unmark       =(By.CSS_SELECTOR, "span[title='Unmark']", "Symbol popup bottom row unmarked (og: spanish alphabet 'a')")
+
+    lesson_discover_flashcards          = (By.CSS_SELECTOR, "ion-content h1", "Flashcards info card title (og: spanish alphabet discover)")
+    lesson_discover_flashcards_start    = (By.CSS_SELECTOR, "ion-footer>ion-button", "Flashcards start button (og: spanish alphabet discover)")
 
 
 

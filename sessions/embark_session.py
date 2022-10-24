@@ -82,6 +82,7 @@ class SessionMixIn:
                     EC.presence_of_element_located(element)
                 )
                 ActionChains(self.driver).move_to_element(elem).perform()
+            ActionChains(self.driver).move_to_element(elem).perform()
         except TimeoutException:
             return None
         return elem
@@ -127,6 +128,9 @@ class SessionMixIn:
         except TimeoutException:
             return False
         return True
+
+    def _reload(self):
+        self.driver.refresh()
 
         
     def get_url(self) -> str:
