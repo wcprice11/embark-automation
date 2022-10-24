@@ -109,11 +109,6 @@ class Elements:
     tip_pop_up              = (By.CSS_SELECTOR , "div.tip-popover-box", "tip pop-up box")
     tip_pop_up_close        = (By.CSS_SELECTOR , "div.tip-popover-box ion-icon", "close pop-up button")
 
-    lesson_1_heavenly_father= (By.CSS_SELECTOR , "app-task-card:nth-of-type(1)>ion-card", "Heavenly Father task in PMG lesson 1(og:spanish)")
-    heavenly_father_listening=(By.CSS_SELECTOR , "app-lesson-card[iconname='listening']>ion-card", "listening task in Heavenly Father(og:spanish)")
-    # = (By.CSS_SELECTOR , "ion-segment-button:nth-of-type(5)", "FIX_ME")
-    first_card_in_alphabet  = (By.CSS_SELECTOR , "app-flashcard:nth-of-type(1)>ion-card h1", "first card in alphabet discover(og:korean)")
-
     spanish_resources_grammar=(By.CSS_SELECTOR , "app-lesson-collection-card:last-of-type>ion-card", "Grammar Lessons in resources(og:spanish)")
     spanish_grammar_articles= (By.CSS_SELECTOR , "ion-content>ion-card:nth-of-type(3)", "articles card in grammar lessons(og:spanish)")
     grammar_lesson_header   = (By.CSS_SELECTOR , "app-lesson ion-toolbar", "Header of grammar lesson(og:spanish-articles")
