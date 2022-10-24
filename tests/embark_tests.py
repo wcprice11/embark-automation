@@ -1,6 +1,7 @@
 import unittest
 from sessions.embark_session import *
 from sessions.embark_branch import web_prod, web_dev, web_rc, web_stage
+from time import sleep
 
 class EmbarkTest(SessionMixIn, unittest.TestCase):
     def setUp(self) -> None: # runs before every test
@@ -55,6 +56,9 @@ class EmbarkTest(SessionMixIn, unittest.TestCase):
         self.find(element)
         return self._find(element[0:2])
 
+    def reload(self):
+        return super()._reload()
+
     # MACRO FUNCTIONS
     def login(self, language=None):
         # either login via LDS account or API if available
@@ -69,6 +73,12 @@ class EmbarkTest(SessionMixIn, unittest.TestCase):
         self.find(e.sign_in_password_field)
         self.fill(e.sign_in_password_field, self.user.get_password())
         self.click(e.sign_in_submit)
+        if (   # Clause to catch 503 errors when the app is updating.
+            self.driver.find_elements(*self.elements.error_message[0:2]) and 
+            "503" in self.driver.find_element(*self.elements.error_message[0:2]).text
+        ): 
+            sleep(5)
+            self.get(self.get_url)
         self.wait_for_text_in_element(e.language_submit, "Submit")
         self.find(e.i_want_to_learn)
         self.assertEqual(self.get_url(), self.urls.ONBOARDING)
