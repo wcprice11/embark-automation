@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
+from selenium import webdriver
 
 class Elements:
-    #---HELPERS---#
 
     sign_in_button          = (By.CSS_SELECTOR, "#login-button", "sign in button")
     # Church of Jesus Christ authentication page
@@ -15,6 +15,7 @@ class Elements:
     i_want_to_learn_close   = (By.CSS_SELECTOR, "#target-language-select span.ng-arrow", "collapse menu button")
     learn_english           = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(15)", "learn english")
     learn_french            = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(19)", "learn french")
+    learn_japanese          = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(30)", "learn french")
     learn_korean            = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(32)", "learn korean")
     learn_spanish           = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(56)", "learn spanish")
     learn_vietnamese        = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(65)", "learn vietnamese")
@@ -59,10 +60,6 @@ class Elements:
     language_manage_page_delete_button      = (By.CSS_SELECTOR , "ion-radio-group ion-item:nth-of-type(1) ion-buttons ion-button", "Delete button on select language page, trash icon")
     language_manage_page_add_language_button    = (By.CSS_SELECTOR , "app-language-manage div ion-button", "Add language button")
     language_manage_page_confirm_delete_button  = (By.CSS_SELECTOR , "ion-alert div div:nth-of-type(3) button:nth-of-type(2)", "Add language button")
-
-    language_select_page_target_language_dropdown = (By.CSS_SELECTOR , "ng-select:nth-of-type(1)", "Target language select dropdown")
-    language_select_page_choose_japanese = (By.CSS_SELECTOR , "ng-dropdown-panel div div div:nth-of-type(30)", "Select japanese from language select dropdown")
-    language_select_page_submit_button = (By.CSS_SELECTOR , "app-add-language div div ion-button", "Submit language on selection page")
 
     log_out_button          = (By.CSS_SELECTOR, "ion-item ion-button", "settings menu logout button")
 
@@ -138,10 +135,10 @@ class StageElements(Elements):
     added_phrase_group                  = (By.CSS_SELECTOR, "div.section:nth-of-type(2) p", "FIX_ME")
     embark_topics_view_all              = (By.CSS_SELECTOR, "div.section:nth-of-type(2) div.header button", "FIX_ME")
     
-    log_out_button                      = (By.CSS_SELECTOR , "app-home-settings-popover ion-button", "FIX_ME")
-    languages_button                    = (By.CSS_SELECTOR , "app-home-settings-popover ion-item:nth-of-type(2)", "FIX_ME")
-    sound_effects                       = (By.CSS_SELECTOR , "ion-item:nth-of-type(3)", "FIX_ME")
-    sound_effects_toggle                = (By.CSS_SELECTOR , "ion-item:nth-of-type(3) ion-toggle", "FIX_ME")
+    log_out_button                      = (By.CSS_SELECTOR , "app-home-settings-popover ion-button", "Log out button in settings popover")
+    languages_button                    = (By.CSS_SELECTOR , "app-home-settings-popover ion-item:nth-of-type(2)", "Languages button button in settings popover")
+    sound_effects                       = (By.CSS_SELECTOR , "app-home-settings-popover ion-item:nth-of-type(3)", "Sound effects menu item")
+    sound_effects_toggle                = (By.CSS_SELECTOR , "app-home-settings-popover ion-item:nth-of-type(3)>ion-toggle", "Sound effects on/off toggle")
     contact_us_button                   = (By.CSS_SELECTOR , "ion-item:nth-of-type(4)", "FIX_ME")
     troubleshooting_button              = (By.CSS_SELECTOR , "ion-item:nth-of-type(5)", "FIX_ME")
     whats_new_button                    = (By.CSS_SELECTOR , "ion-item:nth-of-type(6)", "FIX_ME")

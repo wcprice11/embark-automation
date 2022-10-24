@@ -36,3 +36,6 @@ personal_account.username = "Christian_Price"
 
 test_user_00 = User(blank_user)
 test_user_00.username  = "test_embarkUser_00_cp"
+
+test_user_01 = User(blank_user)
+test_user_01.username = "test_embarkUser_01_cp"

@@ -3,6 +3,8 @@ import os.path
 
 from HTMLTestRunner.runner import HTMLTestRunner
 from tests.discover.test_alphabet import TestStageDiscoverAlphabet
+from tests.settings.test_sound import TestSound
+from tests.settings.test_switch_between_languages import TestSwitchBetweenLanguages
 
 
 def run_single_class(testClass):
@@ -20,4 +22,4 @@ def run_single_class(testClass):
     runner.run(test)
 
 if __name__ == "__main__":
-    run_single_class(TestStageDiscoverAlphabet)
+    run_single_class(TestSound)
