@@ -4,8 +4,12 @@ certifi==2022.9.24
 charset-normalizer==2.1.1
 exceptiongroup==1.0.0rc9
 h11==0.14.0
+HTMLTestRunner-rv==1.0.18
 idna==3.4
+Jinja2==3.1.2
+MarkupSafe==2.1.1
 outcome==1.2.0
+pyparsing==3.0.9
 PySocks==1.7.1
 python-dotenv==0.21.0
 requests==2.28.1
