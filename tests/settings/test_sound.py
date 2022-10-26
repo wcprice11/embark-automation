@@ -16,7 +16,6 @@ class TestSound(VisualEmbarkStageTest):
         # If you can figure out how to really make sure sound didn't happen, this block of code will help
         # elem = self.get_element(e.body)
         # elem.send_keys(Keys.ESCAPE)
-        # # self.click(e.basic_tab)
         # self.click(e.alphabet_learn_card)
         # self.click(e.lesson_card)
         # self.click(e.lesson_practice_button)

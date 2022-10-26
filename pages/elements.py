@@ -18,6 +18,7 @@ class Elements:
     learn_french            = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(19)", "learn french")
     learn_japanese          = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(30)", "learn french")
     learn_korean            = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(32)", "learn korean")
+    learn_polish            = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(45)", "learn polish")
     learn_spanish           = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(56)", "learn spanish")
     learn_vietnamese        = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(65)", "learn vietnamese")
     native_language         = (By.CSS_SELECTOR, "#native-language-select", "FIX_ME")
@@ -38,6 +39,8 @@ class Elements:
     prework_tab             = (By.CSS_SELECTOR, "ion-segment-button:nth-of-type(3)", "FIX_ME")
     daily_life_tab          = (By.CSS_SELECTOR, "ion-segment-button:nth-of-type(4)", "FIX_ME")
     PMG_lessons_tab         = (By.CSS_SELECTOR, "ion-segment-button:nth-of-type(5)", "FIX_ME")
+    alphabet_progress_bar   = (By.CSS_SELECTOR, "app-home-learn-tab>div>div>app-for-you-group>app-task-card:nth-of-type(3)>ion-card>div>div>div:nth-of-type(2)>progress", "Progress bar on alphabet card in home learn")
+    alphabet_progress_secondary_language    = (By.CSS_SELECTOR, "app-home-learn-tab>div>div>app-for-you-group>app-task-card:nth-of-type(2)>ion-card>div>div>div:nth-of-type(2)>progress", "Progress bar on alphabet card in home learn when you've switched languages")
 
     recommended_alphabet_lesson         = (By.CSS_SELECTOR, "app-for-you-group>app-task-card:nth-of-type(2)>ion-card", "recommended alphabet lesson (og:spanish")
     recommended_alphabet_lesson_title   = (By.CSS_SELECTOR, "app-for-you-group>app-task-card:nth-of-type(2)>ion-card span.title", "recommended alphabet lesson (og:spanish")

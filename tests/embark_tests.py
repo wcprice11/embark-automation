@@ -87,28 +87,6 @@ class EmbarkTest(SessionMixIn, unittest.TestCase):
             self.click(self.elements.language_submit)
         return True
 
-    def login_alt(self, language=None):
-        # either login via LDS account or API if available
-        # FIX_ME
-        e = self.elements
-        self.get(self.urls.LOGIN)
-        self.assertEqual(self.urls.LOGIN, self.get_url())
-        self.click(e.sign_in_button)
-        self.find(e.sign_in_username_field)
-        self.fill(e.sign_in_username_field, self.user.username)
-        self.click(e.sign_in_next)
-        self.find(e.sign_in_password_field)
-        self.fill(e.sign_in_password_field, self.user.get_password())
-        self.click(e.sign_in_submit)
-        self.wait_for_text_in_element(e.language_submit, "Submit")
-        self.find(e.i_want_to_learn)
-        self.assertEqual(self.get_url(), self.urls.ONBOARDING)
-        if(language):
-            self.fill(self.elements.i_want_to_learn, language, enter=True)
-            self.click(self.elements.language_submit)
-        return True
-
-
     def i_want_to_learn(self, language="spanish"):
         # self.click(self.elements.i_want_to_learn)
         self.fill(self.elements.i_want_to_learn, language, enter=True)
