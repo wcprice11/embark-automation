@@ -53,6 +53,7 @@ class Elements:
     lesson_card             = (By.CSS_SELECTOR, "app-study-list-card>ion-card", "lesson card item (og: spanish alphabet Symbols and Sounds")
     close_button            = (By.CSS_SELECTOR, "#close", "Close button in activity (og: spanish alphabet flashcards")
     close_popover           = (By.CSS_SELECTOR, "ion-popover", "close popover")
+
     # Settings dropdown menu
     loaded_language_subtext = (By.CSS_SELECTOR, "app-home-settings-popover p", "language listed in settings menu")
     about_page_hyperlinks_privacy_notice    = (By.CSS_SELECTOR , "ion-card>a:nth-of-type(1)", "about page hyperlinks, for example, 'Privacy notice'")
@@ -110,6 +111,7 @@ class Elements:
     heavenly_father_listening=(By.CSS_SELECTOR , "app-lesson-card[iconname='listening']>ion-card", "listening task in Heavenly Father(og:spanish)")
     # = (By.CSS_SELECTOR , "ion-segment-button:nth-of-type(5)", "FIX_ME")
     first_card_in_alphabet  = (By.CSS_SELECTOR , "app-flashcard:nth-of-type(1)>ion-card h1", "first card in alphabet discover(og:korean)")
+    alphabet_learn_card     = (By.CSS_SELECTOR, "app-home-learn-tab>div>div>app-for-you-group>app-task-card:nth-of-type(3)", "Experimenting with clicking")
 
     spanish_resources_grammar=(By.CSS_SELECTOR , "app-lesson-collection-card:last-of-type>ion-card", "Grammar Lessons in resources(og:spanish)")
     spanish_grammar_articles= (By.CSS_SELECTOR , "ion-content>ion-card:nth-of-type(3)", "articles card in grammar lessons(og:spanish)")
@@ -142,6 +144,9 @@ class Elements:
     lesson_discover_flashcards          = (By.CSS_SELECTOR, "ion-content h1", "Flashcards info card title (og: spanish alphabet discover)")
     lesson_discover_flashcards_start    = (By.CSS_SELECTOR, "ion-footer>ion-button", "Flashcards start button (og: spanish alphabet discover)")
 
+    lesson_practice_fill_in_blank       = (By.CSS_SELECTOR, "div>div:nth-of-type(2)>app-study-list-card>ion-card", "First option on pick activity page")
+    lesson_practice_check               = (By.CSS_SELECTOR, "ion-grid ion-button", "Check button in fill in blank")
+    lesson_practice_input               = (By.CSS_SELECTOR, "app-symbol-test>div>div>ion-card>ion-item>ion-input>input", "Text input")
 
 
 
