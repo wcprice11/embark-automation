@@ -28,7 +28,7 @@ The embark-automation package is a testing suite intended to work in tandem with
     - [X] Delete a language
     - [X] Switch between languages
     - [X] Turn On/Off sound
-    - [ ] Progress updates when switching languages
+    - [X] Progress updates when switching languages
     - [x] Contact Us
     - [x] Troubleshooting Menu
     - [x] About hyperlinks
