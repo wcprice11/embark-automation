@@ -50,7 +50,7 @@ class Elements:
 
     # Generic elements, may exist on any page
     body                    = (By.CSS_SELECTOR, "body", "page body, good for simulating key presses")
-    start_button            = (By.CSS_SELECTOR, "#start-btn", "FIX_ME")
+    start_button            = (By.CSS_SELECTOR, "ion-footer>ion-button", "FIX_ME")
     page_title              = (By.CSS_SELECTOR, "div#title", "Page title")
     error_message           = (By.CSS_SELECTOR, "h1", "error message (og: 503 server error page)")
     back_button             = (By.CSS_SELECTOR, "ion-icon[title='Back Arrow']", "Back Arrow (og: spanish alphabet lesson")
@@ -134,11 +134,16 @@ class Elements:
     lesson_pass_off_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(3)>ion-button", "lesson page button (og: spanish alphabet)")
     alphabet_first_letter   = (By.CSS_SELECTOR, "#alphabet-grid>button:first-of-type", "First card on alphabet lesson (og: spanish alphabet 'a')")
 
-    vocab_most_common_label = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>div", "Most Common header")
-    vocab_first_word        = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item>div>div>span", "First word in vocab list")
-    vocab_first_word_play   = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item>ion-icon", "Play button for first word in vocab list")
+    vocab_most_common_label     = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>div", "Most Common header")
+    vocab_first_word            = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item>div>div>span", "First word in vocab list")
+    vocab_first_word_play       = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item>ion-icon", "Play button for first word in vocab list")
     vocab_first_word_playing    = (By.CSS_SELECTOR, ".audio-icon", "First word in vocab list is playing")
     # vocab_first_word_favorite   = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item>div>div>ion-button", "Favorite button on first audio word")
+
+    vocab_discover_record           = (By.CSS_SELECTOR, "app-activity-tool-bar>div>div>div:nth-of-type(2)>span>ion-icon", "Record button in flashcards")
+    vocab_discover_recording        = (By.CSS_SELECTOR, "ion-icon[title='Stop Recording']", "Recording icon in flashcards")
+    vocab_discover_play_recording   = (By.CSS_SELECTOR, "ion-icon[title='Play Recording']", "Recording icon in flashcards")
+    vocab_discover_re_record        = (By.CSS_SELECTOR, "ion-icon[title='Record Again']", "Recording icon in flashcards")
 
     symbol_popover_symbols  = (By.CSS_SELECTOR, "app-symbol-popover div.symbol-row", "Symbol popup top row symbols (og: spanish alphabet 'a')")
     symbol_popover_play     = (By.CSS_SELECTOR, "#volume-icon", "Symbol popup bottom row play sound (og: spanish alphabet 'a')")

@@ -43,7 +43,7 @@ The embark-automation package is a testing suite intended to work in tandem with
         - [ ] Reference
         - [ ] Spaced Review
     - [ ] Vocab- Discover
-        - [ ] Main Page
+        - [X] Main Page
         - [ ] Record Audio
         - [ ] Quiz Me
         - [ ] Review

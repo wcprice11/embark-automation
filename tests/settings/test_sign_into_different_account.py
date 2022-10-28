@@ -10,7 +10,7 @@ class TestSignIntoDifferentAccount(VisualEmbarkStageTest):
         self.click(e.settings_button)
         self.click(e.log_out_button)
         self.load_user(test_user_02)
-        self.get("stage.tall.global")
+        # self.get(self.urls.LOGIN)
         self.login("spanish")
         self.click(e.whats_new_card_close_button)
         value2 = self.get_element(e.alphabet_progress_bar).get_attribute("value")
