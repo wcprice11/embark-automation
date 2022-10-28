@@ -2,7 +2,8 @@ import unittest
 import os.path
 
 from HTMLTestRunner.runner import HTMLTestRunner
-from tests.discover.record_audio import TestRecordAudio
+from tests.discover.test_quiz_me import TestQuizMe
+from tests.discover.test_record_audio import TestRecordAudio
 from tests.discover.test_alphabet import TestStageDiscoverAlphabet
 from tests.discover.test_discover import TestStageDiscoverVocab
 from tests.settings.test_progress_updates_by_language import TestProgressUpdatesByLanguage
@@ -26,4 +27,4 @@ def run_single_class(testClass):
     runner.run(test)
 
 if __name__ == "__main__":
-    run_single_class(TestRecordAudio)
+    run_single_class(TestQuizMe)

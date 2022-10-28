@@ -144,6 +144,22 @@ class Elements:
     vocab_discover_recording        = (By.CSS_SELECTOR, "ion-icon[title='Stop Recording']", "Recording icon in flashcards")
     vocab_discover_play_recording   = (By.CSS_SELECTOR, "ion-icon[title='Play Recording']", "Recording icon in flashcards")
     vocab_discover_re_record        = (By.CSS_SELECTOR, "ion-icon[title='Record Again']", "Recording icon in flashcards")
+    vocab_discover_right_arrow      = (By.CSS_SELECTOR, "#right", "Right button on flashcards")
+    vocab_discover_take_quiz_button = (By.CSS_SELECTOR, "app-quiz>div>div>div>ion-button", "Take quiz button")
+
+    vocab_discover_quiz_native_1    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(1)>div:nth-of-type(1)", "Native language item 1 in quiz")
+    vocab_discover_quiz_native_2    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(1)>div:nth-of-type(2)", "Native language item 2 in quiz")
+    vocab_discover_quiz_native_3    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(1)>div:nth-of-type(3)", "Native language item 3 in quiz")
+    vocab_discover_quiz_native_4    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(1)>div:nth-of-type(4)", "Native language item 4 in quiz")
+    vocab_discover_quiz_native_5    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(1)>div:nth-of-type(5)", "Native language item 5 in quiz")
+    vocab_discover_quiz_native_6    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(1)>div:nth-of-type(6)", "Native language item 6 in quiz")
+
+    vocab_discover_quiz_target_1    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(2)>div:nth-of-type(1)", "Native language item 1 in quiz")
+    vocab_discover_quiz_target_2    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(2)>div:nth-of-type(2)", "Native language item 2 in quiz")
+    vocab_discover_quiz_target_3    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(2)>div:nth-of-type(3)", "Native language item 3 in quiz")
+    vocab_discover_quiz_target_4    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(2)>div:nth-of-type(4)", "Native language item 4 in quiz")
+    vocab_discover_quiz_target_5    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(2)>div:nth-of-type(5)", "Native language item 5 in quiz")
+    vocab_discover_quiz_target_6    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(2)>div:nth-of-type(6)", "Native language item 6 in quiz")
 
     symbol_popover_symbols  = (By.CSS_SELECTOR, "app-symbol-popover div.symbol-row", "Symbol popup top row symbols (og: spanish alphabet 'a')")
     symbol_popover_play     = (By.CSS_SELECTOR, "#volume-icon", "Symbol popup bottom row play sound (og: spanish alphabet 'a')")
