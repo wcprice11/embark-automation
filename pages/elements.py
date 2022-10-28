@@ -46,6 +46,8 @@ class Elements:
     recommended_alphabet_lesson_title   = (By.CSS_SELECTOR, "app-for-you-group>app-task-card:nth-of-type(2)>ion-card span.title", "recommended alphabet lesson (og:spanish")
     recommended_tones_lesson            = (By.CSS_SELECTOR, "app-for-you-group ion-card:has(div.tones-icon) span.title", "tones lesson (og:mandarin(traditional)")
 
+    recommended_meet_someone_lesson     = (By.CSS_SELECTOR, "app-for-you-group>app-task-card:nth-of-type(4)>ion-card", "recommended meet someone lesson (og:spanish")
+
     # Generic elements, may exist on any page
     body                    = (By.CSS_SELECTOR, "body", "page body, good for simulating key presses")
     start_button            = (By.CSS_SELECTOR, "#start-btn", "FIX_ME")
@@ -79,6 +81,8 @@ class Elements:
     basic_alphabet_card     = (By.CSS_SELECTOR, "div.learnTab>div:nth-of-type(2)>app-task-card:first-of-type>ion-card", "alphabet card in basic(og:korean)")
     basic_alphabet_card_title=(By.CSS_SELECTOR, "div.learnTab>div:nth-of-type(2)>app-task-card:first-of-type>ion-card span.title", "alphabet card in basic(og:korean)")
     first_card_in_alphabet  = (By.CSS_SELECTOR, "app-flashcard:first-of-type>ion-card h1", "first card in alphabet discover(og:korean)")
+
+    basic_meet_someone_card = (By.CSS_SELECTOR, "div.learnTab>div:nth-of-type(2)>app-task-card:nth-of-type(2)>ion-card", "meet someone lesson card in basic(og:spanish)")
 
     spanish_resources_grammar=(By.CSS_SELECTOR, "app-lesson-collection-card:last-of-type>ion-card", "Grammar Lessons in resources(og:spanish)")
     spanish_grammar_articles= (By.CSS_SELECTOR, "ion-content>ion-card:nth-of-type(3)", "articles card in grammar lessons(og:spanish)")
@@ -129,7 +133,13 @@ class Elements:
     lesson_practice_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(2)>ion-button", "lesson page button (og: spanish alphabet)")
     lesson_pass_off_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(3)>ion-button", "lesson page button (og: spanish alphabet)")
     alphabet_first_letter   = (By.CSS_SELECTOR, "#alphabet-grid>button:first-of-type", "First card on alphabet lesson (og: spanish alphabet 'a')")
-    
+
+    vocab_most_common_label = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>div", "Most Common header")
+    vocab_first_word        = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item>div>div>span", "First word in vocab list")
+    vocab_first_word_play   = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item>ion-icon", "Play button for first word in vocab list")
+    vocab_first_word_playing    = (By.CSS_SELECTOR, ".audio-icon", "First word in vocab list is playing")
+    # vocab_first_word_favorite   = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item>div>div>ion-button", "Favorite button on first audio word")
+
     symbol_popover_symbols  = (By.CSS_SELECTOR, "app-symbol-popover div.symbol-row", "Symbol popup top row symbols (og: spanish alphabet 'a')")
     symbol_popover_play     = (By.CSS_SELECTOR, "#volume-icon", "Symbol popup bottom row play sound (og: spanish alphabet 'a')")
     symbol_popover_playing  = (By.CSS_SELECTOR, "#volume-icon-playing", "Symbol popup bottom row play sound (og: spanish alphabet 'a')")
