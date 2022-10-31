@@ -87,7 +87,6 @@ class EmbarkTest(SessionMixIn, unittest.TestCase):
             self.click(self.elements.language_submit)
         return True
 
-
     def i_want_to_learn(self, language="spanish"):
         # self.click(self.elements.i_want_to_learn)
         self.fill(self.elements.i_want_to_learn, language, enter=True)

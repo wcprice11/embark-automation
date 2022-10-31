@@ -26,45 +26,45 @@ The embark-automation package is a testing suite intended to work in tandem with
     - [x] Link opens "Articles" lesson (Spanish)
 - [ ] Settings
     - [X] Delete a language
-    - [ ] Switch between languages
-    - [ ] Turn On/Off sound
-    - [ ] Progress updates when switching languages
+    - [X] Switch between languages
+    - [X] Turn On/Off sound
+    - [X] Progress updates when switching languages
     - [x] Contact Us
     - [x] Troubleshooting Menu
     - [x] About hyperlinks
     - [x] Sign out
     - [ ] Sign into different account (progress updates)
-- [ ] Discover/Review/Manage
-    - [x] Tones- 
-        - [x] Individual (Mandarin)
-        - [x] Combination (Mandarin)
+- [ ] Task Pages - Main Page / Discover / Review / Pass Off
     - [ ] Alphabet
+        - [ ] Main Page
         - [-] Discover
-        - [ ] Review
-        - [ ] Manage
+        - [ ] Review 
         - [ ] Quiz Me
         - [ ] Reference
         - [ ] Spaced Review
-    - [ ] Favorites- Discover
-        - [ ] Review
-        - [ ] Manage
     - [ ] Vocab- Discover
-        - [ ] Record Audio
-        - [ ] Quiz Me
+        - [X] Main Page
+        - [X] Record Audio
+        - [X] Quiz Me
         - [ ] Review
         - [ ] Spaced Review
-        - [ ] Manage
         - [ ] Clear Favorites
     - [ ] Phrases
+        - [ ] Main Page
         - [ ] Discover
         - [ ] Quiz Me
         - [ ] Review
         - [ ] Spaced Review
-        - [ ] Manage
+    - [ ] Favorites- Discover
+        - [ ] Main Page
+        - [ ] Review
     - [ ] Search
         - [ ] Words
         - [ ] Phrases
         - [ ] Lessons
+    - [x] Tones- 
+        - [x] Individual (Mandarin)
+        - [x] Combination (Mandarin)
     - [ ] Close and reopen the app
 - [ ] Listening/Grammar
     - [ ] Listening
@@ -75,7 +75,7 @@ The embark-automation package is a testing suite intended to work in tandem with
     - [ ] Listen for Specifics
     - [ ] Focus on a Detail
     - [ ] Listen and See
-- [ ] Vocab- Manage: Clear Favorites
+- [ ] Vocab - Main: Clear Favorites
 - [ ] Grammar
     - [ ] Remember This
     - [ ] Choose the Best Answer

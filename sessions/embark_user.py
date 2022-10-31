@@ -55,3 +55,8 @@ test_user_00 = User(
     base_user   = blank_user, 
     id          = "3868979468900847",
     username    = "test_embarkUser_00_cp")
+
+test_user_02 = User(
+    base_user  = blank_user, 
+    id          = "4448979468900444",
+    username    = "test_embarkUser_02_cp")

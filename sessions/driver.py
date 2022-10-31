@@ -20,6 +20,9 @@ class Driver(webdriver.Chrome):
         self.service = ChromeService(ChromeDriverManager(os_type=os_type, path=driver_path).install())
         
         self.options = webdriver.ChromeOptions()
+        self.options.add_argument('allow-file-access-from-files')
+        self.options.add_argument('use-fake-device-for-media-stream')
+        self.options.add_argument('use-fake-ui-for-media-stream')
         self.options.add_experimental_option('excludeSwitches', ['enable-logging'])
         if(headless):
             self.options.add_argument('headless')

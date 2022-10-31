@@ -1,8 +1,8 @@
 from email.quoprimime import body_check
 from selenium.webdriver.common.by import By
+from selenium import webdriver
 
 class Elements:
-    #---HELPERS---#
 
     sign_in_button          = (By.CSS_SELECTOR, "#login-button", "sign in button")
     # Church of Jesus Christ authentication page
@@ -16,7 +16,9 @@ class Elements:
     i_want_to_learn_close   = (By.CSS_SELECTOR, "#target-language-select span.ng-arrow", "collapse menu button")
     learn_english           = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(15)", "learn english")
     learn_french            = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(19)", "learn french")
+    learn_japanese          = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(30)", "learn french")
     learn_korean            = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(32)", "learn korean")
+    learn_polish            = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(45)", "learn polish")
     learn_spanish           = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(56)", "learn spanish")
     learn_vietnamese        = (By.CSS_SELECTOR, "ng-dropdown-panel div.ng-option:nth-of-type(65)", "learn vietnamese")
     native_language         = (By.CSS_SELECTOR, "#native-language-select", "FIX_ME")
@@ -37,14 +39,18 @@ class Elements:
     prework_tab             = (By.CSS_SELECTOR, "ion-segment-button:nth-of-type(3)", "FIX_ME")
     daily_life_tab          = (By.CSS_SELECTOR, "ion-segment-button:nth-of-type(4)", "FIX_ME")
     PMG_lessons_tab         = (By.CSS_SELECTOR, "ion-segment-button:nth-of-type(5)", "FIX_ME")
+    alphabet_progress_bar   = (By.CSS_SELECTOR, "app-home-learn-tab>div>div>app-for-you-group>app-task-card:nth-of-type(3)>ion-card>div>div>div:nth-of-type(2)>progress", "Progress bar on alphabet card in home learn")
+    alphabet_progress_secondary_language    = (By.CSS_SELECTOR, "app-home-learn-tab>div>div>app-for-you-group>app-task-card:nth-of-type(2)>ion-card>div>div>div:nth-of-type(2)>progress", "Progress bar on alphabet card in home learn when you've switched languages")
 
     recommended_alphabet_lesson         = (By.CSS_SELECTOR, "app-for-you-group>app-task-card:nth-of-type(2)>ion-card", "recommended alphabet lesson (og:spanish")
     recommended_alphabet_lesson_title   = (By.CSS_SELECTOR, "app-for-you-group>app-task-card:nth-of-type(2)>ion-card span.title", "recommended alphabet lesson (og:spanish")
     recommended_tones_lesson            = (By.CSS_SELECTOR, "app-for-you-group ion-card:has(div.tones-icon) span.title", "tones lesson (og:mandarin(traditional)")
 
+    recommended_meet_someone_lesson     = (By.CSS_SELECTOR, "app-for-you-group>app-task-card:nth-of-type(4)>ion-card", "recommended meet someone lesson (og:spanish")
+
     # Generic elements, may exist on any page
     body                    = (By.CSS_SELECTOR, "body", "page body, good for simulating key presses")
-    start_button            = (By.CSS_SELECTOR, "#start-btn", "FIX_ME")
+    start_button            = (By.CSS_SELECTOR, "ion-footer>ion-button", "FIX_ME")
     page_title              = (By.CSS_SELECTOR, "div#title", "Page title")
     error_message           = (By.CSS_SELECTOR, "h1", "error message (og: 503 server error page)")
     back_button             = (By.CSS_SELECTOR, "ion-icon[title='Back Arrow']", "Back Arrow (og: spanish alphabet lesson")
@@ -52,6 +58,7 @@ class Elements:
     lesson_card             = (By.CSS_SELECTOR, "app-study-list-card>ion-card", "lesson card item (og: spanish alphabet Symbols and Sounds")
     close_button            = (By.CSS_SELECTOR, "#close", "Close button in activity (og: spanish alphabet flashcards")
     close_popover           = (By.CSS_SELECTOR, "ion-popover", "close popover")
+
     # Settings dropdown menu
     loaded_language_subtext = (By.CSS_SELECTOR, "app-home-settings-popover p", "language listed in settings menu")
     about_page_hyperlinks_privacy_notice    = (By.CSS_SELECTOR , "ion-card>a:nth-of-type(1)", "about page hyperlinks, for example, 'Privacy notice'")
@@ -62,10 +69,6 @@ class Elements:
     language_manage_page_delete_button      = (By.CSS_SELECTOR , "ion-radio-group ion-item:nth-of-type(1) ion-buttons ion-button", "Delete button on select language page, trash icon")
     language_manage_page_add_language_button    = (By.CSS_SELECTOR , "app-language-manage div ion-button", "Add language button")
     language_manage_page_confirm_delete_button  = (By.CSS_SELECTOR , "ion-alert div div:nth-of-type(3) button:nth-of-type(2)", "Add language button")
-
-    language_select_page_target_language_dropdown = (By.CSS_SELECTOR , "ng-select:nth-of-type(1)", "Target language select dropdown")
-    language_select_page_choose_japanese = (By.CSS_SELECTOR , "ng-dropdown-panel div div div:nth-of-type(30)", "Select japanese from language select dropdown")
-    language_select_page_submit_button = (By.CSS_SELECTOR , "app-add-language div div ion-button", "Submit language on selection page")
 
     log_out_button          = (By.CSS_SELECTOR, "ion-item ion-button", "settings menu logout button")
 
@@ -78,6 +81,8 @@ class Elements:
     basic_alphabet_card     = (By.CSS_SELECTOR, "div.learnTab>div:nth-of-type(2)>app-task-card:first-of-type>ion-card", "alphabet card in basic(og:korean)")
     basic_alphabet_card_title=(By.CSS_SELECTOR, "div.learnTab>div:nth-of-type(2)>app-task-card:first-of-type>ion-card span.title", "alphabet card in basic(og:korean)")
     first_card_in_alphabet  = (By.CSS_SELECTOR, "app-flashcard:first-of-type>ion-card h1", "first card in alphabet discover(og:korean)")
+
+    basic_meet_someone_card = (By.CSS_SELECTOR, "div.learnTab>div:nth-of-type(2)>app-task-card:nth-of-type(2)>ion-card", "meet someone lesson card in basic(og:spanish)")
 
     spanish_resources_grammar=(By.CSS_SELECTOR, "app-lesson-collection-card:last-of-type>ion-card", "Grammar Lessons in resources(og:spanish)")
     spanish_grammar_articles= (By.CSS_SELECTOR, "ion-content>ion-card:nth-of-type(3)", "articles card in grammar lessons(og:spanish)")
@@ -109,6 +114,12 @@ class Elements:
     tip_pop_up              = (By.CSS_SELECTOR , "div.tip-popover-box", "tip pop-up box")
     tip_pop_up_close        = (By.CSS_SELECTOR , "div.tip-popover-box ion-icon", "close pop-up button")
 
+    lesson_1_heavenly_father= (By.CSS_SELECTOR , "app-task-card:nth-of-type(1)>ion-card", "Heavenly Father task in PMG lesson 1(og:spanish)")
+    heavenly_father_listening=(By.CSS_SELECTOR , "app-lesson-card[iconname='listening']>ion-card", "listening task in Heavenly Father(og:spanish)")
+    # = (By.CSS_SELECTOR , "ion-segment-button:nth-of-type(5)", "FIX_ME")
+    first_card_in_alphabet  = (By.CSS_SELECTOR , "app-flashcard:nth-of-type(1)>ion-card h1", "first card in alphabet discover(og:korean)")
+    alphabet_learn_card     = (By.CSS_SELECTOR, "app-home-learn-tab>div>div>app-for-you-group>app-task-card:nth-of-type(3)", "Experimenting with clicking")
+
     spanish_resources_grammar=(By.CSS_SELECTOR , "app-lesson-collection-card:last-of-type>ion-card", "Grammar Lessons in resources(og:spanish)")
     spanish_grammar_articles= (By.CSS_SELECTOR , "ion-content>ion-card:nth-of-type(3)", "articles card in grammar lessons(og:spanish)")
     grammar_lesson_header   = (By.CSS_SELECTOR , "app-lesson ion-toolbar", "Header of grammar lesson(og:spanish-articles")
@@ -122,7 +133,34 @@ class Elements:
     lesson_practice_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(2)>ion-button", "lesson page button (og: spanish alphabet)")
     lesson_pass_off_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(3)>ion-button", "lesson page button (og: spanish alphabet)")
     alphabet_first_letter   = (By.CSS_SELECTOR, "#alphabet-grid>button:first-of-type", "First card on alphabet lesson (og: spanish alphabet 'a')")
-    
+
+    vocab_most_common_label     = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>div", "Most Common header")
+    vocab_first_word            = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item>div>div>span", "First word in vocab list")
+    vocab_first_word_play       = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item>ion-icon", "Play button for first word in vocab list")
+    vocab_first_word_playing    = (By.CSS_SELECTOR, ".audio-icon", "First word in vocab list is playing")
+    # vocab_first_word_favorite   = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item>div>div>ion-button", "Favorite button on first audio word")
+
+    vocab_discover_record           = (By.CSS_SELECTOR, "app-activity-tool-bar>div>div>div:nth-of-type(2)>span>ion-icon", "Record button in flashcards")
+    vocab_discover_recording        = (By.CSS_SELECTOR, "ion-icon[title='Stop Recording']", "Recording icon in flashcards")
+    vocab_discover_play_recording   = (By.CSS_SELECTOR, "ion-icon[title='Play Recording']", "Recording icon in flashcards")
+    vocab_discover_re_record        = (By.CSS_SELECTOR, "ion-icon[title='Record Again']", "Recording icon in flashcards")
+    vocab_discover_right_arrow      = (By.CSS_SELECTOR, "#right", "Right button on flashcards")
+    vocab_discover_take_quiz_button = (By.CSS_SELECTOR, "app-quiz>div>div>div>ion-button", "Take quiz button")
+
+    vocab_discover_quiz_native_1    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(1)>div:nth-of-type(1)", "Native language item 1 in quiz")
+    vocab_discover_quiz_native_2    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(1)>div:nth-of-type(2)", "Native language item 2 in quiz")
+    vocab_discover_quiz_native_3    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(1)>div:nth-of-type(3)", "Native language item 3 in quiz")
+    vocab_discover_quiz_native_4    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(1)>div:nth-of-type(4)", "Native language item 4 in quiz")
+    vocab_discover_quiz_native_5    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(1)>div:nth-of-type(5)", "Native language item 5 in quiz")
+    vocab_discover_quiz_native_6    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(1)>div:nth-of-type(6)", "Native language item 6 in quiz")
+
+    vocab_discover_quiz_target_1    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(2)>div:nth-of-type(1)", "Native language item 1 in quiz")
+    vocab_discover_quiz_target_2    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(2)>div:nth-of-type(2)", "Native language item 2 in quiz")
+    vocab_discover_quiz_target_3    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(2)>div:nth-of-type(3)", "Native language item 3 in quiz")
+    vocab_discover_quiz_target_4    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(2)>div:nth-of-type(4)", "Native language item 4 in quiz")
+    vocab_discover_quiz_target_5    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(2)>div:nth-of-type(5)", "Native language item 5 in quiz")
+    vocab_discover_quiz_target_6    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(2)>div:nth-of-type(6)", "Native language item 6 in quiz")
+
     symbol_popover_symbols  = (By.CSS_SELECTOR, "app-symbol-popover div.symbol-row", "Symbol popup top row symbols (og: spanish alphabet 'a')")
     symbol_popover_play     = (By.CSS_SELECTOR, "#volume-icon", "Symbol popup bottom row play sound (og: spanish alphabet 'a')")
     symbol_popover_playing  = (By.CSS_SELECTOR, "#volume-icon-playing", "Symbol popup bottom row play sound (og: spanish alphabet 'a')")
@@ -140,6 +178,9 @@ class Elements:
     lesson_discover_flashcards          = (By.CSS_SELECTOR, "ion-content h1", "Flashcards info card title (og: spanish alphabet discover)")
     lesson_discover_flashcards_start    = (By.CSS_SELECTOR, "ion-footer>ion-button", "Flashcards start button (og: spanish alphabet discover)")
 
+    lesson_practice_fill_in_blank       = (By.CSS_SELECTOR, "div>div:nth-of-type(2)>app-study-list-card>ion-card", "First option on pick activity page")
+    lesson_practice_check               = (By.CSS_SELECTOR, "ion-grid ion-button", "Check button in fill in blank")
+    lesson_practice_input               = (By.CSS_SELECTOR, "app-symbol-test>div>div>ion-card>ion-item>ion-input>input", "Text input")
 
 
 
@@ -154,10 +195,10 @@ class StageElements(Elements):
     added_phrase_group                  = (By.CSS_SELECTOR, "div.section:nth-of-type(2) p", "FIX_ME")
     embark_topics_view_all              = (By.CSS_SELECTOR, "div.section:nth-of-type(2) div.header button", "FIX_ME")
     
-    log_out_button                      = (By.CSS_SELECTOR , "app-home-settings-popover ion-button", "FIX_ME")
-    languages_button                    = (By.CSS_SELECTOR , "app-home-settings-popover ion-item:nth-of-type(2)", "FIX_ME")
-    sound_effects                       = (By.CSS_SELECTOR , "ion-item:nth-of-type(3)", "FIX_ME")
-    sound_effects_toggle                = (By.CSS_SELECTOR , "ion-item:nth-of-type(3) ion-toggle", "FIX_ME")
+    log_out_button                      = (By.CSS_SELECTOR , "app-home-settings-popover ion-button", "Log out button in settings popover")
+    languages_button                    = (By.CSS_SELECTOR , "app-home-settings-popover ion-item:nth-of-type(2)", "Languages button button in settings popover")
+    sound_effects                       = (By.CSS_SELECTOR , "app-home-settings-popover ion-item:nth-of-type(3)", "Sound effects menu item")
+    sound_effects_toggle                = (By.CSS_SELECTOR , "app-home-settings-popover ion-item:nth-of-type(3)>ion-toggle", "Sound effects on/off toggle")
     contact_us_button                   = (By.CSS_SELECTOR , "ion-item:nth-of-type(4)", "FIX_ME")
     troubleshooting_button              = (By.CSS_SELECTOR , "ion-item:nth-of-type(5)", "FIX_ME")
     whats_new_button                    = (By.CSS_SELECTOR , "ion-item:nth-of-type(6)", "FIX_ME")
