@@ -146,6 +146,7 @@ class Elements:
     vocab_discover_re_record        = (By.CSS_SELECTOR, "ion-icon[title='Record Again']", "Recording icon in flashcards")
     vocab_discover_right_arrow      = (By.CSS_SELECTOR, "#right", "Right button on flashcards")
     vocab_discover_take_quiz_button = (By.CSS_SELECTOR, "app-quiz>div>div>div>ion-button", "Take quiz button")
+    vocab_discover_exit             = (By.CSS_SELECTOR, "ion-toolbar>div>ion-icon", "Exit out of quiz")
 
     vocab_discover_quiz_native_1    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(1)>div:nth-of-type(1)", "Native language item 1 in quiz")
     vocab_discover_quiz_native_2    = (By.CSS_SELECTOR, "app-matching-quiz>div>div:nth-of-type(1)>div:nth-of-type(2)", "Native language item 2 in quiz")
@@ -174,6 +175,13 @@ class Elements:
     symbol_popover_discovered   =(By.CSS_SELECTOR, "span[title='Mark as Discovered']", "Symbol popup bottom row unmarked (og: spanish alphabet 'a')")
     symbol_popover_mastered     =(By.CSS_SELECTOR, "span[title='Mark as Mastered']", "Symbol popup bottom row unmarked (og: spanish alphabet 'a')")
     symbol_popover_unmark       =(By.CSS_SELECTOR, "span[title='Unmark']", "Symbol popup bottom row unmarked (og: spanish alphabet 'a')")
+
+    vocab_concept_list_discovered_1 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(1)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 1")
+    vocab_concept_list_discovered_2 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(2)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 2")
+    vocab_concept_list_discovered_3 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(3)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 3")
+    vocab_concept_list_discovered_4 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(4)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 4")
+    vocab_concept_list_discovered_5 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(5)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 5")
+    vocab_concept_list_discovered_6 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(6)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 6")
 
     lesson_discover_flashcards          = (By.CSS_SELECTOR, "ion-content h1", "Flashcards info card title (og: spanish alphabet discover)")
     lesson_discover_flashcards_start    = (By.CSS_SELECTOR, "ion-footer>ion-button", "Flashcards start button (og: spanish alphabet discover)")

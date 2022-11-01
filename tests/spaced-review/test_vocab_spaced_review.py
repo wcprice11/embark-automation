@@ -1,8 +1,8 @@
 from tests.embark_tests import VisualEmbarkStageTest
 from selenium.webdriver.common.keys import Keys
 from time import sleep
-class TestQuizMe(VisualEmbarkStageTest):
-    def test_quiz_me(self):
+class TestVocabSpacedReview(VisualEmbarkStageTest):
+    def test_vocab_spaced_review(self):
         e = self.elements
         self.login("spanish")
         self.wait_for_text_in_element(e.whats_new_card_close_button, "Close")
@@ -15,6 +15,15 @@ class TestQuizMe(VisualEmbarkStageTest):
         self.validate_element_text(e.lesson_section_title, "Essentials")
         self.validate_element_text(e.lesson_card, "Vocabulary")
         self.click(e.lesson_card)
+        self.wait_for_element_to_be_clickable(e.lesson_discover_button)
+        self.click(e.lesson_discover_button)
+        self.click(e.start_button)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
 
         # Erasing progress - add condition once button titles are updated
         for i in range(2):
@@ -25,18 +34,6 @@ class TestQuizMe(VisualEmbarkStageTest):
             self.click(e.vocab_concept_list_discovered_5)
             self.click(e.vocab_concept_list_discovered_6)
 
-        self.wait_for_element_to_be_clickable(e.lesson_discover_button)
-        self.click(e.lesson_discover_button)
-        self.click(e.start_button)
-        self.click(e.vocab_discover_right_arrow)
-        self.click(e.vocab_discover_right_arrow)
-        self.click(e.vocab_discover_right_arrow)
-        self.click(e.vocab_discover_right_arrow)
-        self.click(e.vocab_discover_right_arrow)
-        self.click(e.vocab_discover_right_arrow)
-        self.click(e.vocab_discover_take_quiz_button)
-
-        # Take first Spanish vocab quiz. This is super slow
         word_pairs = {"church":"iglesia", "companion (male)":"compañero", "companion (female)":"compañera", "city":"ciudad", "Elder":"Élder (misionero)", "day":"día"}
         native_selectors = [e.vocab_discover_quiz_native_1, e.vocab_discover_quiz_native_2, e.vocab_discover_quiz_native_3, e.vocab_discover_quiz_native_4, e.vocab_discover_quiz_native_5, e.vocab_discover_quiz_native_6]
         target_selectors = [e.vocab_discover_quiz_target_1, e.vocab_discover_quiz_target_2, e.vocab_discover_quiz_target_3, e.vocab_discover_quiz_target_4, e.vocab_discover_quiz_target_5, e.vocab_discover_quiz_target_6]
@@ -47,3 +44,8 @@ class TestQuizMe(VisualEmbarkStageTest):
                     self.click(target_selectors[j])
         sleep(1)
         self.validate_element_text(e.vocab_discover_right_arrow, "Continue")
+
+        # Close and return to spaced review
+        self.click(e.vocab_discover_exit)
+        self.click(e.back_button)
+        self.click(e.back_button)
