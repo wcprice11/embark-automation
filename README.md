@@ -12,25 +12,4 @@ The embark-automation package is a testing suite intended to work in tandem with
 
 [**How to write tests**](/Documentation/how-to-write-a-test.md): A walk-through of where and how to write a test script.
 
-## This weeks TO DOs
-- [ ] Tests
-    - [x] General (every circumstance) (Christian)
-        - [x] Login
-        - [x] Main tabs
-        - [x] Resources
-        - [x] Logout
-    - [-] Alphabet (Christian)
-    - [ ] Settings (Adam)
-    - [-] Search (Christian)
-    - [-] Vocab (Adam)
-    - [-] Phrases (Clayton)
-    - [ ] Instructions (Christian)
-    - [ ] Hot-Fix coverage
-    - [ ] Feedback (Christian)
-
-- [ ] Suite
-    - [ ] Consistency (Christian)
-    - [ ] Parallel (Christian)
-    - [ ] Parameterization (Christian)
-    - [ ] User time set
 
