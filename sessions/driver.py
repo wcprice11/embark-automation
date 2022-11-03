@@ -21,6 +21,7 @@ class Driver(webdriver.Chrome):
         
         self.options = webdriver.ChromeOptions()
         self.options.add_experimental_option('excludeSwitches', ['enable-logging'])
+        self.options.add_argument("--disable-infobars")
         if(headless):
             self.options.add_argument('headless')
         self.launched = False

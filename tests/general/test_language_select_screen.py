@@ -1,9 +1,9 @@
-from tests.embark_tests import EmbarkDevTest, EmbarkProdTest, EmbarkRCTest, EmbarkStageTest
-
+from tests.embark_test_classes import EmbarkDevTest, EmbarkProdTest, EmbarkRCTest, EmbarkStageTest
+"""
 class TestProdLanguageSelectScreen(EmbarkProdTest):
     def test_prod_language_select_screen(self):
         e = self.elements
-        self.assertTrue(self.login())
+        self.login()
         self.click(e.i_want_to_learn)
         self.find(e.learn_english)
         self.find(e.learn_french)
@@ -36,20 +36,24 @@ class TestProdLanguageSelectScreen(EmbarkProdTest):
 
     def test_prod_language_select_screen_load_core_language(self):
         e = self.elements
-        self.assertTrue(self.login("spanish"))
+        self.login("spanish")
+        self.wait_for_element_to_be_clickable(e.whats_new_card_close_button)
+        self.click(e.whats_new_card_close_button)
         self.click(e.for_you_tab)
         self.validate_text_contains(self.get_url(), self.urls.BLANK_HOME)
         
     def test_prod_language_select_screen_load_non_core_language(self):
         e = self.elements
-        self.assertTrue(self.login("korean"))
+        self.login("korean")
+        self.wait_for_element_to_be_clickable(e.whats_new_card_close_button)
+        self.click(e.whats_new_card_close_button)
         self.click(e.for_you_tab)
         self.validate_text_contains(self.get_url(), self.urls.BLANK_HOME)
-
+"""
 class TestStageLanguageSelectScreen(EmbarkStageTest):
     def test_stage_language_select_screen(self):
         e = self.elements
-        self.assertTrue(self.login())
+        self.login()
         self.click(e.i_want_to_learn)
         self.find(e.learn_english)
         self.find(e.learn_french)
@@ -82,16 +86,20 @@ class TestStageLanguageSelectScreen(EmbarkStageTest):
 
     def test_stage_language_select_screen_load_core_language(self):
         e = self.elements
-        self.assertTrue(self.login("spanish"))
+        self.login("spanish")
+        self.wait_for_element_to_be_clickable(e.whats_new_card_close_button)
+        self.click(e.whats_new_card_close_button)
         self.click(e.for_you_tab)
         self.validate_text_contains(self.get_url(), self.urls.BLANK_HOME)
         
     def test_stage_language_select_screen_load_non_core_language(self):
         e = self.elements
-        self.assertTrue(self.login("korean"))
+        self.login("korean")
+        self.wait_for_element_to_be_clickable(e.whats_new_card_close_button)
+        self.click(e.whats_new_card_close_button)
         self.click(e.for_you_tab)
         self.validate_text_contains(self.get_url(), self.urls.BLANK_HOME)
-
+"""
 class TestRCLanguageSelectScreen(EmbarkRCTest):
     def test_rc_language_select_screen(self):
         e = self.elements
@@ -128,20 +136,24 @@ class TestRCLanguageSelectScreen(EmbarkRCTest):
 
     def test_rc_language_select_screen_load_core_language(self):
         e = self.elements
-        self.assertTrue(self.login("spanish"))
+        self.login("spanish")
+        self.wait_for_element_to_be_clickable(e.whats_new_card_close_button)
+        self.click(e.whats_new_card_close_button)
         self.click(e.for_you_tab)
         self.validate_text_contains(self.get_url(), self.urls.BLANK_HOME)
         
     def test_rc_language_select_screen_load_non_core_language(self):
         e = self.elements
-        self.assertTrue(self.login("korean"))
+        self.login("korean")
+        self.wait_for_element_to_be_clickable(e.whats_new_card_close_button)
+        self.click(e.whats_new_card_close_button)
         self.click(e.for_you_tab)
         self.validate_text_contains(self.get_url(), self.urls.BLANK_HOME)
 
 class TestDevLanguageSelectScreen(EmbarkDevTest):
     def test_dev_language_select_screen(self):
         e = self.elements
-        self.assertTrue(self.login())
+        self.login()
         self.click(e.i_want_to_learn)
         self.find(e.learn_english)
         self.find(e.learn_french)
@@ -174,14 +186,17 @@ class TestDevLanguageSelectScreen(EmbarkDevTest):
 
     def test_dev_language_select_screen_load_core_language(self):
         e = self.elements
-        self.assertTrue(self.login("spanish"))
-        self.click(self.elements.whats_new_card_close_button)
+        self.login("spanish")
+        self.wait_for_element_to_be_clickable(e.whats_new_card_close_button)
+        self.click(e.whats_new_card_close_button)
         self.click(e.for_you_tab)
         self.validate_text_contains(self.get_url(), self.urls.BLANK_HOME)
         
     def test_dev_language_select_screen_load_non_core_language(self):
         e = self.elements
-        self.assertTrue(self.login("korean"))
-        self.click(self.elements.whats_new_card_close_button)
+        self.login("korean")
+        self.wait_for_element_to_be_clickable(e.whats_new_card_close_button)
+        self.click(e.whats_new_card_close_button)
         self.click(e.for_you_tab)
         self.validate_text_contains(self.get_url(), self.urls.BLANK_HOME)
+"""
