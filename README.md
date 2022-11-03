@@ -102,7 +102,11 @@ The embark-automation package is a testing suite intended to work in tandem with
     - [ ] Unscramble
     - [ ] Phase Typing
 
-## Feature Requests
+- [ ] Suite
+    - [ ] Consistency (Christian)
+    - [ ] Parallel (Christian)
+    - [ ] Parameterization (Christian)
+    - [ ] User time set
 
  - [ ] Parallel Testing
  - [ ] Multi-platform Testing

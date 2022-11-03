@@ -1,9 +1,11 @@
-from tests.embark_tests import VisualEmbarkStageTest
+from tests.embark_test_classes import EmbarkStageTest
 from selenium.webdriver.common.keys import Keys
 from time import sleep
-class TestStageDiscoverAlphabet(VisualEmbarkStageTest):
-    def test_alphabet_discover_symbol_view(self):
+class TestStageDiscoverAlphabet(EmbarkStageTest):
+    def test_alphabet_discover_card_view(self):
         e = self.elements
+        x = self.user.reset()
+        self.assertEqual(x.status_code, 200, f"API user reset failed with status code {x.status_code}")
         self.login("spanish")
         self.wait_for_text_in_element(e.whats_new_card_close_button, "Close")
         self.click(e.whats_new_card_close_button)
@@ -36,10 +38,13 @@ class TestStageDiscoverAlphabet(VisualEmbarkStageTest):
         self.find(e.symbol_popover_play)
         self.click(e.symbol_popover_play)
         self.find(e.symbol_popover_playing)
+        self.find(e.symbol_popover_play)
 
+        # --CURRENT ERROR-- Example sounds throw an exception.
         # examples play
         self.validate_element_text(e.symbol_popover_example, "padre")
         self.find(e.symbol_popover_example_play)
+        sleep(1)
         self.click(e.symbol_popover_example_play)
         self.find(e.symbol_popover_example_playing)
         self.find(e.symbol_popover_example_play)
@@ -47,7 +52,8 @@ class TestStageDiscoverAlphabet(VisualEmbarkStageTest):
         # favorite button cycle through
         self.find(e.symbol_popover_favorite)
         self.click(e.symbol_popover_favorite)
-        sleep(1)
+        # I hate these waits, but I don't have a better solution yet.
+        sleep(.5)
         self.find(e.symbol_popover_unfavorite)
         self.click(e.symbol_popover_unfavorite)
         self.find(e.symbol_popover_favorite)
@@ -55,10 +61,10 @@ class TestStageDiscoverAlphabet(VisualEmbarkStageTest):
         # discovered button cycles through
         self.find(e.symbol_popover_discovered)
         self.click(e.symbol_popover_discovered)
-        sleep(1)
+        sleep(.5)
         self.find(e.symbol_popover_mastered)
         self.click(e.symbol_popover_mastered)
-        sleep(1)
+        sleep(.5)
         self.find(e.symbol_popover_unmark)
         self.click(e.symbol_popover_unmark)
         sleep(1)
@@ -73,20 +79,12 @@ class TestStageDiscoverAlphabet(VisualEmbarkStageTest):
         # Right now this is doing a soft test on playing audio by watching for the visual class change.
         # No microphone controls that I know of.
 
-    def test_alphabet_discover_favorites(self):
-        e = self.elements
-        self.login("spanish")
-        self.wait_for_text_in_element(e.whats_new_card_close_button, "Close")
-        self.click(e.whats_new_card_close_button)
-        self.find(e.recommended_alphabet_lesson)
-        self.wait_for_text_in_element(e.recommended_alphabet_lesson_title, "Alphabet")
-        self.click(e.basic_tab)
-        self.click(e.tip_pop_up_close)
-        self.click(e.basic_alphabet_card)
-        self.wait_for_text_in_element(e.page_title, "Alphabet")
-        self.click(e.lesson_card)
-        self.wait_for_text_in_element(e.page_title, "Alphabet")
-
+        # FIX ME:
+        #  - Check if added favorites
+        #  - Flashcards
+        #  - Fill in the blank
+        #  - Test
+        #  - Search
 
 
 

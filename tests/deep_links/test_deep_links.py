@@ -1,7 +1,7 @@
 
-from tests.embark_tests import VisualEmbarkStageTest
+from tests.embark_test_classes import EmbarkStageTest
 
-class TestDeepLinks(VisualEmbarkStageTest):
+class TestDeepLinks(EmbarkStageTest):
     def test_link_to_pray_often(self):
         self.login("spanish")
         self.wait_for_text_in_element(self.elements.whats_new_card_close_button, "Close")
@@ -24,6 +24,7 @@ class TestDeepLinks(VisualEmbarkStageTest):
         self.click(self.elements.resources_button)
         self.click(self.elements.tip_pop_up_close)
         self.click(self.elements.spanish_resources_grammar)
+        self.wait_for_element_to_be_clickable(self.elements.spanish_grammar_articles)
         self.click(self.elements.spanish_grammar_articles)
         elem = self.get_element(self.elements.grammar_lesson_header)
         self.validate_text(elem.text,  "Grammar - Articles")

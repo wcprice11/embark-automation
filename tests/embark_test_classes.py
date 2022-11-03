@@ -2,6 +2,7 @@ import unittest
 from sessions.embark_session import *
 from sessions.embark_branch import web_prod, web_dev, web_rc, web_stage
 from time import sleep
+# from pytest_html_reporter import attach
 
 class EmbarkTest(SessionMixIn, unittest.TestCase):
     def setUp(self) -> None: # runs before every test
@@ -12,7 +13,7 @@ class EmbarkTest(SessionMixIn, unittest.TestCase):
         pass
 
     def tearDown(self) -> None: # runs after every test
-        self.save_screenshot(f"./report/{self.id()}.png")
+        # attach(data=self.driver.get_screenshot_as_png())
         self.quit()
 
     # Helper test methods auto-generate error messages
@@ -43,6 +44,10 @@ class EmbarkTest(SessionMixIn, unittest.TestCase):
     def wait_for_element_to_be_clickable(self, element, time=30):
         self.assertTrue(super()._wait_for_element_to_be_clickable(element[0:2], time), f"Took too long for {element[2]} to be clickable")
 
+    def wait_for_text_in_url(self, text:str, time=30):
+        self.assertTrue(super()._wait_for_text_in_url(text, time), f"Took too long to find {text} in url. current url: {self.get_url()}")
+
+    # page navigation and interaction
     def find(self, element, time=30):
         self.assertTrue(self._find(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
 
@@ -60,7 +65,7 @@ class EmbarkTest(SessionMixIn, unittest.TestCase):
         return super()._reload()
 
     # MACRO FUNCTIONS
-    def login(self, language=None):
+    def login(self, language=None, attempts=0):
         # either login via LDS account or API if available
         # FIX_ME
         e = self.elements
@@ -70,6 +75,12 @@ class EmbarkTest(SessionMixIn, unittest.TestCase):
         self.find(e.sign_in_username_field)
         self.fill(e.sign_in_username_field, self.user.username)
         self.click(e.sign_in_next)
+        elems = self.driver.find_elements(*self.elements.too_many_attempts_message[0:2])
+        if (self.driver.find_elements(*self.elements.too_many_attempts_message[0:2])): 
+            if (attempts > 4):
+                self.fail("Too many login attempts")
+            sleep(100)
+            return self.login(language=language, attempts=attempts + 1)
         self.find(e.sign_in_password_field)
         self.fill(e.sign_in_password_field, self.user.get_password())
         self.click(e.sign_in_submit)
@@ -78,7 +89,7 @@ class EmbarkTest(SessionMixIn, unittest.TestCase):
             "503" in self.driver.find_element(*self.elements.error_message[0:2]).text
         ): 
             sleep(5)
-            self.get(self.get_url)
+            self.reload()
         self.wait_for_text_in_element(e.language_submit, "Submit")
         self.find(e.i_want_to_learn)
         self.assertEqual(self.get_url(), self.urls.ONBOARDING)

@@ -257,3 +257,17 @@ Session(User, Branch/platform, driver, language?)
 test runner:
     create all tests needed
     while unfinished
+
+
+- [ ] Case flexibility on validation?
+- [ ] Get num items? or return multiple
+- [ ] Validate Element present?
+- [ ] Patient click wait until clickable 
+- [ ] Patient validate
+- [ ] combined wait + validate + click
+- [ ] login is failing occasionally
+- [ ] Current Errors
+    - [ ] Alphabet example sounds
+    - [ ] Logout is ignored
+    - [ ] API reset is keeping progress. Problem could be on this end.
+    

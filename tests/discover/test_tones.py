@@ -1,4 +1,4 @@
-from tests.embark_tests import EmbarkStageTest
+from tests.embark_test_classes import EmbarkStageTest
 
 class TestTonesInMandarin(EmbarkStageTest):
     def test_tones_in_mandarin(self):
