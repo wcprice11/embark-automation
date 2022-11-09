@@ -185,6 +185,8 @@ class Elements:
 
     lesson_discover_flashcards          = (By.CSS_SELECTOR, "ion-content h1", "Flashcards info card title (og: spanish alphabet discover)")
     lesson_discover_flashcards_start    = (By.CSS_SELECTOR, "ion-footer>ion-button", "Flashcards start button (og: spanish alphabet discover)")
+    lesson_discover_flashcard_text      = (By.CSS_SELECTOR, "app-discover>ion-content>div>swiper>div", "Flashcard text")
+    lesson_discover_toolbar             = (By.CSS_SELECTOR, "app-activity-tool-bar", "Toolbar in flashcards")
 
     lesson_practice_fill_in_blank       = (By.CSS_SELECTOR, "div>div:nth-of-type(2)>app-study-list-card>ion-card", "First option on pick activity page")
     lesson_practice_check               = (By.CSS_SELECTOR, "ion-grid ion-button", "Check button in fill in blank")

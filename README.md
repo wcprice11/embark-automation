@@ -33,7 +33,7 @@ The embark-automation package is a testing suite intended to work in tandem with
     - [x] Troubleshooting Menu
     - [x] About hyperlinks
     - [x] Sign out
-    - [ ] Sign into different account (progress updates)
+    - [X] Sign into different account (progress updates)
 - [ ] Task Pages - Main Page / Discover / Review / Pass Off
     - [ ] Alphabet
         - [ ] Main Page
