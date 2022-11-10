@@ -33,7 +33,7 @@ The embark-automation package is a testing suite intended to work in tandem with
     - [x] Troubleshooting Menu
     - [x] About hyperlinks
     - [x] Sign out
-    - [ ] Sign into different account (progress updates)
+    - [X] Sign into different account (progress updates)
 - [ ] Task Pages - Main Page / Discover / Review / Pass Off
     - [ ] Alphabet
         - [ ] Main Page
@@ -46,9 +46,8 @@ The embark-automation package is a testing suite intended to work in tandem with
         - [X] Main Page
         - [X] Record Audio
         - [X] Quiz Me
-        - [ ] Review
+        - [ ] Pick Activity
         - [ ] Spaced Review
-        - [ ] Clear Favorites
     - [ ] Phrases
         - [ ] Main Page
         - [ ] Discover
@@ -109,3 +108,9 @@ The embark-automation package is a testing suite intended to work in tandem with
  - [ ] Multi-platform Testing
  - [ ] Poor network simulation
  - [ ] Live results/control site
+
+
+Testing Phase 2 List
+    - [ ] Clear Favorites
+    - [ ] iOS
+    - [ ] Android
