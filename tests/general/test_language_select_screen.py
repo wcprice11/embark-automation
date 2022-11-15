@@ -199,4 +199,3 @@ class TestDevLanguageSelectScreen(EmbarkDevTest):
         self.click(e.whats_new_card_close_button)
         self.click(e.for_you_tab)
         self.validate_text_contains(self.get_url(), self.urls.BLANK_HOME)
-"""
