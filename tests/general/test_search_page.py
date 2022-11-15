@@ -1,7 +1,7 @@
 # Search
-from tests.embark_test_classes import VisualEmbarkStageTest
+from tests.embark_test_classes import EmbarkStageTest
 
-class TestAboutHyperlinks(VisualEmbarkStageTest):
+class TestAboutHyperlinks(EmbarkStageTest):
     def test_search_page(self):
         e = self.elements
         self.login("spanish")

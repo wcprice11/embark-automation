@@ -7,11 +7,11 @@ class TestCatchConsoleErrors(EmbarkProdTest):
     def test_sample_all_languages(self):
         e = self.elements
         langs = []
-        langs += languages[randint(0, len(languages)-1)]
-        langs += languages[randint(0, len(languages)-1)]
-        langs += languages[randint(0, len(languages)-1)]
-        langs += languages[randint(0, len(languages)-1)]
-        langs += languages[randint(0, len(languages)-1)]
+        langs.append(languages[randint(0, len(languages)-1)])
+        langs.append(languages[randint(0, len(languages)-1)])
+        langs.append(languages[randint(0, len(languages)-1)])
+        langs.append(languages[randint(0, len(languages)-1)])
+        langs.append(languages[randint(0, len(languages)-1)])
         # login with random sample languages
         for lang in langs:
             with self.subTest(lang=lang):
