@@ -1,5 +1,5 @@
 
-from tests.embark_test_classes import EmbarkStageTest
+from tests.embark_tests import EmbarkStageTest
 
 class TestDeepLinks(EmbarkStageTest):
     def test_link_to_pray_often(self):

@@ -1,7 +1,5 @@
-from tests.embark_tests import VisualEmbarkStageTest
-from selenium.webdriver.common.keys import Keys
-from time import sleep
-class TestRecordAudio(VisualEmbarkStageTest):
+from tests.embark_tests import EmbarkStageTest
+class TestRecordAudio(EmbarkStageTest):
     def test_record_audio(self):
         e = self.elements
         self.login("spanish")

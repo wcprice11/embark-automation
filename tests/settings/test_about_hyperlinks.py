@@ -1,4 +1,4 @@
-from tests.embark_test_classes import EmbarkStageTest
+from tests.embark_tests import EmbarkStageTest
 
 class TestAboutHyperlinks(EmbarkStageTest):
     def test_about_hyperlinks(self):

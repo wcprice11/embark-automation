@@ -1,7 +1,6 @@
-from tests.embark_tests import VisualEmbarkStageTest
-from selenium.webdriver.common.keys import Keys
+from tests.embark_tests import EmbarkStageTest
 from time import sleep
-class TestQuizMe(VisualEmbarkStageTest):
+class TestQuizMe(EmbarkStageTest):
     def test_quiz_me(self):
         e = self.elements
         self.login("spanish")
