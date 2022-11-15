@@ -1,7 +1,7 @@
 
-from tests.embark_tests import VisualEmbarkStageTest
+from tests.embark_test_classes import EmbarkStageTest
 
-class TestDeepLinks(VisualEmbarkStageTest):
+class TestDeepLinks(EmbarkStageTest):
     def test_link_to_pray_often(self):
         self.login("spanish")
         self.wait_for_text_in_element(self.elements.whats_new_card_close_button, "Close")

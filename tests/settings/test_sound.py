@@ -1,8 +1,7 @@
-from glob import escape
-from tests.embark_tests import VisualEmbarkStageTest
+from tests.embark_test_classes import EmbarkStageTest
 from selenium.webdriver.common.keys import Keys
 
-class TestSound(VisualEmbarkStageTest):
+class TestSound(EmbarkStageTest):
     def test_sound(self):
         e = self.elements
         self.login("spanish")

@@ -1,4 +1,4 @@
-from tests.embark_tests import EmbarkStageTest, EmbarkProdTest
+from tests.embark_test_classes import EmbarkStageTest, EmbarkProdTest
 
 class TestLogoutStage(EmbarkStageTest):
     def test_logout_button(self):

@@ -1,6 +1,6 @@
-from tests.embark_tests import VisualEmbarkProdTest
+from tests.embark_test_classes import EmbarkProdTest
 
-class TestMarshalleseLoads(VisualEmbarkProdTest):
+class TestMarshalleseLoads(EmbarkProdTest):
     def test_marshallese(self):
         e = self.elements
         self.login("marshallese")

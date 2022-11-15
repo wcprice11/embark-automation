@@ -1,7 +1,6 @@
-from tests.embark_tests import VisualEmbarkStageTest
-from selenium.webdriver.common.keys import Keys
+from tests.embark_test_classes import EmbarkStageTest
 from time import sleep
-class TestStageDiscoverVocab(VisualEmbarkStageTest):
+class TestStageDiscoverVocab(EmbarkStageTest):
     def test_vocab_discover(self):
         e = self.elements
         self.login("spanish")

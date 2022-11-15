@@ -1,5 +1,5 @@
 
-from tests.embark_tests import EmbarkProdTest
+from tests.embark_test_classes import EmbarkProdTest
 
 
 class TestVariousInternetSpeeds(EmbarkProdTest):

@@ -1,7 +1,7 @@
-from tests.embark_tests import *
+from tests.embark_test_classes import *
 
 
-class TestStageSettings(VisualEmbarkStageTest):
+class TestStageSettings(EmbarkStageTest):
 
     def test_stage_settings_validation(self):
         u = self.urls
