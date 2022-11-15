@@ -1,4 +1,5 @@
-from tests.embark_tests import EmbarkStageTest
+from tests.embark_test_classes import EmbarkStageTest
+from selenium.webdriver.common.keys import Keys
 
 class TestSound(EmbarkStageTest):
     def test_sound(self):

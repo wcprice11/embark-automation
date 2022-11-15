@@ -1,4 +1,4 @@
-from tests.embark_tests import EmbarkStageTest
+from tests.embark_test_classes import EmbarkStageTest
 from selenium.webdriver.common.keys import Keys
 from time import sleep
 class TestStageDiscoverAlphabet(EmbarkStageTest):

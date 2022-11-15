@@ -1,4 +1,4 @@
-from tests.embark_tests import EmbarkStageTest
+from tests.embark_test_classes import EmbarkStageTest
 from time import sleep
 class TestStageDiscoverVocab(EmbarkStageTest):
     def test_vocab_discover(self):

@@ -1,5 +1,4 @@
-from tests.embark_tests import EmbarkStageTest
-from time import sleep
+from tests.embark_test_classes import EmbarkStageTest
 class TestQuizMe(EmbarkStageTest):
     def test_quiz_me(self):
         e = self.elements

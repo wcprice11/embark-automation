@@ -1,5 +1,5 @@
 from tests.embark_test_classes import EmbarkDevTest, EmbarkProdTest, EmbarkRCTest, EmbarkStageTest
-"""
+
 class TestProdLanguageSelectScreen(EmbarkProdTest):
     def test_prod_language_select_screen(self):
         e = self.elements

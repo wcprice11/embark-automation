@@ -1,4 +1,4 @@
-from tests.embark_tests import EmbarkStageTest
+from tests.embark_test_classes import EmbarkStageTest
 from sessions.embark_user import test_user_02
 
 class TestSignIntoDifferentAccount(EmbarkStageTest):

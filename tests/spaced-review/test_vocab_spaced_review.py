@@ -1,5 +1,6 @@
-from tests.embark_tests import EmbarkStageTest
+from tests.embark_test_classes import EmbarkStageTest
 from time import sleep
+
 class TestVocabSpacedReview(EmbarkStageTest):
     def test_vocab_spaced_review(self):
         e = self.elements
