@@ -1,7 +1,7 @@
 
-from tests.embark_tests import VisualEmbarkProdTest
+from tests.embark_tests import EmbarkProdTest
 
-class TestProdLoadCoreLanguage(VisualEmbarkProdTest):
+class TestProdLoadCoreLanguage(EmbarkProdTest):
     def test_settings_menu_says_core_language(self):
         self.login("Korean")
         self.click(self.elements.whats_new_card_close_button)

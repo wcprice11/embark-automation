@@ -1,0 +1,2047 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="23" skipped="0" tests="41" time="177.062" timestamp="2022-11-15T10:32:38.617663" hostname="itm-13897.lan"><testcase classname="tests.general.test_language_select_screen.TestProdLanguageSelectScreen" name="test_prod_language_select_screen_load_core_language" time="17.177"><failure message="selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;ion-segment-button _ngcontent-vfo-c181=&quot;&quot; class=&quot;taskGroup__segment md in-segment in-segment-color segment-button-layout-icon-top ion-activatable ion-activatable-instant ion-focusable hydrated segment-button-after-checked segment-button-checked&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot; tabindex=&quot;0&quot;&gt;...&lt;/ion-segment-button&gt; is not clickable at point (453, 110). Other element would receive the click: &lt;div _ngcontent-vfo-c93=&quot;&quot; class=&quot;basicModal container&quot;&gt;...&lt;/div&gt;&#10;  (Session info: headless chrome=107.0.5304.110)&#10;Stacktrace:&#10;0   chromedriver                        0x000000010305ea88 chromedriver + 4123272&#10;1   chromedriver                        0x0000000102fea778 chromedriver + 3647352&#10;2   chromedriver                        0x0000000102cacac4 chromedriver + 248516&#10;3   chromedriver                        0x0000000102ce98a8 chromedriver + 497832&#10;4   chromedriver                        0x0000000102ce7874 chromedriver + 489588&#10;5   chromedriver                        0x0000000102ce54e8 chromedriver + 480488&#10;6   chromedriver                        0x0000000102ce44dc chromedriver + 476380&#10;7   chromedriver                        0x0000000102cd8a00 chromedriver + 428544&#10;8   chromedriver                        0x0000000102cd8260 chromedriver + 426592&#10;9   chromedriver                        0x0000000102d15020 chromedriver + 675872&#10;10  chromedriver                        0x0000000102cd6b10 chromedriver + 420624&#10;11  chromedriver                        0x0000000102cd7c30 chromedriver + 425008&#10;12  chromedriver                        0x0000000103030ae4 chromedriver + 3934948&#10;13  chromedriver                        0x0000000103033f24 chromedriver + 3948324&#10;14  chromedriver                        0x0000000103034508 chromedriver + 3949832&#10;15  chromedriver                        0x000000010303ab30 chromedriver + 3975984&#10;16  chromedriver                        0x0000000103034b24 chromedriver + 3951396&#10;17  chromedriver                        0x000000010300f71c chromedriver + 3798812&#10;18  chromedriver                        0x00000001030512f0 chromedriver + 4068080&#10;19  chromedriver                        0x0000000103051444 chromedriver + 4068420&#10;20  chromedriver                        0x0000000103065450 chromedriver + 4150352&#10;21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148&#10;22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8">self = &lt;tests.general.test_language_select_screen.TestProdLanguageSelectScreen testMethod=test_prod_language_select_screen_load_core_language&gt;
+
+    def test_prod_language_select_screen_load_core_language(self):
+        e = self.elements
+        self.assertTrue(self.login("spanish"))
+&gt;       self.click(e.for_you_tab)
+
+tests/general/test_language_select_screen.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:50: in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
+sessions/embark_session.py:96: in _click
+    self.driver.find_element(*element).click()
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webelement.py:88: in click
+    self._execute(Command.CLICK_ELEMENT)
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webelement.py:396: in _execute
+    return self._parent.execute(command, params)
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py:429: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x10286ebf0&gt;
+response = {'status': 400, 'value': '{"value":{"error":"element click intercepted","message":"element click intercepted: Element ...00019e80a06c _pthread_start + 148\\n22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8\\n"}}'}
+
+    def check_response(self, response: Dict[str, Any]) -&gt; None:
+        """
+        Checks that a JSON response from the WebDriver does not have an error.
+    
+        :Args:
+         - response - The JSON response from the WebDriver server as a dictionary
+           object.
+    
+        :Raises: If the response contains an error message.
+        """
+        status = response.get('status', None)
+        if not status or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen: str = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, str):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if not status:
+                        status = value.get("status", ErrorCode.UNKNOWN_ERROR)
+                        message = value.get("value") or value.get("message")
+                        if not isinstance(message, str):
+                            value = message
+                            message = message.get('message')
+                    else:
+                        message = value.get('message', None)
+                except ValueError:
+                    pass
+    
+        exception_class: Type[WebDriverException]
+        if status in ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status in ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status in ErrorCode.NO_SUCH_SHADOW_ROOT:
+            exception_class = NoSuchShadowRootException
+        elif status in ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status in ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status in ErrorCode.INVALID_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status in ErrorCode.ELEMENT_NOT_INTERACTABLE:
+            exception_class = ElementNotInteractableException
+        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = InvalidCookieDomainException
+        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = UnableToSetCookieException
+        elif status in ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status in ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status in ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        elif status in ErrorCode.JAVASCRIPT_ERROR:
+            exception_class = JavascriptException
+        elif status in ErrorCode.SESSION_NOT_CREATED:
+            exception_class = SessionNotCreatedException
+        elif status in ErrorCode.INVALID_ARGUMENT:
+            exception_class = InvalidArgumentException
+        elif status in ErrorCode.NO_SUCH_COOKIE:
+            exception_class = NoSuchCookieException
+        elif status in ErrorCode.UNABLE_TO_CAPTURE_SCREEN:
+            exception_class = ScreenshotException
+        elif status in ErrorCode.ELEMENT_CLICK_INTERCEPTED:
+            exception_class = ElementClickInterceptedException
+        elif status in ErrorCode.INSECURE_CERTIFICATE:
+            exception_class = InsecureCertificateException
+        elif status in ErrorCode.INVALID_COORDINATES:
+            exception_class = InvalidCoordinatesException
+        elif status in ErrorCode.INVALID_SESSION_ID:
+            exception_class = InvalidSessionIdException
+        elif status in ErrorCode.UNKNOWN_METHOD:
+            exception_class = UnknownMethodException
+        else:
+            exception_class = WebDriverException
+        if not value:
+            value = response['value']
+        if isinstance(value, str):
+            raise exception_class(value)
+        if message == "" and 'message' in value:
+            message = value['message']
+    
+        screen = None  # type: ignore[assignment]
+        if 'screen' in value:
+            screen = value['screen']
+    
+        stacktrace = None
+        st_value = value.get('stackTrace') or value.get('stacktrace')
+        if st_value:
+            if isinstance(st_value, str):
+                stacktrace = st_value.split('\n')
+            else:
+                stacktrace = []
+                try:
+                    for frame in st_value:
+                        line = frame.get("lineNumber", "")
+                        file = frame.get("fileName", "&lt;anonymous&gt;")
+                        if line:
+                            file = f"{file}:{line}"
+                        meth = frame.get('methodName', '&lt;anonymous&gt;')
+                        if 'className' in frame:
+                            meth = "{}.{}".format(frame['className'], meth)
+                        msg = "    at %s (%s)"
+                        msg = msg % (meth, file)
+                        stacktrace.append(msg)
+                except TypeError:
+                    pass
+        if exception_class == UnexpectedAlertPresentException:
+            alert_text = None
+            if 'data' in value:
+                alert_text = value['data'].get('text')
+            elif 'alert' in value:
+                alert_text = value['alert'].get('text')
+            raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here
+&gt;       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;ion-segment-button _ngcontent-vfo-c181="" class="taskGroup__segment md in-segment in-segment-color segment-button-layout-icon-top ion-activatable ion-activatable-instant ion-focusable hydrated segment-button-after-checked segment-button-checked" role="tab" aria-selected="true" tabindex="0"&gt;...&lt;/ion-segment-button&gt; is not clickable at point (453, 110). Other element would receive the click: &lt;div _ngcontent-vfo-c93="" class="basicModal container"&gt;...&lt;/div&gt;
+E         (Session info: headless chrome=107.0.5304.110)
+E       Stacktrace:
+E       0   chromedriver                        0x000000010305ea88 chromedriver + 4123272
+E       1   chromedriver                        0x0000000102fea778 chromedriver + 3647352
+E       2   chromedriver                        0x0000000102cacac4 chromedriver + 248516
+E       3   chromedriver                        0x0000000102ce98a8 chromedriver + 497832
+E       4   chromedriver                        0x0000000102ce7874 chromedriver + 489588
+E       5   chromedriver                        0x0000000102ce54e8 chromedriver + 480488
+E       6   chromedriver                        0x0000000102ce44dc chromedriver + 476380
+E       7   chromedriver                        0x0000000102cd8a00 chromedriver + 428544
+E       8   chromedriver                        0x0000000102cd8260 chromedriver + 426592
+E       9   chromedriver                        0x0000000102d15020 chromedriver + 675872
+E       10  chromedriver                        0x0000000102cd6b10 chromedriver + 420624
+E       11  chromedriver                        0x0000000102cd7c30 chromedriver + 425008
+E       12  chromedriver                        0x0000000103030ae4 chromedriver + 3934948
+E       13  chromedriver                        0x0000000103033f24 chromedriver + 3948324
+E       14  chromedriver                        0x0000000103034508 chromedriver + 3949832
+E       15  chromedriver                        0x000000010303ab30 chromedriver + 3975984
+E       16  chromedriver                        0x0000000103034b24 chromedriver + 3951396
+E       17  chromedriver                        0x000000010300f71c chromedriver + 3798812
+E       18  chromedriver                        0x00000001030512f0 chromedriver + 4068080
+E       19  chromedriver                        0x0000000103051444 chromedriver + 4068420
+E       20  chromedriver                        0x0000000103065450 chromedriver + 4150352
+E       21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148
+E       22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8
+
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/errorhandler.py:243: ElementClickInterceptedException</failure></testcase><testcase classname="tests.discover.test_alphabet.TestStageDiscoverAlphabet" name="test_alphabet_discover_favorites" time="46.587"><failure message="AssertionError: False is not true : Took too long to find recommended alphabet lesson (og:spanish with text Alphabet">self = &lt;tests.discover.test_alphabet.TestStageDiscoverAlphabet testMethod=test_alphabet_discover_favorites&gt;
+
+    def test_alphabet_discover_favorites(self):
+        e = self.elements
+        self.login("spanish")
+        self.wait_for_text_in_element(e.whats_new_card_close_button, "Close")
+        self.click(e.whats_new_card_close_button)
+        self.find(e.recommended_alphabet_lesson)
+&gt;       self.wait_for_text_in_element(e.recommended_alphabet_lesson_title, "Alphabet")
+
+tests/discover/test_alphabet.py:82: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:41: in wait_for_text_in_element
+    self.assertTrue(super()._wait_for_text_in_element(element[0:2], text, time), f"Took too long to find {element[2]} with text {text}")
+E   AssertionError: False is not true : Took too long to find recommended alphabet lesson (og:spanish with text Alphabet</failure></testcase><testcase classname="tests.discover.test_discover.TestStageDiscoverVocab" name="test_vocab_discover" time="30.255" /><testcase classname="tests.test_settings.TestStageSettings" name="test_stage_logout" time="37.927"><failure message="AssertionError: None is not true : couldn't find element password field (sign in) by ('css selector', '#input73'). This is likely an out of date CSS Selector">self = &lt;tests.test_settings.TestStageSettings testMethod=test_stage_logout&gt;
+
+    def test_stage_logout(self):
+&gt;       self.assertTrue(self.login("spanish"))
+
+tests/test_settings.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:73: in login
+    self.find(e.sign_in_password_field)
+tests/embark_tests.py:47: in find
+    self.assertTrue(self._find(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
+E   AssertionError: None is not true : couldn't find element password field (sign in) by ('css selector', '#input73'). This is likely an out of date CSS Selector</failure></testcase><testcase classname="tests.deep_links.test_deep_links.TestDeepLinks" name="test_link_to_articles_lesson" time="37.665"><failure message="AssertionError: None is not true : couldn't find element password field (sign in) by ('css selector', '#input73'). This is likely an out of date CSS Selector">self = &lt;tests.deep_links.test_deep_links.TestDeepLinks testMethod=test_link_to_articles_lesson&gt;
+
+    def test_link_to_articles_lesson(self):
+&gt;       self.login("spanish")
+
+tests/deep_links/test_deep_links.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:73: in login
+    self.find(e.sign_in_password_field)
+tests/embark_tests.py:47: in find
+    self.assertTrue(self._find(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
+E   AssertionError: None is not true : couldn't find element password field (sign in) by ('css selector', '#input73'). This is likely an out of date CSS Selector</failure></testcase><testcase classname="tests.discover.test_record_audio.TestRecordAudio" name="test_record_audio" time="37.659"><failure message="AssertionError: None is not true : couldn't find element password field (sign in) by ('css selector', '#input73'). This is likely an out of date CSS Selector">self = &lt;tests.discover.test_record_audio.TestRecordAudio testMethod=test_record_audio&gt;
+
+    def test_record_audio(self):
+        e = self.elements
+&gt;       self.login("spanish")
+
+tests/discover/test_record_audio.py:5: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:73: in login
+    self.find(e.sign_in_password_field)
+tests/embark_tests.py:47: in find
+    self.assertTrue(self._find(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
+E   AssertionError: None is not true : couldn't find element password field (sign in) by ('css selector', '#input73'). This is likely an out of date CSS Selector</failure></testcase><testcase classname="tests.general.test_language_select_screen.TestStageLanguageSelectScreen" name="test_stage_language_select_screen" time="37.639"><failure message="AssertionError: None is not true : couldn't find element password field (sign in) by ('css selector', '#input73'). This is likely an out of date CSS Selector">self = &lt;tests.general.test_language_select_screen.TestStageLanguageSelectScreen testMethod=test_stage_language_select_screen&gt;
+
+    def test_stage_language_select_screen(self):
+        e = self.elements
+&gt;       self.assertTrue(self.login())
+
+tests/general/test_language_select_screen.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:73: in login
+    self.find(e.sign_in_password_field)
+tests/embark_tests.py:47: in find
+    self.assertTrue(self._find(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
+E   AssertionError: None is not true : couldn't find element password field (sign in) by ('css selector', '#input73'). This is likely an out of date CSS Selector</failure></testcase><testcase classname="tests.discover.test_vocab_spaced_review.TestVocabSpacedReview" name="test_vocab_spaced_review" time="24.125"><failure message="KeyError: 'Good evening'">self = &lt;tests.discover.test_vocab_spaced_review.TestVocabSpacedReview testMethod=test_vocab_spaced_review&gt;
+
+    def test_vocab_spaced_review(self):
+        e = self.elements
+        self.login("spanish")
+        self.wait_for_text_in_element(e.whats_new_card_close_button, "Close")
+        self.click(e.whats_new_card_close_button)
+        # Check if in recommended
+        self.find(e.recommended_meet_someone_lesson)
+        self.validate_element_text(e.recommended_meet_someone_lesson, "Meet Someone\nBasic")
+        self.click(e.recommended_meet_someone_lesson)
+        self.wait_for_text_in_element(e.page_title, "Meet Someone")
+        self.validate_element_text(e.lesson_section_title, "Essentials")
+        self.validate_element_text(e.lesson_card, "Vocabulary")
+        self.click(e.lesson_card)
+        self.wait_for_element_to_be_clickable(e.lesson_discover_button)
+        self.click(e.lesson_discover_button)
+        self.click(e.start_button)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_take_quiz_button)
+    
+        word_pairs = {"church":"iglesia", "companion (male)":"compañero", "companion (female)":"compañera", "city":"ciudad", "Elder":"Élder (misionero)", "day":"día"}
+        native_selectors = [e.vocab_discover_quiz_native_1, e.vocab_discover_quiz_native_2, e.vocab_discover_quiz_native_3, e.vocab_discover_quiz_native_4, e.vocab_discover_quiz_native_5, e.vocab_discover_quiz_native_6]
+        target_selectors = [e.vocab_discover_quiz_target_1, e.vocab_discover_quiz_target_2, e.vocab_discover_quiz_target_3, e.vocab_discover_quiz_target_4, e.vocab_discover_quiz_target_5, e.vocab_discover_quiz_target_6]
+        for i in range(6):
+            for j in range(6):
+                # self.get_element(e.vocab_discover_quiz_native_1)
+&gt;               if word_pairs[self.get_element(native_selectors[i]).text] == self.get_element(target_selectors[j]).text:
+E               KeyError: 'Good evening'
+
+tests/discover/test_vocab_spaced_review.py:34: KeyError</failure></testcase><testcase classname="tests.general.test_language_select_screen.TestProdLanguageSelectScreen" name="test_prod_language_select_screen_load_non_core_language" time="13.517"><failure message="selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable: [object HTMLElement] has no size and location&#10;  (Session info: headless chrome=107.0.5304.110)&#10;Stacktrace:&#10;0   chromedriver                        0x000000010305ea88 chromedriver + 4123272&#10;1   chromedriver                        0x0000000102fea778 chromedriver + 3647352&#10;2   chromedriver                        0x0000000102cacac4 chromedriver + 248516&#10;3   chromedriver                        0x0000000102cafc80 chromedriver + 261248&#10;4   chromedriver                        0x0000000102cafaa4 chromedriver + 260772&#10;5   chromedriver                        0x0000000102cafd4c chromedriver + 261452&#10;6   chromedriver                        0x0000000102ce8c44 chromedriver + 494660&#10;7   chromedriver                        0x0000000102ce8348 chromedriver + 492360&#10;8   chromedriver                        0x0000000102d1d2f0 chromedriver + 709360&#10;9   chromedriver                        0x0000000102d15020 chromedriver + 675872&#10;10  chromedriver                        0x0000000102cd6b10 chromedriver + 420624&#10;11  chromedriver                        0x0000000102cd7c30 chromedriver + 425008&#10;12  chromedriver                        0x0000000103030ae4 chromedriver + 3934948&#10;13  chromedriver                        0x0000000103033f24 chromedriver + 3948324&#10;14  chromedriver                        0x0000000103034508 chromedriver + 3949832&#10;15  chromedriver                        0x000000010303ab30 chromedriver + 3975984&#10;16  chromedriver                        0x0000000103034b24 chromedriver + 3951396&#10;17  chromedriver                        0x000000010300f71c chromedriver + 3798812&#10;18  chromedriver                        0x00000001030512f0 chromedriver + 4068080&#10;19  chromedriver                        0x0000000103051444 chromedriver + 4068420&#10;20  chromedriver                        0x0000000103065450 chromedriver + 4150352&#10;21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148&#10;22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8">self = &lt;tests.general.test_language_select_screen.TestProdLanguageSelectScreen testMethod=test_prod_language_select_screen_load_non_core_language&gt;
+
+    def test_prod_language_select_screen_load_non_core_language(self):
+        e = self.elements
+        self.assertTrue(self.login("korean"))
+&gt;       self.click(e.for_you_tab)
+
+tests/general/test_language_select_screen.py:46: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:50: in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
+sessions/embark_session.py:92: in _click
+    self._find(element, time)
+sessions/embark_session.py:84: in _find
+    ActionChains(self.driver).move_to_element(elem).perform()
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/common/action_chains.py:78: in perform
+    self.w3c_actions.perform()
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/common/actions/action_builder.py:88: in perform
+    self.driver.execute(Command.W3C_ACTIONS, enc)
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py:429: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x102ea7e50&gt;
+response = {'status': 400, 'value': '{"value":{"error":"element not interactable","message":"element not interactable: [object HT...00019e80a06c _pthread_start + 148\\n22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8\\n"}}'}
+
+    def check_response(self, response: Dict[str, Any]) -&gt; None:
+        """
+        Checks that a JSON response from the WebDriver does not have an error.
+    
+        :Args:
+         - response - The JSON response from the WebDriver server as a dictionary
+           object.
+    
+        :Raises: If the response contains an error message.
+        """
+        status = response.get('status', None)
+        if not status or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen: str = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, str):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if not status:
+                        status = value.get("status", ErrorCode.UNKNOWN_ERROR)
+                        message = value.get("value") or value.get("message")
+                        if not isinstance(message, str):
+                            value = message
+                            message = message.get('message')
+                    else:
+                        message = value.get('message', None)
+                except ValueError:
+                    pass
+    
+        exception_class: Type[WebDriverException]
+        if status in ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status in ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status in ErrorCode.NO_SUCH_SHADOW_ROOT:
+            exception_class = NoSuchShadowRootException
+        elif status in ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status in ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status in ErrorCode.INVALID_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status in ErrorCode.ELEMENT_NOT_INTERACTABLE:
+            exception_class = ElementNotInteractableException
+        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = InvalidCookieDomainException
+        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = UnableToSetCookieException
+        elif status in ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status in ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status in ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        elif status in ErrorCode.JAVASCRIPT_ERROR:
+            exception_class = JavascriptException
+        elif status in ErrorCode.SESSION_NOT_CREATED:
+            exception_class = SessionNotCreatedException
+        elif status in ErrorCode.INVALID_ARGUMENT:
+            exception_class = InvalidArgumentException
+        elif status in ErrorCode.NO_SUCH_COOKIE:
+            exception_class = NoSuchCookieException
+        elif status in ErrorCode.UNABLE_TO_CAPTURE_SCREEN:
+            exception_class = ScreenshotException
+        elif status in ErrorCode.ELEMENT_CLICK_INTERCEPTED:
+            exception_class = ElementClickInterceptedException
+        elif status in ErrorCode.INSECURE_CERTIFICATE:
+            exception_class = InsecureCertificateException
+        elif status in ErrorCode.INVALID_COORDINATES:
+            exception_class = InvalidCoordinatesException
+        elif status in ErrorCode.INVALID_SESSION_ID:
+            exception_class = InvalidSessionIdException
+        elif status in ErrorCode.UNKNOWN_METHOD:
+            exception_class = UnknownMethodException
+        else:
+            exception_class = WebDriverException
+        if not value:
+            value = response['value']
+        if isinstance(value, str):
+            raise exception_class(value)
+        if message == "" and 'message' in value:
+            message = value['message']
+    
+        screen = None  # type: ignore[assignment]
+        if 'screen' in value:
+            screen = value['screen']
+    
+        stacktrace = None
+        st_value = value.get('stackTrace') or value.get('stacktrace')
+        if st_value:
+            if isinstance(st_value, str):
+                stacktrace = st_value.split('\n')
+            else:
+                stacktrace = []
+                try:
+                    for frame in st_value:
+                        line = frame.get("lineNumber", "")
+                        file = frame.get("fileName", "&lt;anonymous&gt;")
+                        if line:
+                            file = f"{file}:{line}"
+                        meth = frame.get('methodName', '&lt;anonymous&gt;')
+                        if 'className' in frame:
+                            meth = "{}.{}".format(frame['className'], meth)
+                        msg = "    at %s (%s)"
+                        msg = msg % (meth, file)
+                        stacktrace.append(msg)
+                except TypeError:
+                    pass
+        if exception_class == UnexpectedAlertPresentException:
+            alert_text = None
+            if 'data' in value:
+                alert_text = value['data'].get('text')
+            elif 'alert' in value:
+                alert_text = value['alert'].get('text')
+            raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here
+&gt;       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable: [object HTMLElement] has no size and location
+E         (Session info: headless chrome=107.0.5304.110)
+E       Stacktrace:
+E       0   chromedriver                        0x000000010305ea88 chromedriver + 4123272
+E       1   chromedriver                        0x0000000102fea778 chromedriver + 3647352
+E       2   chromedriver                        0x0000000102cacac4 chromedriver + 248516
+E       3   chromedriver                        0x0000000102cafc80 chromedriver + 261248
+E       4   chromedriver                        0x0000000102cafaa4 chromedriver + 260772
+E       5   chromedriver                        0x0000000102cafd4c chromedriver + 261452
+E       6   chromedriver                        0x0000000102ce8c44 chromedriver + 494660
+E       7   chromedriver                        0x0000000102ce8348 chromedriver + 492360
+E       8   chromedriver                        0x0000000102d1d2f0 chromedriver + 709360
+E       9   chromedriver                        0x0000000102d15020 chromedriver + 675872
+E       10  chromedriver                        0x0000000102cd6b10 chromedriver + 420624
+E       11  chromedriver                        0x0000000102cd7c30 chromedriver + 425008
+E       12  chromedriver                        0x0000000103030ae4 chromedriver + 3934948
+E       13  chromedriver                        0x0000000103033f24 chromedriver + 3948324
+E       14  chromedriver                        0x0000000103034508 chromedriver + 3949832
+E       15  chromedriver                        0x000000010303ab30 chromedriver + 3975984
+E       16  chromedriver                        0x0000000103034b24 chromedriver + 3951396
+E       17  chromedriver                        0x000000010300f71c chromedriver + 3798812
+E       18  chromedriver                        0x00000001030512f0 chromedriver + 4068080
+E       19  chromedriver                        0x0000000103051444 chromedriver + 4068420
+E       20  chromedriver                        0x0000000103065450 chromedriver + 4150352
+E       21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148
+E       22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8
+
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/errorhandler.py:243: ElementNotInteractableException</failure></testcase><testcase classname="tests.general.test_language_select_screen.TestProdLanguageSelectScreen" name="test_prod_language_select_screen" time="18.414" /><testcase classname="tests.discover.test_quiz_me.TestQuizMe" name="test_quiz_me" time="24.781"><failure message="KeyError: 'Good evening'">self = &lt;tests.discover.test_quiz_me.TestQuizMe testMethod=test_quiz_me&gt;
+
+    def test_quiz_me(self):
+        e = self.elements
+        self.login("spanish")
+        self.wait_for_text_in_element(e.whats_new_card_close_button, "Close")
+        self.click(e.whats_new_card_close_button)
+        # Check if in recommended
+        self.find(e.recommended_meet_someone_lesson)
+        self.validate_element_text(e.recommended_meet_someone_lesson, "Meet Someone\nBasic")
+        self.click(e.recommended_meet_someone_lesson)
+        self.wait_for_text_in_element(e.page_title, "Meet Someone")
+        self.validate_element_text(e.lesson_section_title, "Essentials")
+        self.validate_element_text(e.lesson_card, "Vocabulary")
+        self.click(e.lesson_card)
+    
+        self.wait_for_element_to_be_clickable(e.lesson_discover_button)
+        self.click(e.lesson_discover_button)
+        self.click(e.start_button)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_take_quiz_button)
+    
+        # Take first Spanish vocab quiz. This is super slow
+        word_pairs = {"church":"iglesia", "companion (male)":"compañero", "companion (female)":"compañera", "city":"ciudad", "Elder":"Élder (misionero)", "day":"día"}
+        native_selectors = [e.vocab_discover_quiz_native_1, e.vocab_discover_quiz_native_2, e.vocab_discover_quiz_native_3, e.vocab_discover_quiz_native_4, e.vocab_discover_quiz_native_5, e.vocab_discover_quiz_native_6]
+        target_selectors = [e.vocab_discover_quiz_target_1, e.vocab_discover_quiz_target_2, e.vocab_discover_quiz_target_3, e.vocab_discover_quiz_target_4, e.vocab_discover_quiz_target_5, e.vocab_discover_quiz_target_6]
+        skip_set = set()
+        for i in range(6):
+            for j in range(6):
+                if j not in skip_set:
+&gt;                   if word_pairs[self.get_element(native_selectors[i]).text] == self.get_element(target_selectors[j]).text:
+E                   KeyError: 'Good evening'
+
+tests/discover/test_quiz_me.py:37: KeyError</failure></testcase><testcase classname="tests.general.test_language_select_screen.TestStageLanguageSelectScreen" name="test_stage_language_select_screen_load_non_core_language" time="15.568"><failure message="selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;ion-segment-button _ngcontent-nll-c181=&quot;&quot; class=&quot;taskGroup__segment md in-segment in-segment-color segment-button-layout-icon-top ion-activatable ion-activatable-instant ion-focusable hydrated segment-button-after-checked segment-button-checked&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot; tabindex=&quot;0&quot;&gt;...&lt;/ion-segment-button&gt; is not clickable at point (453, 110). Other element would receive the click: &lt;div _ngcontent-nll-c93=&quot;&quot; class=&quot;basicModal container&quot;&gt;...&lt;/div&gt;&#10;  (Session info: headless chrome=107.0.5304.110)&#10;Stacktrace:&#10;0   chromedriver                        0x000000010305ea88 chromedriver + 4123272&#10;1   chromedriver                        0x0000000102fea778 chromedriver + 3647352&#10;2   chromedriver                        0x0000000102cacac4 chromedriver + 248516&#10;3   chromedriver                        0x0000000102ce98a8 chromedriver + 497832&#10;4   chromedriver                        0x0000000102ce7874 chromedriver + 489588&#10;5   chromedriver                        0x0000000102ce54e8 chromedriver + 480488&#10;6   chromedriver                        0x0000000102ce44dc chromedriver + 476380&#10;7   chromedriver                        0x0000000102cd8a00 chromedriver + 428544&#10;8   chromedriver                        0x0000000102cd8260 chromedriver + 426592&#10;9   chromedriver                        0x0000000102d15020 chromedriver + 675872&#10;10  chromedriver                        0x0000000102cd6b10 chromedriver + 420624&#10;11  chromedriver                        0x0000000102cd7c30 chromedriver + 425008&#10;12  chromedriver                        0x0000000103030ae4 chromedriver + 3934948&#10;13  chromedriver                        0x0000000103033f24 chromedriver + 3948324&#10;14  chromedriver                        0x0000000103034508 chromedriver + 3949832&#10;15  chromedriver                        0x000000010303ab30 chromedriver + 3975984&#10;16  chromedriver                        0x0000000103034b24 chromedriver + 3951396&#10;17  chromedriver                        0x000000010300f71c chromedriver + 3798812&#10;18  chromedriver                        0x00000001030512f0 chromedriver + 4068080&#10;19  chromedriver                        0x0000000103051444 chromedriver + 4068420&#10;20  chromedriver                        0x0000000103065450 chromedriver + 4150352&#10;21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148&#10;22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8">self = &lt;tests.general.test_language_select_screen.TestStageLanguageSelectScreen testMethod=test_stage_language_select_screen_load_non_core_language&gt;
+
+    def test_stage_language_select_screen_load_non_core_language(self):
+        e = self.elements
+        self.assertTrue(self.login("korean"))
+&gt;       self.click(e.for_you_tab)
+
+tests/general/test_language_select_screen.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:50: in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
+sessions/embark_session.py:96: in _click
+    self.driver.find_element(*element).click()
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webelement.py:88: in click
+    self._execute(Command.CLICK_ELEMENT)
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webelement.py:396: in _execute
+    return self._parent.execute(command, params)
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py:429: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x1070295d0&gt;
+response = {'status': 400, 'value': '{"value":{"error":"element click intercepted","message":"element click intercepted: Element ...00019e80a06c _pthread_start + 148\\n22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8\\n"}}'}
+
+    def check_response(self, response: Dict[str, Any]) -&gt; None:
+        """
+        Checks that a JSON response from the WebDriver does not have an error.
+    
+        :Args:
+         - response - The JSON response from the WebDriver server as a dictionary
+           object.
+    
+        :Raises: If the response contains an error message.
+        """
+        status = response.get('status', None)
+        if not status or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen: str = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, str):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if not status:
+                        status = value.get("status", ErrorCode.UNKNOWN_ERROR)
+                        message = value.get("value") or value.get("message")
+                        if not isinstance(message, str):
+                            value = message
+                            message = message.get('message')
+                    else:
+                        message = value.get('message', None)
+                except ValueError:
+                    pass
+    
+        exception_class: Type[WebDriverException]
+        if status in ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status in ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status in ErrorCode.NO_SUCH_SHADOW_ROOT:
+            exception_class = NoSuchShadowRootException
+        elif status in ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status in ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status in ErrorCode.INVALID_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status in ErrorCode.ELEMENT_NOT_INTERACTABLE:
+            exception_class = ElementNotInteractableException
+        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = InvalidCookieDomainException
+        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = UnableToSetCookieException
+        elif status in ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status in ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status in ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        elif status in ErrorCode.JAVASCRIPT_ERROR:
+            exception_class = JavascriptException
+        elif status in ErrorCode.SESSION_NOT_CREATED:
+            exception_class = SessionNotCreatedException
+        elif status in ErrorCode.INVALID_ARGUMENT:
+            exception_class = InvalidArgumentException
+        elif status in ErrorCode.NO_SUCH_COOKIE:
+            exception_class = NoSuchCookieException
+        elif status in ErrorCode.UNABLE_TO_CAPTURE_SCREEN:
+            exception_class = ScreenshotException
+        elif status in ErrorCode.ELEMENT_CLICK_INTERCEPTED:
+            exception_class = ElementClickInterceptedException
+        elif status in ErrorCode.INSECURE_CERTIFICATE:
+            exception_class = InsecureCertificateException
+        elif status in ErrorCode.INVALID_COORDINATES:
+            exception_class = InvalidCoordinatesException
+        elif status in ErrorCode.INVALID_SESSION_ID:
+            exception_class = InvalidSessionIdException
+        elif status in ErrorCode.UNKNOWN_METHOD:
+            exception_class = UnknownMethodException
+        else:
+            exception_class = WebDriverException
+        if not value:
+            value = response['value']
+        if isinstance(value, str):
+            raise exception_class(value)
+        if message == "" and 'message' in value:
+            message = value['message']
+    
+        screen = None  # type: ignore[assignment]
+        if 'screen' in value:
+            screen = value['screen']
+    
+        stacktrace = None
+        st_value = value.get('stackTrace') or value.get('stacktrace')
+        if st_value:
+            if isinstance(st_value, str):
+                stacktrace = st_value.split('\n')
+            else:
+                stacktrace = []
+                try:
+                    for frame in st_value:
+                        line = frame.get("lineNumber", "")
+                        file = frame.get("fileName", "&lt;anonymous&gt;")
+                        if line:
+                            file = f"{file}:{line}"
+                        meth = frame.get('methodName', '&lt;anonymous&gt;')
+                        if 'className' in frame:
+                            meth = "{}.{}".format(frame['className'], meth)
+                        msg = "    at %s (%s)"
+                        msg = msg % (meth, file)
+                        stacktrace.append(msg)
+                except TypeError:
+                    pass
+        if exception_class == UnexpectedAlertPresentException:
+            alert_text = None
+            if 'data' in value:
+                alert_text = value['data'].get('text')
+            elif 'alert' in value:
+                alert_text = value['alert'].get('text')
+            raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here
+&gt;       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;ion-segment-button _ngcontent-nll-c181="" class="taskGroup__segment md in-segment in-segment-color segment-button-layout-icon-top ion-activatable ion-activatable-instant ion-focusable hydrated segment-button-after-checked segment-button-checked" role="tab" aria-selected="true" tabindex="0"&gt;...&lt;/ion-segment-button&gt; is not clickable at point (453, 110). Other element would receive the click: &lt;div _ngcontent-nll-c93="" class="basicModal container"&gt;...&lt;/div&gt;
+E         (Session info: headless chrome=107.0.5304.110)
+E       Stacktrace:
+E       0   chromedriver                        0x000000010305ea88 chromedriver + 4123272
+E       1   chromedriver                        0x0000000102fea778 chromedriver + 3647352
+E       2   chromedriver                        0x0000000102cacac4 chromedriver + 248516
+E       3   chromedriver                        0x0000000102ce98a8 chromedriver + 497832
+E       4   chromedriver                        0x0000000102ce7874 chromedriver + 489588
+E       5   chromedriver                        0x0000000102ce54e8 chromedriver + 480488
+E       6   chromedriver                        0x0000000102ce44dc chromedriver + 476380
+E       7   chromedriver                        0x0000000102cd8a00 chromedriver + 428544
+E       8   chromedriver                        0x0000000102cd8260 chromedriver + 426592
+E       9   chromedriver                        0x0000000102d15020 chromedriver + 675872
+E       10  chromedriver                        0x0000000102cd6b10 chromedriver + 420624
+E       11  chromedriver                        0x0000000102cd7c30 chromedriver + 425008
+E       12  chromedriver                        0x0000000103030ae4 chromedriver + 3934948
+E       13  chromedriver                        0x0000000103033f24 chromedriver + 3948324
+E       14  chromedriver                        0x0000000103034508 chromedriver + 3949832
+E       15  chromedriver                        0x000000010303ab30 chromedriver + 3975984
+E       16  chromedriver                        0x0000000103034b24 chromedriver + 3951396
+E       17  chromedriver                        0x000000010300f71c chromedriver + 3798812
+E       18  chromedriver                        0x00000001030512f0 chromedriver + 4068080
+E       19  chromedriver                        0x0000000103051444 chromedriver + 4068420
+E       20  chromedriver                        0x0000000103065450 chromedriver + 4150352
+E       21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148
+E       22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8
+
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/errorhandler.py:243: ElementClickInterceptedException</failure></testcase><testcase classname="tests.general.test_language_select_screen.TestStageLanguageSelectScreen" name="test_stage_language_select_screen_load_core_language" time="16.867"><failure message="selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;ion-segment-button _ngcontent-blk-c181=&quot;&quot; class=&quot;taskGroup__segment md in-segment in-segment-color segment-button-layout-icon-top ion-activatable ion-activatable-instant ion-focusable hydrated segment-button-after-checked segment-button-checked&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot; tabindex=&quot;0&quot;&gt;...&lt;/ion-segment-button&gt; is not clickable at point (453, 110). Other element would receive the click: &lt;div _ngcontent-blk-c93=&quot;&quot; class=&quot;basicModal container&quot;&gt;...&lt;/div&gt;&#10;  (Session info: headless chrome=107.0.5304.110)&#10;Stacktrace:&#10;0   chromedriver                        0x00000001044a2a88 chromedriver + 4123272&#10;1   chromedriver                        0x000000010442e778 chromedriver + 3647352&#10;2   chromedriver                        0x00000001040f0ac4 chromedriver + 248516&#10;3   chromedriver                        0x000000010412d8a8 chromedriver + 497832&#10;4   chromedriver                        0x000000010412b874 chromedriver + 489588&#10;5   chromedriver                        0x00000001041294e8 chromedriver + 480488&#10;6   chromedriver                        0x00000001041284dc chromedriver + 476380&#10;7   chromedriver                        0x000000010411ca00 chromedriver + 428544&#10;8   chromedriver                        0x000000010411c260 chromedriver + 426592&#10;9   chromedriver                        0x0000000104159020 chromedriver + 675872&#10;10  chromedriver                        0x000000010411ab10 chromedriver + 420624&#10;11  chromedriver                        0x000000010411bc30 chromedriver + 425008&#10;12  chromedriver                        0x0000000104474ae4 chromedriver + 3934948&#10;13  chromedriver                        0x0000000104477f24 chromedriver + 3948324&#10;14  chromedriver                        0x0000000104478508 chromedriver + 3949832&#10;15  chromedriver                        0x000000010447eb30 chromedriver + 3975984&#10;16  chromedriver                        0x0000000104478b24 chromedriver + 3951396&#10;17  chromedriver                        0x000000010445371c chromedriver + 3798812&#10;18  chromedriver                        0x00000001044952f0 chromedriver + 4068080&#10;19  chromedriver                        0x0000000104495444 chromedriver + 4068420&#10;20  chromedriver                        0x00000001044a9450 chromedriver + 4150352&#10;21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148&#10;22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8">self = &lt;tests.general.test_language_select_screen.TestStageLanguageSelectScreen testMethod=test_stage_language_select_screen_load_core_language&gt;
+
+    def test_stage_language_select_screen_load_core_language(self):
+        e = self.elements
+        self.assertTrue(self.login("spanish"))
+&gt;       self.click(e.for_you_tab)
+
+tests/general/test_language_select_screen.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:50: in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
+sessions/embark_session.py:96: in _click
+    self.driver.find_element(*element).click()
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webelement.py:88: in click
+    self._execute(Command.CLICK_ELEMENT)
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webelement.py:396: in _execute
+    return self._parent.execute(command, params)
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py:429: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x107adb370&gt;
+response = {'status': 400, 'value': '{"value":{"error":"element click intercepted","message":"element click intercepted: Element ...00019e80a06c _pthread_start + 148\\n22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8\\n"}}'}
+
+    def check_response(self, response: Dict[str, Any]) -&gt; None:
+        """
+        Checks that a JSON response from the WebDriver does not have an error.
+    
+        :Args:
+         - response - The JSON response from the WebDriver server as a dictionary
+           object.
+    
+        :Raises: If the response contains an error message.
+        """
+        status = response.get('status', None)
+        if not status or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen: str = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, str):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if not status:
+                        status = value.get("status", ErrorCode.UNKNOWN_ERROR)
+                        message = value.get("value") or value.get("message")
+                        if not isinstance(message, str):
+                            value = message
+                            message = message.get('message')
+                    else:
+                        message = value.get('message', None)
+                except ValueError:
+                    pass
+    
+        exception_class: Type[WebDriverException]
+        if status in ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status in ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status in ErrorCode.NO_SUCH_SHADOW_ROOT:
+            exception_class = NoSuchShadowRootException
+        elif status in ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status in ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status in ErrorCode.INVALID_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status in ErrorCode.ELEMENT_NOT_INTERACTABLE:
+            exception_class = ElementNotInteractableException
+        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = InvalidCookieDomainException
+        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = UnableToSetCookieException
+        elif status in ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status in ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status in ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        elif status in ErrorCode.JAVASCRIPT_ERROR:
+            exception_class = JavascriptException
+        elif status in ErrorCode.SESSION_NOT_CREATED:
+            exception_class = SessionNotCreatedException
+        elif status in ErrorCode.INVALID_ARGUMENT:
+            exception_class = InvalidArgumentException
+        elif status in ErrorCode.NO_SUCH_COOKIE:
+            exception_class = NoSuchCookieException
+        elif status in ErrorCode.UNABLE_TO_CAPTURE_SCREEN:
+            exception_class = ScreenshotException
+        elif status in ErrorCode.ELEMENT_CLICK_INTERCEPTED:
+            exception_class = ElementClickInterceptedException
+        elif status in ErrorCode.INSECURE_CERTIFICATE:
+            exception_class = InsecureCertificateException
+        elif status in ErrorCode.INVALID_COORDINATES:
+            exception_class = InvalidCoordinatesException
+        elif status in ErrorCode.INVALID_SESSION_ID:
+            exception_class = InvalidSessionIdException
+        elif status in ErrorCode.UNKNOWN_METHOD:
+            exception_class = UnknownMethodException
+        else:
+            exception_class = WebDriverException
+        if not value:
+            value = response['value']
+        if isinstance(value, str):
+            raise exception_class(value)
+        if message == "" and 'message' in value:
+            message = value['message']
+    
+        screen = None  # type: ignore[assignment]
+        if 'screen' in value:
+            screen = value['screen']
+    
+        stacktrace = None
+        st_value = value.get('stackTrace') or value.get('stacktrace')
+        if st_value:
+            if isinstance(st_value, str):
+                stacktrace = st_value.split('\n')
+            else:
+                stacktrace = []
+                try:
+                    for frame in st_value:
+                        line = frame.get("lineNumber", "")
+                        file = frame.get("fileName", "&lt;anonymous&gt;")
+                        if line:
+                            file = f"{file}:{line}"
+                        meth = frame.get('methodName', '&lt;anonymous&gt;')
+                        if 'className' in frame:
+                            meth = "{}.{}".format(frame['className'], meth)
+                        msg = "    at %s (%s)"
+                        msg = msg % (meth, file)
+                        stacktrace.append(msg)
+                except TypeError:
+                    pass
+        if exception_class == UnexpectedAlertPresentException:
+            alert_text = None
+            if 'data' in value:
+                alert_text = value['data'].get('text')
+            elif 'alert' in value:
+                alert_text = value['alert'].get('text')
+            raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here
+&gt;       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;ion-segment-button _ngcontent-blk-c181="" class="taskGroup__segment md in-segment in-segment-color segment-button-layout-icon-top ion-activatable ion-activatable-instant ion-focusable hydrated segment-button-after-checked segment-button-checked" role="tab" aria-selected="true" tabindex="0"&gt;...&lt;/ion-segment-button&gt; is not clickable at point (453, 110). Other element would receive the click: &lt;div _ngcontent-blk-c93="" class="basicModal container"&gt;...&lt;/div&gt;
+E         (Session info: headless chrome=107.0.5304.110)
+E       Stacktrace:
+E       0   chromedriver                        0x00000001044a2a88 chromedriver + 4123272
+E       1   chromedriver                        0x000000010442e778 chromedriver + 3647352
+E       2   chromedriver                        0x00000001040f0ac4 chromedriver + 248516
+E       3   chromedriver                        0x000000010412d8a8 chromedriver + 497832
+E       4   chromedriver                        0x000000010412b874 chromedriver + 489588
+E       5   chromedriver                        0x00000001041294e8 chromedriver + 480488
+E       6   chromedriver                        0x00000001041284dc chromedriver + 476380
+E       7   chromedriver                        0x000000010411ca00 chromedriver + 428544
+E       8   chromedriver                        0x000000010411c260 chromedriver + 426592
+E       9   chromedriver                        0x0000000104159020 chromedriver + 675872
+E       10  chromedriver                        0x000000010411ab10 chromedriver + 420624
+E       11  chromedriver                        0x000000010411bc30 chromedriver + 425008
+E       12  chromedriver                        0x0000000104474ae4 chromedriver + 3934948
+E       13  chromedriver                        0x0000000104477f24 chromedriver + 3948324
+E       14  chromedriver                        0x0000000104478508 chromedriver + 3949832
+E       15  chromedriver                        0x000000010447eb30 chromedriver + 3975984
+E       16  chromedriver                        0x0000000104478b24 chromedriver + 3951396
+E       17  chromedriver                        0x000000010445371c chromedriver + 3798812
+E       18  chromedriver                        0x00000001044952f0 chromedriver + 4068080
+E       19  chromedriver                        0x0000000104495444 chromedriver + 4068420
+E       20  chromedriver                        0x00000001044a9450 chromedriver + 4150352
+E       21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148
+E       22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8
+
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/errorhandler.py:243: ElementClickInterceptedException</failure></testcase><testcase classname="tests.discover.test_tones.TestTonesInMandarin" name="test_tones_in_mandarin" time="24.554"><failure message="AttributeError: type object 'StageElements' has no attribute 'combination_tones_first'">self = &lt;tests.discover.test_tones.TestTonesInMandarin testMethod=test_tones_in_mandarin&gt;
+
+    def test_tones_in_mandarin(self):
+        e = self.elements
+        self.login("mandarin")
+        self.wait_for_text_in_element(e.whats_new_card_close_button, "Close")
+        self.click(e.whats_new_card_close_button)
+        self.click(e.home_button)
+        self.validate_element_text(e.recommended_tones_lesson, "Tones")
+        self.click(e.recommended_tones_lesson)
+        self.wait_for_text_in_element(e.tones_main_header, "Tones")
+        self.find(e.tones_main_header)
+        self.validate_url(self.urls.TONES_LESSON)
+        self.validate_element_text(e.page_title, "Tones")
+        self.validate_url(self.urls.TONES_LESSON)
+        self.validate_element_text(e.individual_tones_first, "ˉ\n1st")
+        self.validate_element_text(e.individual_tones_second, "ˊ\n2nd")
+        self.validate_element_text(e.individual_tones_third, "ˇ\n3rd")
+        self.validate_element_text(e.individual_tones_fourth, "ˋ\n4th")
+        self.validate_element_text(e.individual_tones_fifth, "5th")
+        self.click(e.tones_selector)
+        self.validate_element_text(e.tones_option_combinations, "Tone Combinations")
+        self.click(e.tones_option_combinations)
+        self.wait_for_text_in_element(e.tones_selector, "Tone Combinations")
+&gt;       self.validate_element_text(e.combination_tones_first, "1st\nˉ ˉ\nˉ ˊ\nˉ ˇ\nˉ ˋ\nˉ  ")
+E       AttributeError: type object 'StageElements' has no attribute 'combination_tones_first'
+
+tests/discover/test_tones.py:26: AttributeError</failure></testcase><testcase classname="tests.deep_links.test_deep_links.TestDeepLinks" name="test_link_to_pray_often" time="77.866"><failure message="AssertionError: None is not true : couldn't find element Vocabulary and Phrases card(og:spanish) by ('css selector', 'div&gt;ion-card:nth-of-type(9)'). This is likely an out of date CSS Selector">self = &lt;tests.deep_links.test_deep_links.TestDeepLinks testMethod=test_link_to_pray_often&gt;
+
+    def test_link_to_pray_often(self):
+        self.login("spanish")
+        self.wait_for_text_in_element(self.elements.whats_new_card_close_button, "Close")
+        self.click(self.elements.whats_new_card_close_button)
+        self.validate_element_text(self.elements.resources_button, "Resources")
+        self.wait_for_element_to_be_clickable(self.elements.resources_button)
+        self.click(self.elements.resources_button)
+        self.click(self.elements.tip_pop_up_close)
+&gt;       self.click(self.elements.spanish_resources_vocab)
+
+tests/deep_links/test_deep_links.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:50: in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
+E   AssertionError: None is not true : couldn't find element Vocabulary and Phrases card(og:spanish) by ('css selector', 'div&gt;ion-card:nth-of-type(9)'). This is likely an out of date CSS Selector</failure></testcase><testcase classname="tests.test_settings.TestStageSettings" name="test_stage_settings_validation" time="20.133"><failure message="AssertionError: 'Sound effects' != 'Sound Effects'&#10;- Sound effects&#10;?       ^&#10;+ Sound Effects&#10;?       ^&#10; : Unexpected text: 'Sound effects'&#10; does not match 'Sound Effects'">self = &lt;tests.test_settings.TestStageSettings testMethod=test_stage_settings_validation&gt;
+
+    def test_stage_settings_validation(self):
+        u = self.urls
+        e = self.elements
+        self.assertTrue(self.login())
+        self.click(e.i_want_to_learn)
+        self.click(e.learn_spanish)
+        self.click(e.language_submit)
+        self.click(e.whats_new_card_close_button)
+        self.click(e.home_button)
+        self.validate_url_contains(u.BLANK_HOME)
+    
+        elem = self.get_element(e.settings_button)
+        self.validate_text(elem.text, "Settings")
+        self.click(e.settings_button)
+    
+        elem = self.get_element(e.log_out_button)
+        self.validate_text(elem.text, "Log out")
+        elem = self.get_element(e.languages_button)
+        self.validate_text_contains(elem.text, "Languages")
+        elem = self.get_element(e.sound_effects)
+&gt;       self.validate_text(elem.text, "Sound Effects")
+
+tests/test_settings.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:20: in validate_text
+    self.assertEqual(test, truth, f"Unexpected text: '{test}'\n does not match '{truth}'")
+E   AssertionError: 'Sound effects' != 'Sound Effects'
+E   - Sound effects
+E   ?       ^
+E   + Sound Effects
+E   ?       ^
+E    : Unexpected text: 'Sound effects'
+E    does not match 'Sound Effects'</failure></testcase><testcase classname="tests.general.test_language_select_screen.TestRCLanguageSelectScreen" name="test_rc_language_select_screen" time="20.468" /><testcase classname="tests.general.test_language_select_screen.TestRCLanguageSelectScreen" name="test_rc_language_select_screen_load_non_core_language" time="16.016"><failure message="selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;ion-segment-button _ngcontent-yip-c181=&quot;&quot; class=&quot;taskGroup__segment md in-segment in-segment-color segment-button-layout-icon-top ion-activatable ion-activatable-instant ion-focusable hydrated segment-button-after-checked segment-button-checked&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot; tabindex=&quot;0&quot;&gt;...&lt;/ion-segment-button&gt; is not clickable at point (453, 110). Other element would receive the click: &lt;div _ngcontent-yip-c93=&quot;&quot; class=&quot;basicModal container&quot;&gt;...&lt;/div&gt;&#10;  (Session info: headless chrome=107.0.5304.110)&#10;Stacktrace:&#10;0   chromedriver                        0x000000010305ea88 chromedriver + 4123272&#10;1   chromedriver                        0x0000000102fea778 chromedriver + 3647352&#10;2   chromedriver                        0x0000000102cacac4 chromedriver + 248516&#10;3   chromedriver                        0x0000000102ce98a8 chromedriver + 497832&#10;4   chromedriver                        0x0000000102ce7874 chromedriver + 489588&#10;5   chromedriver                        0x0000000102ce54e8 chromedriver + 480488&#10;6   chromedriver                        0x0000000102ce44dc chromedriver + 476380&#10;7   chromedriver                        0x0000000102cd8a00 chromedriver + 428544&#10;8   chromedriver                        0x0000000102cd8260 chromedriver + 426592&#10;9   chromedriver                        0x0000000102d15020 chromedriver + 675872&#10;10  chromedriver                        0x0000000102cd6b10 chromedriver + 420624&#10;11  chromedriver                        0x0000000102cd7c30 chromedriver + 425008&#10;12  chromedriver                        0x0000000103030ae4 chromedriver + 3934948&#10;13  chromedriver                        0x0000000103033f24 chromedriver + 3948324&#10;14  chromedriver                        0x0000000103034508 chromedriver + 3949832&#10;15  chromedriver                        0x000000010303ab30 chromedriver + 3975984&#10;16  chromedriver                        0x0000000103034b24 chromedriver + 3951396&#10;17  chromedriver                        0x000000010300f71c chromedriver + 3798812&#10;18  chromedriver                        0x00000001030512f0 chromedriver + 4068080&#10;19  chromedriver                        0x0000000103051444 chromedriver + 4068420&#10;20  chromedriver                        0x0000000103065450 chromedriver + 4150352&#10;21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148&#10;22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8">self = &lt;tests.general.test_language_select_screen.TestRCLanguageSelectScreen testMethod=test_rc_language_select_screen_load_non_core_language&gt;
+
+    def test_rc_language_select_screen_load_non_core_language(self):
+        e = self.elements
+        self.assertTrue(self.login("korean"))
+&gt;       self.click(e.for_you_tab)
+
+tests/general/test_language_select_screen.py:138: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:50: in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
+sessions/embark_session.py:96: in _click
+    self.driver.find_element(*element).click()
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webelement.py:88: in click
+    self._execute(Command.CLICK_ELEMENT)
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webelement.py:396: in _execute
+    return self._parent.execute(command, params)
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py:429: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x102e9bd60&gt;
+response = {'status': 400, 'value': '{"value":{"error":"element click intercepted","message":"element click intercepted: Element ...00019e80a06c _pthread_start + 148\\n22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8\\n"}}'}
+
+    def check_response(self, response: Dict[str, Any]) -&gt; None:
+        """
+        Checks that a JSON response from the WebDriver does not have an error.
+    
+        :Args:
+         - response - The JSON response from the WebDriver server as a dictionary
+           object.
+    
+        :Raises: If the response contains an error message.
+        """
+        status = response.get('status', None)
+        if not status or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen: str = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, str):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if not status:
+                        status = value.get("status", ErrorCode.UNKNOWN_ERROR)
+                        message = value.get("value") or value.get("message")
+                        if not isinstance(message, str):
+                            value = message
+                            message = message.get('message')
+                    else:
+                        message = value.get('message', None)
+                except ValueError:
+                    pass
+    
+        exception_class: Type[WebDriverException]
+        if status in ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status in ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status in ErrorCode.NO_SUCH_SHADOW_ROOT:
+            exception_class = NoSuchShadowRootException
+        elif status in ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status in ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status in ErrorCode.INVALID_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status in ErrorCode.ELEMENT_NOT_INTERACTABLE:
+            exception_class = ElementNotInteractableException
+        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = InvalidCookieDomainException
+        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = UnableToSetCookieException
+        elif status in ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status in ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status in ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        elif status in ErrorCode.JAVASCRIPT_ERROR:
+            exception_class = JavascriptException
+        elif status in ErrorCode.SESSION_NOT_CREATED:
+            exception_class = SessionNotCreatedException
+        elif status in ErrorCode.INVALID_ARGUMENT:
+            exception_class = InvalidArgumentException
+        elif status in ErrorCode.NO_SUCH_COOKIE:
+            exception_class = NoSuchCookieException
+        elif status in ErrorCode.UNABLE_TO_CAPTURE_SCREEN:
+            exception_class = ScreenshotException
+        elif status in ErrorCode.ELEMENT_CLICK_INTERCEPTED:
+            exception_class = ElementClickInterceptedException
+        elif status in ErrorCode.INSECURE_CERTIFICATE:
+            exception_class = InsecureCertificateException
+        elif status in ErrorCode.INVALID_COORDINATES:
+            exception_class = InvalidCoordinatesException
+        elif status in ErrorCode.INVALID_SESSION_ID:
+            exception_class = InvalidSessionIdException
+        elif status in ErrorCode.UNKNOWN_METHOD:
+            exception_class = UnknownMethodException
+        else:
+            exception_class = WebDriverException
+        if not value:
+            value = response['value']
+        if isinstance(value, str):
+            raise exception_class(value)
+        if message == "" and 'message' in value:
+            message = value['message']
+    
+        screen = None  # type: ignore[assignment]
+        if 'screen' in value:
+            screen = value['screen']
+    
+        stacktrace = None
+        st_value = value.get('stackTrace') or value.get('stacktrace')
+        if st_value:
+            if isinstance(st_value, str):
+                stacktrace = st_value.split('\n')
+            else:
+                stacktrace = []
+                try:
+                    for frame in st_value:
+                        line = frame.get("lineNumber", "")
+                        file = frame.get("fileName", "&lt;anonymous&gt;")
+                        if line:
+                            file = f"{file}:{line}"
+                        meth = frame.get('methodName', '&lt;anonymous&gt;')
+                        if 'className' in frame:
+                            meth = "{}.{}".format(frame['className'], meth)
+                        msg = "    at %s (%s)"
+                        msg = msg % (meth, file)
+                        stacktrace.append(msg)
+                except TypeError:
+                    pass
+        if exception_class == UnexpectedAlertPresentException:
+            alert_text = None
+            if 'data' in value:
+                alert_text = value['data'].get('text')
+            elif 'alert' in value:
+                alert_text = value['alert'].get('text')
+            raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here
+&gt;       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;ion-segment-button _ngcontent-yip-c181="" class="taskGroup__segment md in-segment in-segment-color segment-button-layout-icon-top ion-activatable ion-activatable-instant ion-focusable hydrated segment-button-after-checked segment-button-checked" role="tab" aria-selected="true" tabindex="0"&gt;...&lt;/ion-segment-button&gt; is not clickable at point (453, 110). Other element would receive the click: &lt;div _ngcontent-yip-c93="" class="basicModal container"&gt;...&lt;/div&gt;
+E         (Session info: headless chrome=107.0.5304.110)
+E       Stacktrace:
+E       0   chromedriver                        0x000000010305ea88 chromedriver + 4123272
+E       1   chromedriver                        0x0000000102fea778 chromedriver + 3647352
+E       2   chromedriver                        0x0000000102cacac4 chromedriver + 248516
+E       3   chromedriver                        0x0000000102ce98a8 chromedriver + 497832
+E       4   chromedriver                        0x0000000102ce7874 chromedriver + 489588
+E       5   chromedriver                        0x0000000102ce54e8 chromedriver + 480488
+E       6   chromedriver                        0x0000000102ce44dc chromedriver + 476380
+E       7   chromedriver                        0x0000000102cd8a00 chromedriver + 428544
+E       8   chromedriver                        0x0000000102cd8260 chromedriver + 426592
+E       9   chromedriver                        0x0000000102d15020 chromedriver + 675872
+E       10  chromedriver                        0x0000000102cd6b10 chromedriver + 420624
+E       11  chromedriver                        0x0000000102cd7c30 chromedriver + 425008
+E       12  chromedriver                        0x0000000103030ae4 chromedriver + 3934948
+E       13  chromedriver                        0x0000000103033f24 chromedriver + 3948324
+E       14  chromedriver                        0x0000000103034508 chromedriver + 3949832
+E       15  chromedriver                        0x000000010303ab30 chromedriver + 3975984
+E       16  chromedriver                        0x0000000103034b24 chromedriver + 3951396
+E       17  chromedriver                        0x000000010300f71c chromedriver + 3798812
+E       18  chromedriver                        0x00000001030512f0 chromedriver + 4068080
+E       19  chromedriver                        0x0000000103051444 chromedriver + 4068420
+E       20  chromedriver                        0x0000000103065450 chromedriver + 4150352
+E       21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148
+E       22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8
+
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/errorhandler.py:243: ElementClickInterceptedException</failure></testcase><testcase classname="tests.discover.test_alphabet.TestStageDiscoverAlphabet" name="test_alphabet_discover_symbol_view" time="15.923"><failure message="AssertionError: 'Favorites' != 'Alphabet'&#10;- Favorites&#10;+ Alphabet&#10; : Unexpected text: 'Favorites'&#10; does not match 'Alphabet'">self = &lt;tests.discover.test_alphabet.TestStageDiscoverAlphabet testMethod=test_alphabet_discover_symbol_view&gt;
+
+    def test_alphabet_discover_symbol_view(self):
+        e = self.elements
+        self.login("spanish")
+        self.wait_for_text_in_element(e.whats_new_card_close_button, "Close")
+        self.click(e.whats_new_card_close_button)
+        # Check if in recommended
+        self.find(e.recommended_alphabet_lesson)
+&gt;       self.validate_element_text(e.recommended_alphabet_lesson_title, "Alphabet")
+
+tests/discover/test_alphabet.py:12: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:37: in validate_element_text
+    else: self.assertEqual(test, truth, f"Unexpected text: '{test}'\n does not match '{truth}'")
+E   AssertionError: 'Favorites' != 'Alphabet'
+E   - Favorites
+E   + Alphabet
+E    : Unexpected text: 'Favorites'
+E    does not match 'Alphabet'</failure></testcase><testcase classname="tests.general.test_language_select_screen.TestDevLanguageSelectScreen" name="test_dev_language_select_screen" time="18.549" /><testcase classname="tests.general.test_language_select_screen.TestRCLanguageSelectScreen" name="test_rc_language_select_screen_load_core_language" time="16.641"><failure message="selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;ion-segment-button _ngcontent-hdj-c181=&quot;&quot; class=&quot;taskGroup__segment md in-segment in-segment-color segment-button-layout-icon-top ion-activatable ion-activatable-instant ion-focusable hydrated segment-button-after-checked segment-button-checked&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot; tabindex=&quot;0&quot;&gt;...&lt;/ion-segment-button&gt; is not clickable at point (453, 110). Other element would receive the click: &lt;div _ngcontent-hdj-c93=&quot;&quot; class=&quot;basicModal container&quot;&gt;...&lt;/div&gt;&#10;  (Session info: headless chrome=107.0.5304.110)&#10;Stacktrace:&#10;0   chromedriver                        0x00000001027c2a88 chromedriver + 4123272&#10;1   chromedriver                        0x000000010274e778 chromedriver + 3647352&#10;2   chromedriver                        0x0000000102410ac4 chromedriver + 248516&#10;3   chromedriver                        0x000000010244d8a8 chromedriver + 497832&#10;4   chromedriver                        0x000000010244b874 chromedriver + 489588&#10;5   chromedriver                        0x00000001024494e8 chromedriver + 480488&#10;6   chromedriver                        0x00000001024484dc chromedriver + 476380&#10;7   chromedriver                        0x000000010243ca00 chromedriver + 428544&#10;8   chromedriver                        0x000000010243c260 chromedriver + 426592&#10;9   chromedriver                        0x0000000102479020 chromedriver + 675872&#10;10  chromedriver                        0x000000010243ab10 chromedriver + 420624&#10;11  chromedriver                        0x000000010243bc30 chromedriver + 425008&#10;12  chromedriver                        0x0000000102794ae4 chromedriver + 3934948&#10;13  chromedriver                        0x0000000102797f24 chromedriver + 3948324&#10;14  chromedriver                        0x0000000102798508 chromedriver + 3949832&#10;15  chromedriver                        0x000000010279eb30 chromedriver + 3975984&#10;16  chromedriver                        0x0000000102798b24 chromedriver + 3951396&#10;17  chromedriver                        0x000000010277371c chromedriver + 3798812&#10;18  chromedriver                        0x00000001027b52f0 chromedriver + 4068080&#10;19  chromedriver                        0x00000001027b5444 chromedriver + 4068420&#10;20  chromedriver                        0x00000001027c9450 chromedriver + 4150352&#10;21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148&#10;22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8">self = &lt;tests.general.test_language_select_screen.TestRCLanguageSelectScreen testMethod=test_rc_language_select_screen_load_core_language&gt;
+
+    def test_rc_language_select_screen_load_core_language(self):
+        e = self.elements
+        self.assertTrue(self.login("spanish"))
+&gt;       self.click(e.for_you_tab)
+
+tests/general/test_language_select_screen.py:132: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:50: in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
+sessions/embark_session.py:96: in _click
+    self.driver.find_element(*element).click()
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webelement.py:88: in click
+    self._execute(Command.CLICK_ELEMENT)
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webelement.py:396: in _execute
+    return self._parent.execute(command, params)
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py:429: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x103f2b640&gt;
+response = {'status': 400, 'value': '{"value":{"error":"element click intercepted","message":"element click intercepted: Element ...00019e80a06c _pthread_start + 148\\n22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8\\n"}}'}
+
+    def check_response(self, response: Dict[str, Any]) -&gt; None:
+        """
+        Checks that a JSON response from the WebDriver does not have an error.
+    
+        :Args:
+         - response - The JSON response from the WebDriver server as a dictionary
+           object.
+    
+        :Raises: If the response contains an error message.
+        """
+        status = response.get('status', None)
+        if not status or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen: str = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, str):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if not status:
+                        status = value.get("status", ErrorCode.UNKNOWN_ERROR)
+                        message = value.get("value") or value.get("message")
+                        if not isinstance(message, str):
+                            value = message
+                            message = message.get('message')
+                    else:
+                        message = value.get('message', None)
+                except ValueError:
+                    pass
+    
+        exception_class: Type[WebDriverException]
+        if status in ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status in ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status in ErrorCode.NO_SUCH_SHADOW_ROOT:
+            exception_class = NoSuchShadowRootException
+        elif status in ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status in ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status in ErrorCode.INVALID_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status in ErrorCode.ELEMENT_NOT_INTERACTABLE:
+            exception_class = ElementNotInteractableException
+        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = InvalidCookieDomainException
+        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = UnableToSetCookieException
+        elif status in ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status in ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status in ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        elif status in ErrorCode.JAVASCRIPT_ERROR:
+            exception_class = JavascriptException
+        elif status in ErrorCode.SESSION_NOT_CREATED:
+            exception_class = SessionNotCreatedException
+        elif status in ErrorCode.INVALID_ARGUMENT:
+            exception_class = InvalidArgumentException
+        elif status in ErrorCode.NO_SUCH_COOKIE:
+            exception_class = NoSuchCookieException
+        elif status in ErrorCode.UNABLE_TO_CAPTURE_SCREEN:
+            exception_class = ScreenshotException
+        elif status in ErrorCode.ELEMENT_CLICK_INTERCEPTED:
+            exception_class = ElementClickInterceptedException
+        elif status in ErrorCode.INSECURE_CERTIFICATE:
+            exception_class = InsecureCertificateException
+        elif status in ErrorCode.INVALID_COORDINATES:
+            exception_class = InvalidCoordinatesException
+        elif status in ErrorCode.INVALID_SESSION_ID:
+            exception_class = InvalidSessionIdException
+        elif status in ErrorCode.UNKNOWN_METHOD:
+            exception_class = UnknownMethodException
+        else:
+            exception_class = WebDriverException
+        if not value:
+            value = response['value']
+        if isinstance(value, str):
+            raise exception_class(value)
+        if message == "" and 'message' in value:
+            message = value['message']
+    
+        screen = None  # type: ignore[assignment]
+        if 'screen' in value:
+            screen = value['screen']
+    
+        stacktrace = None
+        st_value = value.get('stackTrace') or value.get('stacktrace')
+        if st_value:
+            if isinstance(st_value, str):
+                stacktrace = st_value.split('\n')
+            else:
+                stacktrace = []
+                try:
+                    for frame in st_value:
+                        line = frame.get("lineNumber", "")
+                        file = frame.get("fileName", "&lt;anonymous&gt;")
+                        if line:
+                            file = f"{file}:{line}"
+                        meth = frame.get('methodName', '&lt;anonymous&gt;')
+                        if 'className' in frame:
+                            meth = "{}.{}".format(frame['className'], meth)
+                        msg = "    at %s (%s)"
+                        msg = msg % (meth, file)
+                        stacktrace.append(msg)
+                except TypeError:
+                    pass
+        if exception_class == UnexpectedAlertPresentException:
+            alert_text = None
+            if 'data' in value:
+                alert_text = value['data'].get('text')
+            elif 'alert' in value:
+                alert_text = value['alert'].get('text')
+            raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here
+&gt;       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;ion-segment-button _ngcontent-hdj-c181="" class="taskGroup__segment md in-segment in-segment-color segment-button-layout-icon-top ion-activatable ion-activatable-instant ion-focusable hydrated segment-button-after-checked segment-button-checked" role="tab" aria-selected="true" tabindex="0"&gt;...&lt;/ion-segment-button&gt; is not clickable at point (453, 110). Other element would receive the click: &lt;div _ngcontent-hdj-c93="" class="basicModal container"&gt;...&lt;/div&gt;
+E         (Session info: headless chrome=107.0.5304.110)
+E       Stacktrace:
+E       0   chromedriver                        0x00000001027c2a88 chromedriver + 4123272
+E       1   chromedriver                        0x000000010274e778 chromedriver + 3647352
+E       2   chromedriver                        0x0000000102410ac4 chromedriver + 248516
+E       3   chromedriver                        0x000000010244d8a8 chromedriver + 497832
+E       4   chromedriver                        0x000000010244b874 chromedriver + 489588
+E       5   chromedriver                        0x00000001024494e8 chromedriver + 480488
+E       6   chromedriver                        0x00000001024484dc chromedriver + 476380
+E       7   chromedriver                        0x000000010243ca00 chromedriver + 428544
+E       8   chromedriver                        0x000000010243c260 chromedriver + 426592
+E       9   chromedriver                        0x0000000102479020 chromedriver + 675872
+E       10  chromedriver                        0x000000010243ab10 chromedriver + 420624
+E       11  chromedriver                        0x000000010243bc30 chromedriver + 425008
+E       12  chromedriver                        0x0000000102794ae4 chromedriver + 3934948
+E       13  chromedriver                        0x0000000102797f24 chromedriver + 3948324
+E       14  chromedriver                        0x0000000102798508 chromedriver + 3949832
+E       15  chromedriver                        0x000000010279eb30 chromedriver + 3975984
+E       16  chromedriver                        0x0000000102798b24 chromedriver + 3951396
+E       17  chromedriver                        0x000000010277371c chromedriver + 3798812
+E       18  chromedriver                        0x00000001027b52f0 chromedriver + 4068080
+E       19  chromedriver                        0x00000001027b5444 chromedriver + 4068420
+E       20  chromedriver                        0x00000001027c9450 chromedriver + 4150352
+E       21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148
+E       22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8
+
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/errorhandler.py:243: ElementClickInterceptedException</failure></testcase><testcase classname="tests.general.test_load_core_language.TestProdLoadCoreLanguage" name="test_lessons_load_core_languages" time="19.453" /><testcase classname="tests.general.test_language_select_screen.TestDevLanguageSelectScreen" name="test_dev_language_select_screen_load_core_language" time="16.532" /><testcase classname="tests.general.test_load_non_core_language.TestProdLoadCoreLanguage" name="test_lessons_load_core_languages" time="19.236"><failure message="selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;ion-card _ngcontent-snx-c179=&quot;&quot; id=&quot;task-card&quot; class=&quot;embark-card hover-tint md hydrated&quot;&gt;...&lt;/ion-card&gt; is not clickable at point (683, 243). Other element would receive the click: &lt;ion-content _ngcontent-snx-c184=&quot;&quot; class=&quot;embark-content--no-scroll-bars md content-ltr hydrated&quot; style=&quot;--offset-top:0px; --offset-bottom:0px;&quot;&gt;...&lt;/ion-content&gt;&#10;  (Session info: headless chrome=107.0.5304.110)&#10;Stacktrace:&#10;0   chromedriver                        0x000000010305ea88 chromedriver + 4123272&#10;1   chromedriver                        0x0000000102fea778 chromedriver + 3647352&#10;2   chromedriver                        0x0000000102cacac4 chromedriver + 248516&#10;3   chromedriver                        0x0000000102ce98a8 chromedriver + 497832&#10;4   chromedriver                        0x0000000102ce7874 chromedriver + 489588&#10;5   chromedriver                        0x0000000102ce54e8 chromedriver + 480488&#10;6   chromedriver                        0x0000000102ce44dc chromedriver + 476380&#10;7   chromedriver                        0x0000000102cd8a00 chromedriver + 428544&#10;8   chromedriver                        0x0000000102cd8260 chromedriver + 426592&#10;9   chromedriver                        0x0000000102d15020 chromedriver + 675872&#10;10  chromedriver                        0x0000000102cd6b10 chromedriver + 420624&#10;11  chromedriver                        0x0000000102cd7c30 chromedriver + 425008&#10;12  chromedriver                        0x0000000103030ae4 chromedriver + 3934948&#10;13  chromedriver                        0x0000000103033f24 chromedriver + 3948324&#10;14  chromedriver                        0x0000000103034508 chromedriver + 3949832&#10;15  chromedriver                        0x000000010303ab30 chromedriver + 3975984&#10;16  chromedriver                        0x0000000103034b24 chromedriver + 3951396&#10;17  chromedriver                        0x000000010300f71c chromedriver + 3798812&#10;18  chromedriver                        0x00000001030512f0 chromedriver + 4068080&#10;19  chromedriver                        0x0000000103051444 chromedriver + 4068420&#10;20  chromedriver                        0x0000000103065450 chromedriver + 4150352&#10;21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148&#10;22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8">self = &lt;tests.general.test_load_non_core_language.TestProdLoadCoreLanguage testMethod=test_lessons_load_core_languages&gt;
+
+    def test_lessons_load_core_languages(self):
+        self.login("Korean")
+        self.click(self.elements.whats_new_card_close_button)
+        self.click(self.elements.basic_tab)
+        self.find(self.elements.tip_pop_up_close)
+        self.click(self.elements.tip_pop_up_close)
+        self.click(self.elements.basic_alphabet_card)
+&gt;       self.click(self.elements.basic_alphabet_card)
+
+tests/general/test_load_non_core_language.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:50: in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
+sessions/embark_session.py:96: in _click
+    self.driver.find_element(*element).click()
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webelement.py:88: in click
+    self._execute(Command.CLICK_ELEMENT)
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webelement.py:396: in _execute
+    return self._parent.execute(command, params)
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py:429: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x102b2c340&gt;
+response = {'status': 400, 'value': '{"value":{"error":"element click intercepted","message":"element click intercepted: Element ...00019e80a06c _pthread_start + 148\\n22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8\\n"}}'}
+
+    def check_response(self, response: Dict[str, Any]) -&gt; None:
+        """
+        Checks that a JSON response from the WebDriver does not have an error.
+    
+        :Args:
+         - response - The JSON response from the WebDriver server as a dictionary
+           object.
+    
+        :Raises: If the response contains an error message.
+        """
+        status = response.get('status', None)
+        if not status or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen: str = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, str):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if not status:
+                        status = value.get("status", ErrorCode.UNKNOWN_ERROR)
+                        message = value.get("value") or value.get("message")
+                        if not isinstance(message, str):
+                            value = message
+                            message = message.get('message')
+                    else:
+                        message = value.get('message', None)
+                except ValueError:
+                    pass
+    
+        exception_class: Type[WebDriverException]
+        if status in ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status in ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status in ErrorCode.NO_SUCH_SHADOW_ROOT:
+            exception_class = NoSuchShadowRootException
+        elif status in ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status in ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status in ErrorCode.INVALID_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status in ErrorCode.ELEMENT_NOT_INTERACTABLE:
+            exception_class = ElementNotInteractableException
+        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = InvalidCookieDomainException
+        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = UnableToSetCookieException
+        elif status in ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status in ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status in ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        elif status in ErrorCode.JAVASCRIPT_ERROR:
+            exception_class = JavascriptException
+        elif status in ErrorCode.SESSION_NOT_CREATED:
+            exception_class = SessionNotCreatedException
+        elif status in ErrorCode.INVALID_ARGUMENT:
+            exception_class = InvalidArgumentException
+        elif status in ErrorCode.NO_SUCH_COOKIE:
+            exception_class = NoSuchCookieException
+        elif status in ErrorCode.UNABLE_TO_CAPTURE_SCREEN:
+            exception_class = ScreenshotException
+        elif status in ErrorCode.ELEMENT_CLICK_INTERCEPTED:
+            exception_class = ElementClickInterceptedException
+        elif status in ErrorCode.INSECURE_CERTIFICATE:
+            exception_class = InsecureCertificateException
+        elif status in ErrorCode.INVALID_COORDINATES:
+            exception_class = InvalidCoordinatesException
+        elif status in ErrorCode.INVALID_SESSION_ID:
+            exception_class = InvalidSessionIdException
+        elif status in ErrorCode.UNKNOWN_METHOD:
+            exception_class = UnknownMethodException
+        else:
+            exception_class = WebDriverException
+        if not value:
+            value = response['value']
+        if isinstance(value, str):
+            raise exception_class(value)
+        if message == "" and 'message' in value:
+            message = value['message']
+    
+        screen = None  # type: ignore[assignment]
+        if 'screen' in value:
+            screen = value['screen']
+    
+        stacktrace = None
+        st_value = value.get('stackTrace') or value.get('stacktrace')
+        if st_value:
+            if isinstance(st_value, str):
+                stacktrace = st_value.split('\n')
+            else:
+                stacktrace = []
+                try:
+                    for frame in st_value:
+                        line = frame.get("lineNumber", "")
+                        file = frame.get("fileName", "&lt;anonymous&gt;")
+                        if line:
+                            file = f"{file}:{line}"
+                        meth = frame.get('methodName', '&lt;anonymous&gt;')
+                        if 'className' in frame:
+                            meth = "{}.{}".format(frame['className'], meth)
+                        msg = "    at %s (%s)"
+                        msg = msg % (meth, file)
+                        stacktrace.append(msg)
+                except TypeError:
+                    pass
+        if exception_class == UnexpectedAlertPresentException:
+            alert_text = None
+            if 'data' in value:
+                alert_text = value['data'].get('text')
+            elif 'alert' in value:
+                alert_text = value['alert'].get('text')
+            raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here
+&gt;       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;ion-card _ngcontent-snx-c179="" id="task-card" class="embark-card hover-tint md hydrated"&gt;...&lt;/ion-card&gt; is not clickable at point (683, 243). Other element would receive the click: &lt;ion-content _ngcontent-snx-c184="" class="embark-content--no-scroll-bars md content-ltr hydrated" style="--offset-top:0px; --offset-bottom:0px;"&gt;...&lt;/ion-content&gt;
+E         (Session info: headless chrome=107.0.5304.110)
+E       Stacktrace:
+E       0   chromedriver                        0x000000010305ea88 chromedriver + 4123272
+E       1   chromedriver                        0x0000000102fea778 chromedriver + 3647352
+E       2   chromedriver                        0x0000000102cacac4 chromedriver + 248516
+E       3   chromedriver                        0x0000000102ce98a8 chromedriver + 497832
+E       4   chromedriver                        0x0000000102ce7874 chromedriver + 489588
+E       5   chromedriver                        0x0000000102ce54e8 chromedriver + 480488
+E       6   chromedriver                        0x0000000102ce44dc chromedriver + 476380
+E       7   chromedriver                        0x0000000102cd8a00 chromedriver + 428544
+E       8   chromedriver                        0x0000000102cd8260 chromedriver + 426592
+E       9   chromedriver                        0x0000000102d15020 chromedriver + 675872
+E       10  chromedriver                        0x0000000102cd6b10 chromedriver + 420624
+E       11  chromedriver                        0x0000000102cd7c30 chromedriver + 425008
+E       12  chromedriver                        0x0000000103030ae4 chromedriver + 3934948
+E       13  chromedriver                        0x0000000103033f24 chromedriver + 3948324
+E       14  chromedriver                        0x0000000103034508 chromedriver + 3949832
+E       15  chromedriver                        0x000000010303ab30 chromedriver + 3975984
+E       16  chromedriver                        0x0000000103034b24 chromedriver + 3951396
+E       17  chromedriver                        0x000000010300f71c chromedriver + 3798812
+E       18  chromedriver                        0x00000001030512f0 chromedriver + 4068080
+E       19  chromedriver                        0x0000000103051444 chromedriver + 4068420
+E       20  chromedriver                        0x0000000103065450 chromedriver + 4150352
+E       21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148
+E       22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8
+
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/errorhandler.py:243: ElementClickInterceptedException</failure></testcase><testcase classname="tests.general.test_load_non_core_language.TestProdLoadCoreLanguage" name="test_settings_menu_says_core_language" time="18.092" /><testcase classname="tests.general.test_load_core_language.TestProdLoadCoreLanguage" name="test_settings_menu_says_core_language" time="17.843" /><testcase classname="tests.general.test_login.TestProdLogin" name="test_macro_login" time="11.091" /><testcase classname="tests.general.test_login.TestProdLogin" name="test_login_page" time="11.277" /><testcase classname="tests.general.test_login.TestStageLogin" name="test_macro_login" time="11.128" /><testcase classname="tests.general.test_login.TestRCLogin" name="test_macro_login" time="11.222" /><testcase classname="tests.settings.test_about_hyperlinks.TestAboutHyperlinks" name="test_about_hyperlinks" time="18.207" /><testcase classname="tests.settings.test_delete_language.TestDeleteLanguage" name="test_delete_language" time="17.564"><failure message="selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable: [object HTMLInputElement] has no size and location&#10;  (Session info: headless chrome=107.0.5304.110)&#10;Stacktrace:&#10;0   chromedriver                        0x0000000104936a88 chromedriver + 4123272&#10;1   chromedriver                        0x00000001048c2778 chromedriver + 3647352&#10;2   chromedriver                        0x0000000104584ac4 chromedriver + 248516&#10;3   chromedriver                        0x0000000104587c80 chromedriver + 261248&#10;4   chromedriver                        0x0000000104587aa4 chromedriver + 260772&#10;5   chromedriver                        0x0000000104587d4c chromedriver + 261452&#10;6   chromedriver                        0x00000001045c0c44 chromedriver + 494660&#10;7   chromedriver                        0x00000001045c0348 chromedriver + 492360&#10;8   chromedriver                        0x00000001045f52f0 chromedriver + 709360&#10;9   chromedriver                        0x00000001045ed020 chromedriver + 675872&#10;10  chromedriver                        0x00000001045aeb10 chromedriver + 420624&#10;11  chromedriver                        0x00000001045afc30 chromedriver + 425008&#10;12  chromedriver                        0x0000000104908ae4 chromedriver + 3934948&#10;13  chromedriver                        0x000000010490bf24 chromedriver + 3948324&#10;14  chromedriver                        0x000000010490c508 chromedriver + 3949832&#10;15  chromedriver                        0x0000000104912b30 chromedriver + 3975984&#10;16  chromedriver                        0x000000010490cb24 chromedriver + 3951396&#10;17  chromedriver                        0x00000001048e771c chromedriver + 3798812&#10;18  chromedriver                        0x00000001049292f0 chromedriver + 4068080&#10;19  chromedriver                        0x0000000104929444 chromedriver + 4068420&#10;20  chromedriver                        0x000000010493d450 chromedriver + 4150352&#10;21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148&#10;22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8">self = &lt;tests.settings.test_delete_language.TestDeleteLanguage testMethod=test_delete_language&gt;
+
+    def test_delete_language(self):
+        e = self.elements
+        self.login("spanish")
+        self.click(e.whats_new_card_close_button)
+        self.click(e.settings_button)
+        self.click(e.languages_button)
+        self.click(e.language_manage_page_add_language_button)
+&gt;       self.click(e.i_want_to_learn)
+
+tests/settings/test_delete_language.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:50: in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
+sessions/embark_session.py:92: in _click
+    self._find(element, time)
+sessions/embark_session.py:84: in _find
+    ActionChains(self.driver).move_to_element(elem).perform()
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/common/action_chains.py:78: in perform
+    self.w3c_actions.perform()
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/common/actions/action_builder.py:88: in perform
+    self.driver.execute(Command.W3C_ACTIONS, enc)
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py:429: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x10308c6a0&gt;
+response = {'status': 400, 'value': '{"value":{"error":"element not interactable","message":"element not interactable: [object HT...00019e80a06c _pthread_start + 148\\n22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8\\n"}}'}
+
+    def check_response(self, response: Dict[str, Any]) -&gt; None:
+        """
+        Checks that a JSON response from the WebDriver does not have an error.
+    
+        :Args:
+         - response - The JSON response from the WebDriver server as a dictionary
+           object.
+    
+        :Raises: If the response contains an error message.
+        """
+        status = response.get('status', None)
+        if not status or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen: str = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, str):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if not status:
+                        status = value.get("status", ErrorCode.UNKNOWN_ERROR)
+                        message = value.get("value") or value.get("message")
+                        if not isinstance(message, str):
+                            value = message
+                            message = message.get('message')
+                    else:
+                        message = value.get('message', None)
+                except ValueError:
+                    pass
+    
+        exception_class: Type[WebDriverException]
+        if status in ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status in ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status in ErrorCode.NO_SUCH_SHADOW_ROOT:
+            exception_class = NoSuchShadowRootException
+        elif status in ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status in ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status in ErrorCode.INVALID_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status in ErrorCode.ELEMENT_NOT_INTERACTABLE:
+            exception_class = ElementNotInteractableException
+        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = InvalidCookieDomainException
+        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = UnableToSetCookieException
+        elif status in ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status in ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status in ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        elif status in ErrorCode.JAVASCRIPT_ERROR:
+            exception_class = JavascriptException
+        elif status in ErrorCode.SESSION_NOT_CREATED:
+            exception_class = SessionNotCreatedException
+        elif status in ErrorCode.INVALID_ARGUMENT:
+            exception_class = InvalidArgumentException
+        elif status in ErrorCode.NO_SUCH_COOKIE:
+            exception_class = NoSuchCookieException
+        elif status in ErrorCode.UNABLE_TO_CAPTURE_SCREEN:
+            exception_class = ScreenshotException
+        elif status in ErrorCode.ELEMENT_CLICK_INTERCEPTED:
+            exception_class = ElementClickInterceptedException
+        elif status in ErrorCode.INSECURE_CERTIFICATE:
+            exception_class = InsecureCertificateException
+        elif status in ErrorCode.INVALID_COORDINATES:
+            exception_class = InvalidCoordinatesException
+        elif status in ErrorCode.INVALID_SESSION_ID:
+            exception_class = InvalidSessionIdException
+        elif status in ErrorCode.UNKNOWN_METHOD:
+            exception_class = UnknownMethodException
+        else:
+            exception_class = WebDriverException
+        if not value:
+            value = response['value']
+        if isinstance(value, str):
+            raise exception_class(value)
+        if message == "" and 'message' in value:
+            message = value['message']
+    
+        screen = None  # type: ignore[assignment]
+        if 'screen' in value:
+            screen = value['screen']
+    
+        stacktrace = None
+        st_value = value.get('stackTrace') or value.get('stacktrace')
+        if st_value:
+            if isinstance(st_value, str):
+                stacktrace = st_value.split('\n')
+            else:
+                stacktrace = []
+                try:
+                    for frame in st_value:
+                        line = frame.get("lineNumber", "")
+                        file = frame.get("fileName", "&lt;anonymous&gt;")
+                        if line:
+                            file = f"{file}:{line}"
+                        meth = frame.get('methodName', '&lt;anonymous&gt;')
+                        if 'className' in frame:
+                            meth = "{}.{}".format(frame['className'], meth)
+                        msg = "    at %s (%s)"
+                        msg = msg % (meth, file)
+                        stacktrace.append(msg)
+                except TypeError:
+                    pass
+        if exception_class == UnexpectedAlertPresentException:
+            alert_text = None
+            if 'data' in value:
+                alert_text = value['data'].get('text')
+            elif 'alert' in value:
+                alert_text = value['alert'].get('text')
+            raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here
+&gt;       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable: [object HTMLInputElement] has no size and location
+E         (Session info: headless chrome=107.0.5304.110)
+E       Stacktrace:
+E       0   chromedriver                        0x0000000104936a88 chromedriver + 4123272
+E       1   chromedriver                        0x00000001048c2778 chromedriver + 3647352
+E       2   chromedriver                        0x0000000104584ac4 chromedriver + 248516
+E       3   chromedriver                        0x0000000104587c80 chromedriver + 261248
+E       4   chromedriver                        0x0000000104587aa4 chromedriver + 260772
+E       5   chromedriver                        0x0000000104587d4c chromedriver + 261452
+E       6   chromedriver                        0x00000001045c0c44 chromedriver + 494660
+E       7   chromedriver                        0x00000001045c0348 chromedriver + 492360
+E       8   chromedriver                        0x00000001045f52f0 chromedriver + 709360
+E       9   chromedriver                        0x00000001045ed020 chromedriver + 675872
+E       10  chromedriver                        0x00000001045aeb10 chromedriver + 420624
+E       11  chromedriver                        0x00000001045afc30 chromedriver + 425008
+E       12  chromedriver                        0x0000000104908ae4 chromedriver + 3934948
+E       13  chromedriver                        0x000000010490bf24 chromedriver + 3948324
+E       14  chromedriver                        0x000000010490c508 chromedriver + 3949832
+E       15  chromedriver                        0x0000000104912b30 chromedriver + 3975984
+E       16  chromedriver                        0x000000010490cb24 chromedriver + 3951396
+E       17  chromedriver                        0x00000001048e771c chromedriver + 3798812
+E       18  chromedriver                        0x00000001049292f0 chromedriver + 4068080
+E       19  chromedriver                        0x0000000104929444 chromedriver + 4068420
+E       20  chromedriver                        0x000000010493d450 chromedriver + 4150352
+E       21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148
+E       22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8
+
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/errorhandler.py:243: ElementNotInteractableException</failure></testcase><testcase classname="tests.general.test_login.TestDevLogin" name="test_macro_login" time="11.389" /><testcase classname="tests.settings.test_progress_updates_by_language.TestProgressUpdatesByLanguage" name="test_progress_updates_by_languages" time="22.141" /><testcase classname="tests.settings.test_sign_into_different_account.TestSignIntoDifferentAccount" name="test_sign_into_different_account" time="15.139"><failure message="selenium.common.exceptions.StaleElementReferenceException: Message: stale element reference: element is not attached to the page document&#10;  (Session info: headless chrome=107.0.5304.110)&#10;Stacktrace:&#10;0   chromedriver                        0x00000001044a2a88 chromedriver + 4123272&#10;1   chromedriver                        0x000000010442e778 chromedriver + 3647352&#10;2   chromedriver                        0x00000001040f0ac4 chromedriver + 248516&#10;3   chromedriver                        0x00000001040f3c80 chromedriver + 261248&#10;4   chromedriver                        0x00000001040f3aa4 chromedriver + 260772&#10;5   chromedriver                        0x00000001040f3d4c chromedriver + 261452&#10;6   chromedriver                        0x000000010412cc44 chromedriver + 494660&#10;7   chromedriver                        0x000000010412c348 chromedriver + 492360&#10;8   chromedriver                        0x00000001041612f0 chromedriver + 709360&#10;9   chromedriver                        0x0000000104159020 chromedriver + 675872&#10;10  chromedriver                        0x000000010411ab10 chromedriver + 420624&#10;11  chromedriver                        0x000000010411bc30 chromedriver + 425008&#10;12  chromedriver                        0x0000000104474ae4 chromedriver + 3934948&#10;13  chromedriver                        0x0000000104477f24 chromedriver + 3948324&#10;14  chromedriver                        0x0000000104478508 chromedriver + 3949832&#10;15  chromedriver                        0x000000010447eb30 chromedriver + 3975984&#10;16  chromedriver                        0x0000000104478b24 chromedriver + 3951396&#10;17  chromedriver                        0x000000010445371c chromedriver + 3798812&#10;18  chromedriver                        0x00000001044952f0 chromedriver + 4068080&#10;19  chromedriver                        0x0000000104495444 chromedriver + 4068420&#10;20  chromedriver                        0x00000001044a9450 chromedriver + 4150352&#10;21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148&#10;22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8">self = &lt;tests.settings.test_sign_into_different_account.TestSignIntoDifferentAccount testMethod=test_sign_into_different_account&gt;
+
+    def test_sign_into_different_account(self):
+    
+        # TODO: This file opens and closes the browser window because for some reason it doesn't actually fully logout on logout.
+        # We should figure out a way to do this without closing the browser window.
+    
+        e = self.elements
+        self.login("spanish")
+        self.click(e.whats_new_card_close_button)
+&gt;       value1 = self.get_element(e.alphabet_progress_bar).get_attribute("value")
+
+tests/settings/test_sign_into_different_account.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:56: in get_element
+    self.find(element)
+tests/embark_tests.py:47: in find
+    self.assertTrue(self._find(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
+sessions/embark_session.py:85: in _find
+    ActionChains(self.driver).move_to_element(elem).perform()
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/common/action_chains.py:78: in perform
+    self.w3c_actions.perform()
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/common/actions/action_builder.py:88: in perform
+    self.driver.execute(Command.W3C_ACTIONS, enc)
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py:429: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x107af28c0&gt;
+response = {'status': 404, 'value': '{"value":{"error":"stale element reference","message":"stale element reference: element is n...00019e80a06c _pthread_start + 148\\n22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8\\n"}}'}
+
+    def check_response(self, response: Dict[str, Any]) -&gt; None:
+        """
+        Checks that a JSON response from the WebDriver does not have an error.
+    
+        :Args:
+         - response - The JSON response from the WebDriver server as a dictionary
+           object.
+    
+        :Raises: If the response contains an error message.
+        """
+        status = response.get('status', None)
+        if not status or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen: str = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, str):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if not status:
+                        status = value.get("status", ErrorCode.UNKNOWN_ERROR)
+                        message = value.get("value") or value.get("message")
+                        if not isinstance(message, str):
+                            value = message
+                            message = message.get('message')
+                    else:
+                        message = value.get('message', None)
+                except ValueError:
+                    pass
+    
+        exception_class: Type[WebDriverException]
+        if status in ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status in ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status in ErrorCode.NO_SUCH_SHADOW_ROOT:
+            exception_class = NoSuchShadowRootException
+        elif status in ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status in ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status in ErrorCode.INVALID_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status in ErrorCode.ELEMENT_NOT_INTERACTABLE:
+            exception_class = ElementNotInteractableException
+        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = InvalidCookieDomainException
+        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = UnableToSetCookieException
+        elif status in ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status in ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status in ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        elif status in ErrorCode.JAVASCRIPT_ERROR:
+            exception_class = JavascriptException
+        elif status in ErrorCode.SESSION_NOT_CREATED:
+            exception_class = SessionNotCreatedException
+        elif status in ErrorCode.INVALID_ARGUMENT:
+            exception_class = InvalidArgumentException
+        elif status in ErrorCode.NO_SUCH_COOKIE:
+            exception_class = NoSuchCookieException
+        elif status in ErrorCode.UNABLE_TO_CAPTURE_SCREEN:
+            exception_class = ScreenshotException
+        elif status in ErrorCode.ELEMENT_CLICK_INTERCEPTED:
+            exception_class = ElementClickInterceptedException
+        elif status in ErrorCode.INSECURE_CERTIFICATE:
+            exception_class = InsecureCertificateException
+        elif status in ErrorCode.INVALID_COORDINATES:
+            exception_class = InvalidCoordinatesException
+        elif status in ErrorCode.INVALID_SESSION_ID:
+            exception_class = InvalidSessionIdException
+        elif status in ErrorCode.UNKNOWN_METHOD:
+            exception_class = UnknownMethodException
+        else:
+            exception_class = WebDriverException
+        if not value:
+            value = response['value']
+        if isinstance(value, str):
+            raise exception_class(value)
+        if message == "" and 'message' in value:
+            message = value['message']
+    
+        screen = None  # type: ignore[assignment]
+        if 'screen' in value:
+            screen = value['screen']
+    
+        stacktrace = None
+        st_value = value.get('stackTrace') or value.get('stacktrace')
+        if st_value:
+            if isinstance(st_value, str):
+                stacktrace = st_value.split('\n')
+            else:
+                stacktrace = []
+                try:
+                    for frame in st_value:
+                        line = frame.get("lineNumber", "")
+                        file = frame.get("fileName", "&lt;anonymous&gt;")
+                        if line:
+                            file = f"{file}:{line}"
+                        meth = frame.get('methodName', '&lt;anonymous&gt;')
+                        if 'className' in frame:
+                            meth = "{}.{}".format(frame['className'], meth)
+                        msg = "    at %s (%s)"
+                        msg = msg % (meth, file)
+                        stacktrace.append(msg)
+                except TypeError:
+                    pass
+        if exception_class == UnexpectedAlertPresentException:
+            alert_text = None
+            if 'data' in value:
+                alert_text = value['data'].get('text')
+            elif 'alert' in value:
+                alert_text = value['alert'].get('text')
+            raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here
+&gt;       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.StaleElementReferenceException: Message: stale element reference: element is not attached to the page document
+E         (Session info: headless chrome=107.0.5304.110)
+E       Stacktrace:
+E       0   chromedriver                        0x00000001044a2a88 chromedriver + 4123272
+E       1   chromedriver                        0x000000010442e778 chromedriver + 3647352
+E       2   chromedriver                        0x00000001040f0ac4 chromedriver + 248516
+E       3   chromedriver                        0x00000001040f3c80 chromedriver + 261248
+E       4   chromedriver                        0x00000001040f3aa4 chromedriver + 260772
+E       5   chromedriver                        0x00000001040f3d4c chromedriver + 261452
+E       6   chromedriver                        0x000000010412cc44 chromedriver + 494660
+E       7   chromedriver                        0x000000010412c348 chromedriver + 492360
+E       8   chromedriver                        0x00000001041612f0 chromedriver + 709360
+E       9   chromedriver                        0x0000000104159020 chromedriver + 675872
+E       10  chromedriver                        0x000000010411ab10 chromedriver + 420624
+E       11  chromedriver                        0x000000010411bc30 chromedriver + 425008
+E       12  chromedriver                        0x0000000104474ae4 chromedriver + 3934948
+E       13  chromedriver                        0x0000000104477f24 chromedriver + 3948324
+E       14  chromedriver                        0x0000000104478508 chromedriver + 3949832
+E       15  chromedriver                        0x000000010447eb30 chromedriver + 3975984
+E       16  chromedriver                        0x0000000104478b24 chromedriver + 3951396
+E       17  chromedriver                        0x000000010445371c chromedriver + 3798812
+E       18  chromedriver                        0x00000001044952f0 chromedriver + 4068080
+E       19  chromedriver                        0x0000000104495444 chromedriver + 4068420
+E       20  chromedriver                        0x00000001044a9450 chromedriver + 4150352
+E       21  libsystem_pthread.dylib             0x000000019e80a06c _pthread_start + 148
+E       22  libsystem_pthread.dylib             0x000000019e804e2c thread_start + 8
+
+embark-automation-venv/lib/python3.10/site-packages/selenium/webdriver/remote/errorhandler.py:243: StaleElementReferenceException</failure></testcase><testcase classname="tests.settings.test_sign_out.TestLogoutStage" name="test_logout_button" time="21.414"><failure message="AttributeError: type object 'StageElements' has no attribute 'church_site_header'">self = &lt;tests.settings.test_sign_out.TestLogoutStage testMethod=test_logout_button&gt;
+
+    def test_logout_button(self):
+        e = self.elements
+        self.login("french")
+        self.find(e.whats_new_card_close_button)
+        self.click(e.whats_new_card_close_button)
+        self.click(e.settings_button)
+        elem = self.get_element(e.log_out_button)
+        self.validate_text(elem.text, "Log out")
+        self.click(e.log_out_button)
+&gt;       self.find(e.church_site_header)
+E       AttributeError: type object 'StageElements' has no attribute 'church_site_header'
+
+tests/settings/test_sign_out.py:13: AttributeError</failure></testcase><testcase classname="tests.settings.test_sign_out.TestLogoutProd" name="test_logout_button" time="20.700"><failure message="AttributeError: type object 'StageElements' has no attribute 'church_site_header'">self = &lt;tests.settings.test_sign_out.TestLogoutProd testMethod=test_logout_button&gt;
+
+    def test_logout_button(self):
+        e = self.elements
+        self.login("french")
+        self.find(e.whats_new_card_close_button)
+        self.click(e.whats_new_card_close_button)
+        self.click(e.settings_button)
+        elem = self.get_element(e.log_out_button)
+        self.validate_text(elem.text, "Log out")
+        self.click(e.log_out_button)
+&gt;       self.find(e.church_site_header)
+E       AttributeError: type object 'StageElements' has no attribute 'church_site_header'
+
+tests/settings/test_sign_out.py:27: AttributeError</failure></testcase><testcase classname="tests.spaced-review.test_vocab_spaced_review.TestVocabSpacedReview" name="test_vocab_spaced_review" time="83.134"><failure message="AssertionError: None is not true : couldn't find element Discovered button in vocab list 1 by ('css selector', 'app-concept-list&gt;ion-card&gt;ion-item:nth-of-type(1)&gt;div&gt;div:nth-of-type(2)&gt;span'). This is likely an out of date CSS Selector">self = &lt;test_vocab_spaced_review.TestVocabSpacedReview testMethod=test_vocab_spaced_review&gt;
+
+    def test_vocab_spaced_review(self):
+        e = self.elements
+        self.login("spanish")
+        self.wait_for_text_in_element(e.whats_new_card_close_button, "Close")
+        self.click(e.whats_new_card_close_button)
+        # Check if in recommended
+        self.find(e.recommended_meet_someone_lesson)
+        self.validate_element_text(e.recommended_meet_someone_lesson, "Meet Someone\nBasic")
+        self.click(e.recommended_meet_someone_lesson)
+        self.wait_for_text_in_element(e.page_title, "Meet Someone")
+        self.validate_element_text(e.lesson_section_title, "Essentials")
+        self.validate_element_text(e.lesson_card, "Vocabulary")
+        self.click(e.lesson_card)
+        self.wait_for_element_to_be_clickable(e.lesson_discover_button)
+        self.click(e.lesson_discover_button)
+        self.click(e.start_button)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+        self.click(e.vocab_discover_right_arrow)
+    
+        # Erasing progress - add condition once button titles are updated
+        for i in range(2):
+&gt;           self.click(e.vocab_concept_list_discovered_1)
+
+tests/spaced-review/test_vocab_spaced_review.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/embark_tests.py:50: in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
+E   AssertionError: None is not true : couldn't find element Discovered button in vocab list 1 by ('css selector', 'app-concept-list&gt;ion-card&gt;ion-item:nth-of-type(1)&gt;div&gt;div:nth-of-type(2)&gt;span'). This is likely an out of date CSS Selector</failure></testcase><testcase classname="tests.settings.test_switch_between_languages.TestSwitchBetweenLanguages" name="test_switch_between_languages" time="22.400" /><testcase classname="tests.settings.test_sound.TestSound" name="test_sound" time="17.204" /><testcase classname="tests.general.test_language_select_screen.TestDevLanguageSelectScreen" name="test_dev_language_select_screen_load_non_core_language" time="14.622" /></testsuite></testsuites>

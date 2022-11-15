@@ -1,6 +1,6 @@
-from tests.embark_tests import VisualEmbarkStageTest
+from tests.embark_tests import EmbarkStageTest
 
-class TestAboutHyperlinks(VisualEmbarkStageTest):
+class TestAboutHyperlinks(EmbarkStageTest):
     def test_about_hyperlinks(self):
         e = self.elements
         self.login("spanish")
