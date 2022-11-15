@@ -1,8 +1,8 @@
 from random import randint
-from tests.embark_test_classes import VisualEmbarkStageTest
+from tests.embark_test_classes import EmbarkStageTest
 from list_of_languages import languages
 
-class TestAboutHyperlinks(VisualEmbarkStageTest):
+class TestAboutHyperlinks(EmbarkStageTest):
     def test_about_hyperlinks(self):
         # Basic Login
         e = self.elements
