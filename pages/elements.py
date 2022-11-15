@@ -6,20 +6,9 @@ Creating a new element requires a couple things:
 - A unique name
 - A selection scheme (By.CSS_SELECTOR, unless there is a serious issue) 
 - The selection string ("div.titleClass>span")
-- And a quick description that will appear in error messages. (include context to how you chose the selector "level number (og:S-panish homepage)"
+- And a quick description that will appear in error messages. (include context to how you chose the selector "level number (og:P-Sp homepage)"
 
-I'm trying to use the shorthand of Branch-Language in the context notes. "S-kor" would be Stage-Korean.
-"""
-
-
-"""
-Creating a new element requires a couple things:
-- A unique name
-- A selection scheme (By.CSS_SELECTOR, unless there is a serious issue) 
-- The selection string ("div.titleClass>span")
-- And a quick description that will appear in error messages. (include context to how you chose the selector "level number (og:S-panish homepage)"
-
-I'm trying to use the shorthand of Branch-Language in the context notes. "S-kor" would be Stage-Korean.
+I'm trying to start using the shorthand of Branch-Language in the context notes. "S-kor" would be Stage-Korean.
 """
 
 
