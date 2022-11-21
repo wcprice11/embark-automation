@@ -104,6 +104,7 @@ class SessionMixIn:
             WebDriverWait(self.driver, time).until(
                 EC.element_to_be_clickable(element)
             )
+            self.driver.find_element(*element).clear()
             self.driver.find_element(*element).send_keys(text)
             if (enter):
                 self.driver.find_element(*element).send_keys(Keys.ENTER)
@@ -120,6 +121,15 @@ class SessionMixIn:
             return False
         return True
 
+    def _wait_for_text_in_url(self, text: str, time=30):
+        try: 
+            WebDriverWait(self.driver, time).until(
+                EC.url_contains(text)
+            )
+        except TimeoutException:
+            return False
+        return True
+
     def _wait_for_element_to_be_clickable(self, element, time=30):
         try: 
             WebDriverWait(self.driver, time).until(
@@ -128,6 +138,22 @@ class SessionMixIn:
         except TimeoutException:
             return False
         return True
+    
+    def _wait_for_one_of_two(self, element_a, element_b, time=30):
+        try:
+            elem = WebDriverWait(self.driver, time).until(
+                EC.any_of( EC.presence_of_element_located(element_a), EC.presence_of_element_located(element_b))
+            )
+            if(not elem.is_displayed()):
+                WebDriverWait(self.driver, time).until(
+                    EC.presence_of_element_located(elem)
+                )
+                ActionChains(self.driver).move_to_element(elem).perform()
+            ActionChains(self.driver).move_to_element(elem).perform()
+        except TimeoutException:
+            return None
+        return elem
+
 
     def _reload(self):
         self.driver.refresh()

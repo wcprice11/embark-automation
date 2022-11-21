@@ -1,6 +1,6 @@
-from tests.embark_tests import VisualEmbarkStageTest
+from tests.embark_test_classes import EmbarkStageTest
 
-class TestProgressUpdatesByLanguage(VisualEmbarkStageTest):
+class TestProgressUpdatesByLanguage(EmbarkStageTest):
     def test_progress_updates_by_languages(self):
         e = self.elements
         self.login("spanish")

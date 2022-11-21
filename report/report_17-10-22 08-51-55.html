@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test report</title>
+    <meta name="generator" content="HTMLTestRunner 1.0.18"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="script.js"></script>
+    <style>
+        
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+<div class='heading'>
+    <h1 style="margin-left:1ex;">Test report</h1>
+    
+    <p class='attribute'><strong>Start Time : </strong> 2022-10-17 08:51:55</p>
+    
+    <p class='attribute'><strong>Duration : </strong> 0:06:58.111485</p>
+    
+    <p class='attribute'><strong>Status : </strong> Pass 14 Failure 2 Error 10</p>
+    
+    <p class='attribute'><strong>Description : </strong> HTMLTestReport</p>
+    
+    <p class='attribute'><strong>Tested By : </strong> Christian Price</p>
+    
+</div>
+<div>
+    <p id='show_detail_line'><b>Show</b>
+        <button><a href='javascript:showCase(0)' style="color:#660066;">Summary</a></button>
+        <button><a href='javascript:showCase(1)' style="color:#660066;">Failed</a></button>
+        <button><a href='javascript:showCase(2)' style="color:#660066;">Passed</a></button>
+        <button><a href='javascript:showCase(3)' style="color:#660066;">All</a></button>
+    </p>
+    <table id='result_table'>
+        <colgroup>
+            <col align='left'/>
+            <col align='right'/>
+            <col align='right'/>
+            <col align='right'/>
+            <col align='right'/>
+            <col align='right'/>
+        </colgroup>
+        <tr id='header_row'>
+            <td>Test Group/Test case</td>
+            <td>Count</td>
+            <td>Pass</td>
+            <td>Fail</td>
+            <td>Error</td>
+            <td>View</td>
+        </tr>
+        
+        <tr class='failClass' style="font-weight:bold;color:white;">
+            <td><a href="javascript:showClassDetail('c1','2')">src.tests.deep_links.test_deep_links.TestDeepLinks</a></td>
+            <td>2</td>
+            <td>0</td>
+            <td>2</td>
+            <td>0</td>
+            <td>
+                <button><a href="javascript:showClassDetail('c1','2')"
+                           style="color:#660066;">Detail</a></button>
+            </td>
+        </tr>
+            
+            <tr id="ft1.1" class='none'>
+                <td class='failCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_ft1.1')">test_link_to_articles_lesson</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_ft1.1')" style="color:#660066;">
+                                FAIL
+                            </a></button>
+                        <div id='div_ft1.1' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_ft1.1').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;">Traceback (most recent call last):
+  File "C:\Users\warnicka\embark-automation\src\tests\deep_links\test_deep_links.py", line 22, in test_link_to_articles_lesson
+    self.validate_text(elem.text,  "grammar - Articles ")
+  File "C:\Users\warnicka\embark-automation\src\tests\embark_tests.py", line 19, in validate_text
+    self.assertEqual(test, truth, f"Unexpected text: '{test}'\n does not match '{truth}'")
+AssertionError: 'Grammar - Articles' != 'grammar - Articles '
+- Grammar - Articles
+? ^
++ grammar - Articles 
+? ^                 +
+ : Unexpected text: 'Grammar - Articles'
+ does not match 'grammar - Articles '
+</pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+            <tr id="ft1.2" class='none'>
+                <td class='failCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_ft1.2')">test_link_to_pray_often</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_ft1.2')" style="color:#660066;">
+                                FAIL
+                            </a></button>
+                        <div id='div_ft1.2' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_ft1.2').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;">Traceback (most recent call last):
+  File "C:\Users\warnicka\embark-automation\src\tests\deep_links\test_deep_links.py", line 12, in test_link_to_pray_often
+    self.validate_text(elem.text, "Pray Often ")
+  File "C:\Users\warnicka\embark-automation\src\tests\embark_tests.py", line 19, in validate_text
+    self.assertEqual(test, truth, f"Unexpected text: '{test}'\n does not match '{truth}'")
+AssertionError: 'Pray Often' != 'Pray Often '
+- Pray Often
++ Pray Often 
+?           +
+ : Unexpected text: 'Pray Often'
+ does not match 'Pray Often '
+</pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+        
+        <tr class='passClass' style="font-weight:bold;color:white;">
+            <td><a href="javascript:showClassDetail('c2','3')">src.tests.general.test_language_select_screen.TestDevLanguageSelectScreen</a></td>
+            <td>3</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>
+                <button><a href="javascript:showClassDetail('c2','3')"
+                           style="color:#660066;">Detail</a></button>
+            </td>
+        </tr>
+            
+            <tr id="pt2.1" class='hiddenRow'>
+                <td class='passCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_pt2.1')">test_dev_language_select_screen</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_pt2.1')" style="color:#660066;">
+                                PASS
+                            </a></button>
+                        <div id='div_pt2.1' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_pt2.1').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;"></pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+            <tr id="pt2.2" class='hiddenRow'>
+                <td class='passCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_pt2.2')">test_dev_language_select_screen_load_core_language</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_pt2.2')" style="color:#660066;">
+                                PASS
+                            </a></button>
+                        <div id='div_pt2.2' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_pt2.2').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;"></pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+            <tr id="pt2.3" class='hiddenRow'>
+                <td class='passCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_pt2.3')">test_dev_language_select_screen_load_non_core_language</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_pt2.3')" style="color:#660066;">
+                                PASS
+                            </a></button>
+                        <div id='div_pt2.3' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_pt2.3').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;"></pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+        
+        <tr class='errorClass' style="font-weight:bold;color:white;">
+            <td><a href="javascript:showClassDetail('c3','3')">src.tests.general.test_language_select_screen.TestProdLanguageSelectScreen</a></td>
+            <td>3</td>
+            <td>1</td>
+            <td>0</td>
+            <td>2</td>
+            <td>
+                <button><a href="javascript:showClassDetail('c3','3')"
+                           style="color:#660066;">Detail</a></button>
+            </td>
+        </tr>
+            
+            <tr id="pt3.1" class='hiddenRow'>
+                <td class='passCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_pt3.1')">test_prod_language_select_screen</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_pt3.1')" style="color:#660066;">
+                                PASS
+                            </a></button>
+                        <div id='div_pt3.1' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_pt3.1').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;"></pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+            <tr id="ft3.2" class='none'>
+                <td class='errorCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_ft3.2')">test_prod_language_select_screen_load_core_language</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_ft3.2')" style="color:#660066;">
+                                ERROR
+                            </a></button>
+                        <div id='div_ft3.2' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_ft3.2').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;">Traceback (most recent call last):
+  File "C:\Users\warnicka\embark-automation\src\tests\general\test_language_select_screen.py", line 40, in test_prod_language_select_screen_load_core_language
+    self.click(e.for_you_tab)
+  File "C:\Users\warnicka\embark-automation\src\tests\embark_tests.py", line 34, in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely a broken test")
+  File "C:\Users\warnicka\embark-automation\src\sessions\embark_session.py", line 83, in _click
+    self.driver.find_element(*element).click()
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 88, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <ion-segment-button _ngcontent-rvs-c181="" class="taskGroup__segment md in-segment in-segment-color segment-button-layout-icon-top ion-activatable ion-activatable-instant ion-focusable hydrated segment-button-after-checked segment-button-checked" role="tab" aria-selected="true" tabindex="0">...</ion-segment-button> is not clickable at point (170, 110). Other element would receive the click: <h3 _ngcontent-rvs-c93="" class="basicModal__header">...</h3>
+  (Session info: headless chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x002B1ED3+2236115]
+	Ordinal0 [0x002492F1+1807089]
+	Ordinal0 [0x001566FD+812797]
+	Ordinal0 [0x0018BEC7+1031879]
+	Ordinal0 [0x00189E6C+1023596]
+	Ordinal0 [0x00187A5B+1014363]
+	Ordinal0 [0x001866E7+1009383]
+	Ordinal0 [0x0017C416+967702]
+	Ordinal0 [0x001A1A8C+1120908]
+	Ordinal0 [0x0017BD84+966020]
+	Ordinal0 [0x001A1CA4+1121444]
+	Ordinal0 [0x001B59E2+1202658]
+	Ordinal0 [0x001A18A6+1120422]
+	Ordinal0 [0x0017A73D+960317]
+	Ordinal0 [0x0017B71F+964383]
+	GetHandleVerifier [0x0055E7E2+2743074]
+	GetHandleVerifier [0x005508D4+2685972]
+	GetHandleVerifier [0x00342BAA+532202]
+	GetHandleVerifier [0x00341990+527568]
+	Ordinal0 [0x0025080C+1837068]
+	Ordinal0 [0x00254CD8+1854680]
+	Ordinal0 [0x00254DC5+1854917]
+	Ordinal0 [0x0025ED64+1895780]
+	BaseThreadInitThunk [0x76B36739+25]
+	RtlGetFullPathName_UEx [0x775A8FEF+1215]
+	RtlGetFullPathName_UEx [0x775A8FBD+1165]
+	(No symbol) [0x00000000]
+
+</pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+            <tr id="ft3.3" class='none'>
+                <td class='errorCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_ft3.3')">test_prod_language_select_screen_load_non_core_language</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_ft3.3')" style="color:#660066;">
+                                ERROR
+                            </a></button>
+                        <div id='div_ft3.3' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_ft3.3').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;">Traceback (most recent call last):
+  File "C:\Users\warnicka\embark-automation\src\tests\general\test_language_select_screen.py", line 46, in test_prod_language_select_screen_load_non_core_language
+    self.click(e.for_you_tab)
+  File "C:\Users\warnicka\embark-automation\src\tests\embark_tests.py", line 34, in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely a broken test")
+  File "C:\Users\warnicka\embark-automation\src\sessions\embark_session.py", line 83, in _click
+    self.driver.find_element(*element).click()
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 88, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <ion-segment-button _ngcontent-vux-c181="" class="taskGroup__segment md in-segment in-segment-color segment-button-layout-icon-top ion-activatable ion-activatable-instant ion-focusable hydrated segment-button-after-checked segment-button-checked" role="tab" aria-selected="true" tabindex="0">...</ion-segment-button> is not clickable at point (170, 110). Other element would receive the click: <h3 _ngcontent-vux-c93="" class="basicModal__header">...</h3>
+  (Session info: headless chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x002B1ED3+2236115]
+	Ordinal0 [0x002492F1+1807089]
+	Ordinal0 [0x001566FD+812797]
+	Ordinal0 [0x0018BEC7+1031879]
+	Ordinal0 [0x00189E6C+1023596]
+	Ordinal0 [0x00187A5B+1014363]
+	Ordinal0 [0x001866E7+1009383]
+	Ordinal0 [0x0017C416+967702]
+	Ordinal0 [0x001A1A8C+1120908]
+	Ordinal0 [0x0017BD84+966020]
+	Ordinal0 [0x001A1CA4+1121444]
+	Ordinal0 [0x001B59E2+1202658]
+	Ordinal0 [0x001A18A6+1120422]
+	Ordinal0 [0x0017A73D+960317]
+	Ordinal0 [0x0017B71F+964383]
+	GetHandleVerifier [0x0055E7E2+2743074]
+	GetHandleVerifier [0x005508D4+2685972]
+	GetHandleVerifier [0x00342BAA+532202]
+	GetHandleVerifier [0x00341990+527568]
+	Ordinal0 [0x0025080C+1837068]
+	Ordinal0 [0x00254CD8+1854680]
+	Ordinal0 [0x00254DC5+1854917]
+	Ordinal0 [0x0025ED64+1895780]
+	BaseThreadInitThunk [0x76B36739+25]
+	RtlGetFullPathName_UEx [0x775A8FEF+1215]
+	RtlGetFullPathName_UEx [0x775A8FBD+1165]
+	(No symbol) [0x00000000]
+
+</pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+        
+        <tr class='errorClass' style="font-weight:bold;color:white;">
+            <td><a href="javascript:showClassDetail('c4','3')">src.tests.general.test_language_select_screen.TestRCLanguageSelectScreen</a></td>
+            <td>3</td>
+            <td>1</td>
+            <td>0</td>
+            <td>2</td>
+            <td>
+                <button><a href="javascript:showClassDetail('c4','3')"
+                           style="color:#660066;">Detail</a></button>
+            </td>
+        </tr>
+            
+            <tr id="pt4.1" class='hiddenRow'>
+                <td class='passCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_pt4.1')">test_rc_language_select_screen</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_pt4.1')" style="color:#660066;">
+                                PASS
+                            </a></button>
+                        <div id='div_pt4.1' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_pt4.1').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;"></pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+            <tr id="ft4.2" class='none'>
+                <td class='errorCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_ft4.2')">test_rc_language_select_screen_load_core_language</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_ft4.2')" style="color:#660066;">
+                                ERROR
+                            </a></button>
+                        <div id='div_ft4.2' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_ft4.2').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;">Traceback (most recent call last):
+  File "C:\Users\warnicka\embark-automation\src\tests\general\test_language_select_screen.py", line 132, in test_rc_language_select_screen_load_core_language
+    self.click(e.for_you_tab)
+  File "C:\Users\warnicka\embark-automation\src\tests\embark_tests.py", line 34, in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely a broken test")
+  File "C:\Users\warnicka\embark-automation\src\sessions\embark_session.py", line 83, in _click
+    self.driver.find_element(*element).click()
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 88, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <ion-segment-button _ngcontent-wiu-c181="" class="taskGroup__segment md in-segment in-segment-color segment-button-layout-icon-top ion-activatable ion-activatable-instant ion-focusable hydrated segment-button-after-checked segment-button-checked" role="tab" aria-selected="true" tabindex="0">...</ion-segment-button> is not clickable at point (170, 110). Other element would receive the click: <h3 _ngcontent-wiu-c93="" class="basicModal__header">...</h3>
+  (Session info: headless chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x002B1ED3+2236115]
+	Ordinal0 [0x002492F1+1807089]
+	Ordinal0 [0x001566FD+812797]
+	Ordinal0 [0x0018BEC7+1031879]
+	Ordinal0 [0x00189E6C+1023596]
+	Ordinal0 [0x00187A5B+1014363]
+	Ordinal0 [0x001866E7+1009383]
+	Ordinal0 [0x0017C416+967702]
+	Ordinal0 [0x001A1A8C+1120908]
+	Ordinal0 [0x0017BD84+966020]
+	Ordinal0 [0x001A1CA4+1121444]
+	Ordinal0 [0x001B59E2+1202658]
+	Ordinal0 [0x001A18A6+1120422]
+	Ordinal0 [0x0017A73D+960317]
+	Ordinal0 [0x0017B71F+964383]
+	GetHandleVerifier [0x0055E7E2+2743074]
+	GetHandleVerifier [0x005508D4+2685972]
+	GetHandleVerifier [0x00342BAA+532202]
+	GetHandleVerifier [0x00341990+527568]
+	Ordinal0 [0x0025080C+1837068]
+	Ordinal0 [0x00254CD8+1854680]
+	Ordinal0 [0x00254DC5+1854917]
+	Ordinal0 [0x0025ED64+1895780]
+	BaseThreadInitThunk [0x76B36739+25]
+	RtlGetFullPathName_UEx [0x775A8FEF+1215]
+	RtlGetFullPathName_UEx [0x775A8FBD+1165]
+	(No symbol) [0x00000000]
+
+</pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+            <tr id="ft4.3" class='none'>
+                <td class='errorCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_ft4.3')">test_rc_language_select_screen_load_non_core_language</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_ft4.3')" style="color:#660066;">
+                                ERROR
+                            </a></button>
+                        <div id='div_ft4.3' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_ft4.3').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;">Traceback (most recent call last):
+  File "C:\Users\warnicka\embark-automation\src\tests\general\test_language_select_screen.py", line 138, in test_rc_language_select_screen_load_non_core_language
+    self.click(e.for_you_tab)
+  File "C:\Users\warnicka\embark-automation\src\tests\embark_tests.py", line 34, in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely a broken test")
+  File "C:\Users\warnicka\embark-automation\src\sessions\embark_session.py", line 83, in _click
+    self.driver.find_element(*element).click()
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 88, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <ion-segment-button _ngcontent-gcv-c181="" class="taskGroup__segment md in-segment in-segment-color segment-button-layout-icon-top ion-activatable ion-activatable-instant ion-focusable hydrated segment-button-after-checked segment-button-checked" role="tab" aria-selected="true" tabindex="0">...</ion-segment-button> is not clickable at point (170, 116). Other element would receive the click: <h3 _ngcontent-gcv-c93="" class="basicModal__header">...</h3>
+  (Session info: headless chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x002B1ED3+2236115]
+	Ordinal0 [0x002492F1+1807089]
+	Ordinal0 [0x001566FD+812797]
+	Ordinal0 [0x0018BEC7+1031879]
+	Ordinal0 [0x00189E6C+1023596]
+	Ordinal0 [0x00187A5B+1014363]
+	Ordinal0 [0x001866E7+1009383]
+	Ordinal0 [0x0017C416+967702]
+	Ordinal0 [0x001A1A8C+1120908]
+	Ordinal0 [0x0017BD84+966020]
+	Ordinal0 [0x001A1CA4+1121444]
+	Ordinal0 [0x001B59E2+1202658]
+	Ordinal0 [0x001A18A6+1120422]
+	Ordinal0 [0x0017A73D+960317]
+	Ordinal0 [0x0017B71F+964383]
+	GetHandleVerifier [0x0055E7E2+2743074]
+	GetHandleVerifier [0x005508D4+2685972]
+	GetHandleVerifier [0x00342BAA+532202]
+	GetHandleVerifier [0x00341990+527568]
+	Ordinal0 [0x0025080C+1837068]
+	Ordinal0 [0x00254CD8+1854680]
+	Ordinal0 [0x00254DC5+1854917]
+	Ordinal0 [0x0025ED64+1895780]
+	BaseThreadInitThunk [0x76B36739+25]
+	RtlGetFullPathName_UEx [0x775A8FEF+1215]
+	RtlGetFullPathName_UEx [0x775A8FBD+1165]
+	(No symbol) [0x00000000]
+
+</pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+        
+        <tr class='errorClass' style="font-weight:bold;color:white;">
+            <td><a href="javascript:showClassDetail('c5','3')">src.tests.general.test_language_select_screen.TestStageLanguageSelectScreen</a></td>
+            <td>3</td>
+            <td>1</td>
+            <td>0</td>
+            <td>2</td>
+            <td>
+                <button><a href="javascript:showClassDetail('c5','3')"
+                           style="color:#660066;">Detail</a></button>
+            </td>
+        </tr>
+            
+            <tr id="pt5.1" class='hiddenRow'>
+                <td class='passCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_pt5.1')">test_stage_language_select_screen</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_pt5.1')" style="color:#660066;">
+                                PASS
+                            </a></button>
+                        <div id='div_pt5.1' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_pt5.1').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;"></pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+            <tr id="ft5.2" class='none'>
+                <td class='errorCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_ft5.2')">test_stage_language_select_screen_load_core_language</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_ft5.2')" style="color:#660066;">
+                                ERROR
+                            </a></button>
+                        <div id='div_ft5.2' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_ft5.2').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;">Traceback (most recent call last):
+  File "C:\Users\warnicka\embark-automation\src\tests\general\test_language_select_screen.py", line 86, in test_stage_language_select_screen_load_core_language
+    self.click(e.for_you_tab)
+  File "C:\Users\warnicka\embark-automation\src\tests\embark_tests.py", line 34, in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely a broken test")
+  File "C:\Users\warnicka\embark-automation\src\sessions\embark_session.py", line 83, in _click
+    self.driver.find_element(*element).click()
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 88, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <ion-segment-button _ngcontent-smu-c181="" class="taskGroup__segment md in-segment in-segment-color segment-button-layout-icon-top ion-activatable ion-activatable-instant ion-focusable hydrated segment-button-after-checked segment-button-checked" role="tab" aria-selected="true" tabindex="0">...</ion-segment-button> is not clickable at point (170, 110). Other element would receive the click: <h3 _ngcontent-smu-c93="" class="basicModal__header">...</h3>
+  (Session info: headless chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x002B1ED3+2236115]
+	Ordinal0 [0x002492F1+1807089]
+	Ordinal0 [0x001566FD+812797]
+	Ordinal0 [0x0018BEC7+1031879]
+	Ordinal0 [0x00189E6C+1023596]
+	Ordinal0 [0x00187A5B+1014363]
+	Ordinal0 [0x001866E7+1009383]
+	Ordinal0 [0x0017C416+967702]
+	Ordinal0 [0x001A1A8C+1120908]
+	Ordinal0 [0x0017BD84+966020]
+	Ordinal0 [0x001A1CA4+1121444]
+	Ordinal0 [0x001B59E2+1202658]
+	Ordinal0 [0x001A18A6+1120422]
+	Ordinal0 [0x0017A73D+960317]
+	Ordinal0 [0x0017B71F+964383]
+	GetHandleVerifier [0x0055E7E2+2743074]
+	GetHandleVerifier [0x005508D4+2685972]
+	GetHandleVerifier [0x00342BAA+532202]
+	GetHandleVerifier [0x00341990+527568]
+	Ordinal0 [0x0025080C+1837068]
+	Ordinal0 [0x00254CD8+1854680]
+	Ordinal0 [0x00254DC5+1854917]
+	Ordinal0 [0x0025ED64+1895780]
+	BaseThreadInitThunk [0x76B36739+25]
+	RtlGetFullPathName_UEx [0x775A8FEF+1215]
+	RtlGetFullPathName_UEx [0x775A8FBD+1165]
+	(No symbol) [0x00000000]
+
+</pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+            <tr id="ft5.3" class='none'>
+                <td class='errorCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_ft5.3')">test_stage_language_select_screen_load_non_core_language</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_ft5.3')" style="color:#660066;">
+                                ERROR
+                            </a></button>
+                        <div id='div_ft5.3' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_ft5.3').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;">Traceback (most recent call last):
+  File "C:\Users\warnicka\embark-automation\src\tests\general\test_language_select_screen.py", line 92, in test_stage_language_select_screen_load_non_core_language
+    self.click(e.for_you_tab)
+  File "C:\Users\warnicka\embark-automation\src\tests\embark_tests.py", line 34, in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely a broken test")
+  File "C:\Users\warnicka\embark-automation\src\sessions\embark_session.py", line 83, in _click
+    self.driver.find_element(*element).click()
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 88, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <ion-segment-button _ngcontent-sjk-c181="" class="taskGroup__segment md in-segment in-segment-color segment-button-layout-icon-top ion-activatable ion-activatable-instant ion-focusable hydrated segment-button-after-checked segment-button-checked" role="tab" aria-selected="true" tabindex="0">...</ion-segment-button> is not clickable at point (170, 110). Other element would receive the click: <h3 _ngcontent-sjk-c93="" class="basicModal__header">...</h3>
+  (Session info: headless chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x002B1ED3+2236115]
+	Ordinal0 [0x002492F1+1807089]
+	Ordinal0 [0x001566FD+812797]
+	Ordinal0 [0x0018BEC7+1031879]
+	Ordinal0 [0x00189E6C+1023596]
+	Ordinal0 [0x00187A5B+1014363]
+	Ordinal0 [0x001866E7+1009383]
+	Ordinal0 [0x0017C416+967702]
+	Ordinal0 [0x001A1A8C+1120908]
+	Ordinal0 [0x0017BD84+966020]
+	Ordinal0 [0x001A1CA4+1121444]
+	Ordinal0 [0x001B59E2+1202658]
+	Ordinal0 [0x001A18A6+1120422]
+	Ordinal0 [0x0017A73D+960317]
+	Ordinal0 [0x0017B71F+964383]
+	GetHandleVerifier [0x0055E7E2+2743074]
+	GetHandleVerifier [0x005508D4+2685972]
+	GetHandleVerifier [0x00342BAA+532202]
+	GetHandleVerifier [0x00341990+527568]
+	Ordinal0 [0x0025080C+1837068]
+	Ordinal0 [0x00254CD8+1854680]
+	Ordinal0 [0x00254DC5+1854917]
+	Ordinal0 [0x0025ED64+1895780]
+	BaseThreadInitThunk [0x76B36739+25]
+	RtlGetFullPathName_UEx [0x775A8FEF+1215]
+	RtlGetFullPathName_UEx [0x775A8FBD+1165]
+	(No symbol) [0x00000000]
+
+</pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+        
+        <tr class='passClass' style="font-weight:bold;color:white;">
+            <td><a href="javascript:showClassDetail('c6','2')">src.tests.general.test_load_core_language.TestProdLoadCoreLanguage</a></td>
+            <td>2</td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>
+                <button><a href="javascript:showClassDetail('c6','2')"
+                           style="color:#660066;">Detail</a></button>
+            </td>
+        </tr>
+            
+            <tr id="pt6.1" class='hiddenRow'>
+                <td class='passCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_pt6.1')">test_lessons_load_core_languages</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_pt6.1')" style="color:#660066;">
+                                PASS
+                            </a></button>
+                        <div id='div_pt6.1' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_pt6.1').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;"></pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+            <tr id="pt6.2" class='hiddenRow'>
+                <td class='passCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_pt6.2')">test_settings_menu_says_core_language</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_pt6.2')" style="color:#660066;">
+                                PASS
+                            </a></button>
+                        <div id='div_pt6.2' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_pt6.2').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;"></pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+        
+        <tr class='errorClass' style="font-weight:bold;color:white;">
+            <td><a href="javascript:showClassDetail('c7','2')">src.tests.general.test_load_non_core_language.TestProdLoadCoreLanguage</a></td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>2</td>
+            <td>
+                <button><a href="javascript:showClassDetail('c7','2')"
+                           style="color:#660066;">Detail</a></button>
+            </td>
+        </tr>
+            
+            <tr id="ft7.1" class='none'>
+                <td class='errorCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_ft7.1')">test_lessons_load_core_languages</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_ft7.1')" style="color:#660066;">
+                                ERROR
+                            </a></button>
+                        <div id='div_ft7.1' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_ft7.1').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;">Traceback (most recent call last):
+  File "C:\Users\warnicka\embark-automation\src\tests\general\test_load_non_core_language.py", line 14, in test_lessons_load_core_languages
+    self.click(self.elements.whats_new_card_close_button)
+AttributeError: type object 'ProdElements' has no attribute 'whats_new_card_close_button'
+</pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+            <tr id="ft7.2" class='none'>
+                <td class='errorCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_ft7.2')">test_settings_menu_says_core_language</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_ft7.2')" style="color:#660066;">
+                                ERROR
+                            </a></button>
+                        <div id='div_ft7.2' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_ft7.2').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;">Traceback (most recent call last):
+  File "C:\Users\warnicka\embark-automation\src\tests\general\test_load_non_core_language.py", line 7, in test_settings_menu_says_core_language
+    self.click(self.elements.whats_new_card_close_button)
+AttributeError: type object 'ProdElements' has no attribute 'whats_new_card_close_button'
+</pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+        
+        <tr class='errorClass' style="font-weight:bold;color:white;">
+            <td><a href="javascript:showClassDetail('c8','1')">src.tests.general.test_login.TestDevLogin</a></td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>
+                <button><a href="javascript:showClassDetail('c8','1')"
+                           style="color:#660066;">Detail</a></button>
+            </td>
+        </tr>
+            
+            <tr id="ft8.1" class='none'>
+                <td class='errorCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_ft8.1')">test_macro_login</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_ft8.1')" style="color:#660066;">
+                                ERROR
+                            </a></button>
+                        <div id='div_ft8.1' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_ft8.1').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;">Traceback (most recent call last):
+  File "C:\Users\warnicka\embark-automation\src\tests\general\test_login.py", line 39, in test_macro_login
+    self.assertTrue(self.login(), "login macro failed")
+  File "C:\Users\warnicka\embark-automation\src\tests\embark_tests.py", line 56, in login
+    self.click(e.sign_in_submit)
+  File "C:\Users\warnicka\embark-automation\src\tests\embark_tests.py", line 34, in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely a broken test")
+  File "C:\Users\warnicka\embark-automation\src\sessions\embark_session.py", line 79, in _click
+    self._find(element, time)
+  File "C:\Users\warnicka\embark-automation\src\sessions\embark_session.py", line 71, in _find
+    if(not elem.is_displayed()):
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 250, in is_displayed
+    return self.parent.execute_script(
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 492, in execute_script
+    return self.execute(command, {
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.StaleElementReferenceException: Message: stale element reference: element is not attached to the page document
+  (Session info: headless chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x002B1ED3+2236115]
+	Ordinal0 [0x002492F1+1807089]
+	Ordinal0 [0x001566FD+812797]
+	Ordinal0 [0x001592B4+823988]
+	Ordinal0 [0x00159165+823653]
+	Ordinal0 [0x00159AF5+826101]
+	Ordinal0 [0x001B6452+1205330]
+	Ordinal0 [0x001A1A8C+1120908]
+	Ordinal0 [0x001B59E2+1202658]
+	Ordinal0 [0x001A18A6+1120422]
+	Ordinal0 [0x0017A73D+960317]
+	Ordinal0 [0x0017B71F+964383]
+	GetHandleVerifier [0x0055E7E2+2743074]
+	GetHandleVerifier [0x005508D4+2685972]
+	GetHandleVerifier [0x00342BAA+532202]
+	GetHandleVerifier [0x00341990+527568]
+	Ordinal0 [0x0025080C+1837068]
+	Ordinal0 [0x00254CD8+1854680]
+	Ordinal0 [0x00254DC5+1854917]
+	Ordinal0 [0x0025ED64+1895780]
+	BaseThreadInitThunk [0x76B36739+25]
+	RtlGetFullPathName_UEx [0x775A8FEF+1215]
+	RtlGetFullPathName_UEx [0x775A8FBD+1165]
+	(No symbol) [0x00000000]
+
+</pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+        
+        <tr class='passClass' style="font-weight:bold;color:white;">
+            <td><a href="javascript:showClassDetail('c9','2')">src.tests.general.test_login.TestProdLogin</a></td>
+            <td>2</td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>
+                <button><a href="javascript:showClassDetail('c9','2')"
+                           style="color:#660066;">Detail</a></button>
+            </td>
+        </tr>
+            
+            <tr id="pt9.1" class='hiddenRow'>
+                <td class='passCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_pt9.1')">test_login_page</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_pt9.1')" style="color:#660066;">
+                                PASS
+                            </a></button>
+                        <div id='div_pt9.1' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_pt9.1').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;"></pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+            <tr id="pt9.2" class='hiddenRow'>
+                <td class='passCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_pt9.2')">test_macro_login</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_pt9.2')" style="color:#660066;">
+                                PASS
+                            </a></button>
+                        <div id='div_pt9.2' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_pt9.2').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;"></pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+        
+        <tr class='passClass' style="font-weight:bold;color:white;">
+            <td><a href="javascript:showClassDetail('c10','1')">src.tests.general.test_login.TestRCLogin</a></td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>
+                <button><a href="javascript:showClassDetail('c10','1')"
+                           style="color:#660066;">Detail</a></button>
+            </td>
+        </tr>
+            
+            <tr id="pt10.1" class='hiddenRow'>
+                <td class='passCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_pt10.1')">test_macro_login</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_pt10.1')" style="color:#660066;">
+                                PASS
+                            </a></button>
+                        <div id='div_pt10.1' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_pt10.1').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;"></pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+        
+        <tr class='passClass' style="font-weight:bold;color:white;">
+            <td><a href="javascript:showClassDetail('c11','1')">src.tests.general.test_login.TestStageLogin</a></td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>
+                <button><a href="javascript:showClassDetail('c11','1')"
+                           style="color:#660066;">Detail</a></button>
+            </td>
+        </tr>
+            
+            <tr id="pt11.1" class='hiddenRow'>
+                <td class='passCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_pt11.1')">test_macro_login</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_pt11.1')" style="color:#660066;">
+                                PASS
+                            </a></button>
+                        <div id='div_pt11.1' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_pt11.1').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;"></pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+        
+        <tr class='passClass' style="font-weight:bold;color:white;">
+            <td><a href="javascript:showClassDetail('c12','1')">src.tests.settings.test_about_hyperlinks.TestAboutHyperlinks</a></td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>
+                <button><a href="javascript:showClassDetail('c12','1')"
+                           style="color:#660066;">Detail</a></button>
+            </td>
+        </tr>
+            
+            <tr id="pt12.1" class='hiddenRow'>
+                <td class='passCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_pt12.1')">test_about_hyperlinks</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_pt12.1')" style="color:#660066;">
+                                PASS
+                            </a></button>
+                        <div id='div_pt12.1' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_pt12.1').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;"></pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+        
+        <tr class='errorClass' style="font-weight:bold;color:white;">
+            <td><a href="javascript:showClassDetail('c13','2')">src.tests.test_settings.TestStageSettings</a></td>
+            <td>2</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>
+                <button><a href="javascript:showClassDetail('c13','2')"
+                           style="color:#660066;">Detail</a></button>
+            </td>
+        </tr>
+            
+            <tr id="pt13.1" class='hiddenRow'>
+                <td class='passCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_pt13.1')">test_stage_logout</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_pt13.1')" style="color:#660066;">
+                                PASS
+                            </a></button>
+                        <div id='div_pt13.1' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_pt13.1').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;"></pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+            <tr id="ft13.2" class='none'>
+                <td class='errorCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_ft13.2')">test_stage_settings_validation</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_ft13.2')" style="color:#660066;">
+                                ERROR
+                            </a></button>
+                        <div id='div_ft13.2' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_ft13.2').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;">Traceback (most recent call last):
+  File "C:\Users\warnicka\embark-automation\src\tests\test_settings.py", line 9, in test_stage_settings_validation
+    self.assertTrue(self.login())
+  File "C:\Users\warnicka\embark-automation\src\tests\embark_tests.py", line 57, in login
+    self.find(e.i_want_to_learn)
+  File "C:\Users\warnicka\embark-automation\src\tests\embark_tests.py", line 31, in find
+    self.assertTrue(self._find(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely a broken test")
+  File "C:\Users\warnicka\embark-automation\src\sessions\embark_session.py", line 72, in _find
+    ActionChains(self.driver).move_to_element(elem).perform()
+  File "C:\Python310\lib\site-packages\selenium\webdriver\common\action_chains.py", line 78, in perform
+    self.w3c_actions.perform()
+  File "C:\Python310\lib\site-packages\selenium\webdriver\common\actions\action_builder.py", line 88, in perform
+    self.driver.execute(Command.W3C_ACTIONS, enc)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable: [object HTMLInputElement] has no size and location
+  (Session info: chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x002B1ED3+2236115]
+	Ordinal0 [0x002492F1+1807089]
+	Ordinal0 [0x001566FD+812797]
+	Ordinal0 [0x001592B4+823988]
+	Ordinal0 [0x00159165+823653]
+	Ordinal0 [0x00159400+824320]
+	Ordinal0 [0x0018B2D7+1028823]
+	Ordinal0 [0x0018A9F3+1026547]
+	Ordinal0 [0x001BD1B8+1233336]
+	Ordinal0 [0x001A1A8C+1120908]
+	Ordinal0 [0x001B59E2+1202658]
+	Ordinal0 [0x001A18A6+1120422]
+	Ordinal0 [0x0017A73D+960317]
+	Ordinal0 [0x0017B71F+964383]
+	GetHandleVerifier [0x0055E7E2+2743074]
+	GetHandleVerifier [0x005508D4+2685972]
+	GetHandleVerifier [0x00342BAA+532202]
+	GetHandleVerifier [0x00341990+527568]
+	Ordinal0 [0x0025080C+1837068]
+	Ordinal0 [0x00254CD8+1854680]
+	Ordinal0 [0x00254DC5+1854917]
+	Ordinal0 [0x0025ED64+1895780]
+	BaseThreadInitThunk [0x76B36739+25]
+	RtlGetFullPathName_UEx [0x775A8FEF+1215]
+	RtlGetFullPathName_UEx [0x775A8FBD+1165]
+	(No symbol) [0x00000000]
+
+</pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+        
+
+        <tr id='total_row'>
+            <td>Total</td>
+            <td>26</td>
+            <td>14</td>
+            <td>2</td>
+            <td>10</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</div>
+<br><br>
+<div id='ending'><b>Time Elapsed: </b>0:06:58.111485</div>
+</body>
+</html>

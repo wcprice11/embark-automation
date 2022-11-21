@@ -4,7 +4,9 @@ drivers/
 .env
 *.pyc
 .vscode/
-report/
+reports/*.xml
 *.jar
 *.sh
 *venv*/
+__pycache__/
+.pytest_cache/
