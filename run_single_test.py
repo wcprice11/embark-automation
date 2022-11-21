@@ -6,6 +6,7 @@ from tests.discover.test_quiz_me import TestQuizMe
 from tests.discover.test_record_audio import TestRecordAudio
 from tests.discover.test_alphabet import TestStageDiscoverAlphabet
 from tests.discover.test_discover import TestStageDiscoverVocab
+from tests.discover.test_vocab_spaced_review import TestVocabSpacedReview
 from tests.settings.test_progress_updates_by_language import TestProgressUpdatesByLanguage
 from tests.settings.test_sign_into_different_account import TestSignIntoDifferentAccount
 from tests.settings.test_sound import TestSound
@@ -27,4 +28,4 @@ def run_single_class(testClass):
     runner.run(test)
 
 if __name__ == "__main__":
-    run_single_class(TestQuizMe)
+    run_single_class(TestVocabSpacedReview)

@@ -46,7 +46,7 @@ class Elements:
     recommended_alphabet_lesson_title   = (By.CSS_SELECTOR, "app-for-you-group>app-task-card:nth-of-type(2)>ion-card span.title", "recommended alphabet lesson (og:spanish")
     recommended_tones_lesson            = (By.CSS_SELECTOR, "app-for-you-group ion-card:has(div.tones-icon) span.title", "tones lesson (og:mandarin(traditional)")
 
-    recommended_meet_someone_lesson     = (By.CSS_SELECTOR, "app-for-you-group>app-task-card:nth-of-type(4)>ion-card", "recommended meet someone lesson (og:spanish")
+    recommended_meet_someone_lesson     = (By.CSS_SELECTOR, "app-for-you-group>app-task-card:nth-of-type(3)>ion-card", "recommended meet someone lesson (og:spanish")
 
     # Generic elements, may exist on any page
     body                    = (By.CSS_SELECTOR, "body", "page body, good for simulating key presses")
@@ -176,12 +176,20 @@ class Elements:
     symbol_popover_mastered     =(By.CSS_SELECTOR, "span[title='Mark as Mastered']", "Symbol popup bottom row unmarked (og: spanish alphabet 'a')")
     symbol_popover_unmark       =(By.CSS_SELECTOR, "span[title='Unmark']", "Symbol popup bottom row unmarked (og: spanish alphabet 'a')")
 
-    vocab_concept_list_discovered_1 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(1)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 1")
-    vocab_concept_list_discovered_2 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(2)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 2")
-    vocab_concept_list_discovered_3 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(3)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 3")
-    vocab_concept_list_discovered_4 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(4)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 4")
-    vocab_concept_list_discovered_5 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(5)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 5")
-    vocab_concept_list_discovered_6 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(6)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 6")
+    vocab_concept_list_discovered_1 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(1)>div>div:nth-of-type(2)>span>ion-icon", "Discovered button in vocab list 1")
+    vocab_concept_list_discovered_2 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(2)>div>div:nth-of-type(2)>span>ion-icon", "Discovered button in vocab list 2")
+    vocab_concept_list_discovered_3 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(3)>div>div:nth-of-type(2)>span>ion-icon", "Discovered button in vocab list 3")
+    vocab_concept_list_discovered_4 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(4)>div>div:nth-of-type(2)>span>ion-icon", "Discovered button in vocab list 4")
+    vocab_concept_list_discovered_5 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(5)>div>div:nth-of-type(2)>span>ion-icon", "Discovered button in vocab list 5")
+    vocab_concept_list_discovered_6 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(6)>div>div:nth-of-type(2)>span>ion-icon", "Discovered button in vocab list 6")
+
+    vocab_concept_list_discovered_button_1 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(1)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 1")
+    vocab_concept_list_discovered_button_2 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(2)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 2")
+    vocab_concept_list_discovered_button_3 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(3)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 3")
+    vocab_concept_list_discovered_button_4 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(4)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 4")
+    vocab_concept_list_discovered_button_5 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(5)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 5")
+    vocab_concept_list_discovered_button_6 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(6)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 6")
+
 
     lesson_discover_flashcards          = (By.CSS_SELECTOR, "ion-content h1", "Flashcards info card title (og: spanish alphabet discover)")
     lesson_discover_flashcards_start    = (By.CSS_SELECTOR, "ion-footer>ion-button", "Flashcards start button (og: spanish alphabet discover)")
@@ -191,7 +199,18 @@ class Elements:
     lesson_practice_fill_in_blank       = (By.CSS_SELECTOR, "div>div:nth-of-type(2)>app-study-list-card>ion-card", "First option on pick activity page")
     lesson_practice_check               = (By.CSS_SELECTOR, "ion-grid ion-button", "Check button in fill in blank")
     lesson_practice_input               = (By.CSS_SELECTOR, "app-symbol-test>div>div>ion-card>ion-item>ion-input>input", "Text input")
+    lesson_spaced_review_button         = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>div>ion-button", "Spaced review button on vocab/phrase/alphabet page")
 
+    spaced_review_quadrants_prompt  = (By.CSS_SELECTOR, "app-quadrants>div>ion-header", "Prompt word in quadrants for Spaced Review")
+    spaced_review_quadrants_answer1 = (By.CSS_SELECTOR, "app-quadrants>div>div>ion-grid>ion-row>ion-col", "Answer 1 spaced review quadrants")
+    spaced_review_quadrants_answer2 = (By.CSS_SELECTOR, "app-quadrants>div>div>ion-grid>ion-row>ion-col:nth-of-type(2)", "Answer 2 spaced review quadrants")
+    spaced_review_quadrants_answer3 = (By.CSS_SELECTOR, "app-quadrants>div>div>ion-grid>ion-row>ion-col:nth-of-type(3)", "Answer 3 spaced review quadrants")
+    spaced_review_quadrants_answer4 = (By.CSS_SELECTOR, "app-quadrants>div>div>ion-grid>ion-row>ion-col:nth-of-type(4)", "Answer 4 spaced review quadrants")
+    spaced_review_skip_button       = (By.CSS_SELECTOR, "ion-footer>ion-button", "Skip button in spaced review")
+
+    spaced_review_continue_button       = (By.CSS_SELECTOR, "ion-footer ion-button", "Skip button in spaced review")
+    spaced_review_mine_works_too_button = (By.CSS_SELECTOR, "ion-toolbar ion-button", "Mine works too button in spaced review")
+    spaced_review_got_it_button         = (By.CSS_SELECTOR, "ion-toolbar ion-button:nth-of-type(2)", "Got it button in spaced review")
 
 
 class ProdElements(Elements):

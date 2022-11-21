@@ -114,3 +114,4 @@ Testing Phase 2 List
     - [ ] Clear Favorites
     - [ ] iOS
     - [ ] Android
+    - [ ] Spaced review algorithm
