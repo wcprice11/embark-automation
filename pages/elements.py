@@ -271,11 +271,19 @@ class Elements:
     lesson_discover_flashcards_start    = (By.CSS_SELECTOR, "ion-footer>ion-button", "Flashcards start button (og: spanish alphabet discover)")
     lesson_discover_flashcard_text      = (By.CSS_SELECTOR, "app-discover>ion-content>div>swiper>div", "Flashcard text")
     lesson_discover_toolbar             = (By.CSS_SELECTOR, "app-activity-tool-bar", "Toolbar in flashcards")
-
-    lesson_practice_fill_in_blank       = (By.CSS_SELECTOR, "div>div:nth-of-type(2)>app-study-list-card>ion-card", "First option on pick activity page")
-    lesson_practice_check               = (By.CSS_SELECTOR, "ion-grid ion-button", "Check button in fill in blank")
-    lesson_practice_input               = (By.CSS_SELECTOR, "app-symbol-test>div>div>ion-card>ion-item>ion-input>input", "Text input")
-    lesson_spaced_review_button         = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>div>ion-button", "Spaced review button on vocab/phrase/alphabet page")
+    
+    lesson_practice_multiple_choice         = (By.CSS_SELECTOR, "app-pick-activity>ion-content>div>div:nth-of-type(2)>app-study-list-card", "First option on pick activity page, in this case multiple choice")
+    lesson_practice_fill_in_blank           = (By.CSS_SELECTOR, "div>div:nth-of-type(2)>app-study-list-card>ion-card", "First option on pick activity page")
+    lesson_practice_check                   = (By.CSS_SELECTOR, "ion-grid ion-button", "Check button in fill in blank")
+    lesson_practice_input                   = (By.CSS_SELECTOR, "app-symbol-test>div>div>ion-card>ion-item>ion-input>input", "Text input")
+    lesson_spaced_review_button             = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>div>ion-button", "Spaced review button on vocab/phrase/alphabet page")
+    lesson_practice_mine_works_too_button   = (By.CSS_SELECTOR, "app-quadrants>div>ion-footer>ion-toolbar>ion-row>ion-button", "Mine works too button in lesson practice")
+    lesson_practice_got_it_button           = (By.CSS_SELECTOR, "app-quadrants>div>ion-footer>ion-toolbar>ion-row>ion-button:nth-of-type(2)", "Got it button in lesson practice")
+    lesson_practice_header_progress_numbers = (By.CSS_SELECTOR, "app-activity-wrapper>app-progress-header>div>ion-header>ion-toolbar>div>app-progress-bar>div>p", "Toolbar in lesson practice")
+    
+    lesson_practice_type_or_say             = (By.CSS_SELECTOR, "app-pick-activity>ion-content>div>div:nth-of-type(2)>app-study-list-card:nth-of-type(3)", "Third option on pick activity page, in this case type and say")
+    lesson_practice_type_or_say_prompt      = (By.CSS_SELECTOR, "app-typing>div>div>ion-toolbar>ion-title", "Prompt in type or say")
+    lesson_practice_type_or_say_input       = (By.CSS_SELECTOR, "app-typing>div>div>div>ion-card>ion-item>ion-textarea", "Type or say input")
 
     spaced_review_quadrants_prompt  = (By.CSS_SELECTOR, "app-quadrants>div>ion-header", "Prompt word in quadrants for Spaced Review")
     spaced_review_quadrants_answer1 = (By.CSS_SELECTOR, "app-quadrants>div>div>ion-grid>ion-row>ion-col", "Answer 1 spaced review quadrants")

@@ -3,4 +3,4 @@ import pytest
 
 
 if __name__ == "__main__":
-    pytest.main(["tests/spaced-review/test_vocab_spaced_review.py"])
+    pytest.main(["tests/tasks-pages/vocab-discover/test_vocab_practice.py"])

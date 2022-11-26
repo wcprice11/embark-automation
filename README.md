@@ -47,7 +47,7 @@ The embark-automation package is a testing suite intended to work in tandem with
         - [X] Record Audio
         - [X] Quiz Me
         - [ ] Pick Activity
-        - [ ] Spaced Review
+        - [X] Spaced Review
     - [ ] Phrases
         - [ ] Main Page
         - [ ] Discover
