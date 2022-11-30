@@ -53,6 +53,8 @@ class Elements:
     PMG_lessons_tab         = (By.CSS_SELECTOR, "ion-segment-button:nth-of-type(5)", "FIX_ME")
     alphabet_progress_bar   = (By.CSS_SELECTOR, "app-home-learn-tab>div>div>app-for-you-group>app-task-card:nth-of-type(3)>ion-card>div>div>div:nth-of-type(2)>progress", "Progress bar on alphabet card in home learn")
     alphabet_progress_secondary_language    = (By.CSS_SELECTOR, "app-home-learn-tab>div>div>app-for-you-group>app-task-card:nth-of-type(2)>ion-card>div>div>div:nth-of-type(2)>progress", "Progress bar on alphabet card in home learn when you've switched languages")
+    my_added_words          = (By.CSS_SELECTOR, "app-for-you-group>div>ion-card", "Added words button on home page")
+
 
     spaced_review           = (By.CSS_SELECTOR, "app-spaced-review-card ion-card", "spaced review dashboard (og: spanish homepage)")
     spaced_review_title     = (By.CSS_SELECTOR, "app-spaced-review-card ion-card>div.title", "spaced review dashboard title (og: spanish homepage)")
@@ -87,6 +89,18 @@ class Elements:
     lesson_card             = (By.CSS_SELECTOR, "app-study-list-card>ion-card", "lesson card item (og: spanish alphabet Symbols and Sounds")
     close_button            = (By.CSS_SELECTOR, "#close", "Close button in activity (og: spanish alphabet flashcards")
     close_popover           = (By.CSS_SELECTOR, "ion-popover", "close popover")
+
+    # Added words items
+    add_topic                           = (By.CSS_SELECTOR, "app-added-words>div>ion-content>div>div>div>div>div>div>button", "Add topic button")
+    add_topic_title                     = (By.CSS_SELECTOR, "app-edit-added-words>ion-content>ion-grid>ion-card>app-text-box-suggestions>div>div:nth-of-type(2)>input", "Add topic title input")
+    add_topic_add_word_native           = (By.CSS_SELECTOR, "app-edit-added-words>ion-content>ion-grid>ion-card>div>app-added-word-inputs>div>div>div>app-text-box-suggestions>div>div:nth-of-type(2)>input", "Add topic native word input")
+    add_topic_add_word_target           = (By.CSS_SELECTOR, "app-edit-added-words>ion-content>ion-grid>ion-card>div>app-added-word-inputs>div>div>div>app-text-box-suggestions:nth-of-type(2)>div>div:nth-of-type(2)>input", "Add topic target language word input")
+    add_topic_done_button               = (By.CSS_SELECTOR, "app-edit-added-words>div>ion-header>ion-toolbar>ion-buttons:nth-of-type(2)>button", "Add topic done button")
+    added_topic_task_page_back_button   = (By.CSS_SELECTOR, "app-task-study-list>app-header>div>ion-header>ion-toolbar>div>ion-grid>ion-row>ion-col>div>ion-icon", "Back button in added topic task")
+    added_words_edit                    = (By.CSS_SELECTOR, "app-added-words>div>ion-content>div>div>div>div>div>div:nth-of-type(2)>button:nth-of-type(2)", "Edit button added words")
+    added_words_delete                  = (By.CSS_SELECTOR, "app-added-words>div>ion-content>div>div>div>div>div:nth-of-type(2)>div>div>div>app-topic-slider>div>div:nth-of-type(2)>div>ion-icon", "Delete button added words")
+    added_words_confirm_delete          = (By.CSS_SELECTOR, "button[id='confirm-button']", "Confirm delete topic on popover")
+    added_topics_absent_text            = (By.CSS_SELECTOR, "app-added-words>div>ion-content>div>div>div>div>div:nth-of-type(2)", "Area indicating if there are no added topics")
 
     # Settings dropdown menu
     settings_username                       = (By.CSS_SELECTOR, "app-home-settings-popover ion-item:first-of-type h5", "Settings dropdown username (og:S-span)")

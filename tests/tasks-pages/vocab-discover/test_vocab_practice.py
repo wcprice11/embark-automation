@@ -101,7 +101,8 @@ class TestVocabPractice(VisualEmbarkStageTest):
             self.click(e.spaced_review_continue_button)
             
 
-        # TODO: Make tests for the other Practice sections. Typing isn't working and I'm not sure about the ones with sound other than randomly clicking, which doesn't seem super helpful.
+        # TODO: Make tests for the other Practice sections. Typing isn't working and I'm not sure about 
+        # the ones with sound other than randomly clicking, which doesn't seem super helpful.
         
         # self.click(e.lesson_practice_type_or_say)
         # self.click(e.start_button)
