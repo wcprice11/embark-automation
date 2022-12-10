@@ -13,7 +13,7 @@ The embark-automation package is a testing suite intended to work in tandem with
 [**How to write tests**](/Documentation/how-to-write-a-test.md): A walk-through of where and how to write a test script.
 
 # Tests based on existing bugs
-- [ ] 
+- [ ] Add and remove topics quickly (https://trello.com/c/n9G3Lf42/1310-deleting-or-adding-topics-quickly-has-a-chance-to-crash-add-words-completely-ld1310)
 
 
 ## Test Coverage:

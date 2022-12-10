@@ -76,7 +76,7 @@ class Elements:
     recommended_alphabet_lesson_title   = (By.CSS_SELECTOR, "app-for-you-group>app-task-card:nth-of-type(3)>ion-card span.title", "recommended alphabet lesson (og:spanish")
     recommended_tones_lesson            = (By.CSS_SELECTOR, "app-for-you-group ion-card:has(div.tones-icon) span.title", "tones lesson (og:mandarin(traditional)")
 
-    recommended_meet_someone_lesson     = (By.CSS_SELECTOR, "app-for-you-group>app-task-card:nth-of-type(3)>ion-card", "recommended meet someone lesson (og:spanish")
+    recommended_meet_someone_lesson     = (By.CSS_SELECTOR, "app-for-you-group>app-task-card:nth-of-type(4)>ion-card", "recommended meet someone lesson (og:spanish")
 
     # Generic elements, may exist on any page
     body                    = (By.CSS_SELECTOR, "body", "page body, good for simulating key presses")
@@ -84,11 +84,13 @@ class Elements:
     page_title              = (By.CSS_SELECTOR, "div#title", "Page title")
     error_message           = (By.CSS_SELECTOR, "h1", "error message (og: 503 server error page)")
     main_header             = (By.CSS_SELECTOR, "h1", "main header (og: choose your adventure screen)")
-    back_button             = (By.CSS_SELECTOR, "ion-icon[title='Back Arrow']", "Back Arrow (og: spanish alphabet lesson")
+    # back_button             = (By.CSS_SELECTOR, "ion-icon[title='Back Arrow']", "Back Arrow (og: spanish alphabet lesson")
+    back_button             = (By.CSS_SELECTOR, "ion-icon[src='assets/icon/arrow-left.svg']", "Back Arrow (og: spanish alphabet lesson")
     lesson_section_title    = (By.CSS_SELECTOR, "h3.task__section-title", "Section title (og: spanish alphabet lesson")
     lesson_card             = (By.CSS_SELECTOR, "app-study-list-card>ion-card", "lesson card item (og: spanish alphabet Symbols and Sounds")
     close_button            = (By.CSS_SELECTOR, "#close", "Close button in activity (og: spanish alphabet flashcards")
     close_popover           = (By.CSS_SELECTOR, "ion-popover", "close popover")
+    task_page_back_button   = (By.CSS_SELECTOR, "app-task-study-list>app-header>div>ion-header>ion-toolbar>div>ion-grid>ion-row>ion-col>div>ion-icon", "back button on task page")
 
     # Added words items
     add_topic                           = (By.CSS_SELECTOR, "app-added-words>div>ion-content>div>div>div>div>div>div>button", "Add topic button")
@@ -266,19 +268,19 @@ class Elements:
     symbol_popover_mastered     =(By.CSS_SELECTOR, "span[title='Mark as Mastered']", "Symbol popup bottom row unmarked (og: spanish alphabet 'a')")
     symbol_popover_unmark       =(By.CSS_SELECTOR, "span[title='Unmark']", "Symbol popup bottom row unmarked (og: spanish alphabet 'a')")
 
-    vocab_concept_list_discovered_1 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(1)>div>div:nth-of-type(2)>span>ion-icon", "Discovered button in vocab list 1")
-    vocab_concept_list_discovered_2 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(2)>div>div:nth-of-type(2)>span>ion-icon", "Discovered button in vocab list 2")
-    vocab_concept_list_discovered_3 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(3)>div>div:nth-of-type(2)>span>ion-icon", "Discovered button in vocab list 3")
-    vocab_concept_list_discovered_4 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(4)>div>div:nth-of-type(2)>span>ion-icon", "Discovered button in vocab list 4")
-    vocab_concept_list_discovered_5 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(5)>div>div:nth-of-type(2)>span>ion-icon", "Discovered button in vocab list 5")
-    vocab_concept_list_discovered_6 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(6)>div>div:nth-of-type(2)>span>ion-icon", "Discovered button in vocab list 6")
+    vocab_concept_list_discovered_1 = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item:nth-of-type(2)>ion-icon:nth-of-type(3)", "Discovered button in vocab list 1")
+    vocab_concept_list_discovered_2 = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item:nth-of-type(3)>ion-icon:nth-of-type(3)", "Discovered button in vocab list 2")
+    vocab_concept_list_discovered_3 = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item:nth-of-type(4)>ion-icon:nth-of-type(3)", "Discovered button in vocab list 3")
+    vocab_concept_list_discovered_4 = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item:nth-of-type(5)>ion-icon:nth-of-type(3)", "Discovered button in vocab list 4")
+    vocab_concept_list_discovered_5 = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item:nth-of-type(6)>ion-icon:nth-of-type(3)", "Discovered button in vocab list 5")
+    vocab_concept_list_discovered_6 = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item:nth-of-type(7)>ion-icon:nth-of-type(3)", "Discovered button in vocab list 6")
 
-    vocab_concept_list_discovered_button_1 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(1)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 1")
-    vocab_concept_list_discovered_button_2 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(2)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 2")
-    vocab_concept_list_discovered_button_3 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(3)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 3")
-    vocab_concept_list_discovered_button_4 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(4)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 4")
-    vocab_concept_list_discovered_button_5 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(5)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 5")
-    vocab_concept_list_discovered_button_6 = (By.CSS_SELECTOR, "app-concept-list>ion-card>ion-item:nth-of-type(6)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 6")
+    vocab_concept_list_discovered_button_1 = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item:nth-of-type(1)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 1")
+    vocab_concept_list_discovered_button_2 = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item:nth-of-type(2)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 2")
+    vocab_concept_list_discovered_button_3 = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item:nth-of-type(3)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 3")
+    vocab_concept_list_discovered_button_4 = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item:nth-of-type(4)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 4")
+    vocab_concept_list_discovered_button_5 = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item:nth-of-type(5)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 5")
+    vocab_concept_list_discovered_button_6 = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item:nth-of-type(6)>div>div:nth-of-type(2)>span", "Discovered button in vocab list 6")
 
 
     lesson_discover_flashcards          = (By.CSS_SELECTOR, "ion-content h1", "Flashcards info card title (og: spanish alphabet discover)")
@@ -307,9 +309,12 @@ class Elements:
     spaced_review_skip_button       = (By.CSS_SELECTOR, "ion-footer>ion-button", "Skip button in spaced review")
 
     spaced_review_continue_button       = (By.CSS_SELECTOR, "ion-footer ion-button", "Skip button in spaced review")
-    spaced_review_mine_works_too_button = (By.CSS_SELECTOR, "ion-toolbar ion-button", "Mine works too button in spaced review")
+    spaced_review_mine_works_too_button = (By.CSS_SELECTOR, "ion-footer>ion-toolbar>ion-row>ion-button", "Mine works too button in spaced review")
     spaced_review_got_it_button         = (By.CSS_SELECTOR, "ion-toolbar ion-button:nth-of-type(2)", "Got it button in spaced review")
+    spaced_review_start_button          = (By.CSS_SELECTOR, "app-spaced-review-card>div>ion-card>div:nth-of-type(2)>div:nth-of-type(3)>button", "Start button on spaced review card")
+    spaced_review_heart1                = (By.CSS_SELECTOR, "app-spaced-review>ion-header>ion-toolbar>ion-item>ion-icon:nth-of-type(1)", "First heart in Spaced Review (lastone marked")
 
+    session_summary_text = (By.CSS_SELECTOR, "app-session-summary>ion-card>ion-card-header>h4", "Message to user when spaced review finishes, used in Hearts test")
 
 
 class ProdElements(Elements):
