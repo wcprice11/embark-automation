@@ -308,12 +308,22 @@ class Elements:
     spaced_review_quadrants_answer4 = (By.CSS_SELECTOR, "app-quadrants>div>div>ion-grid>ion-row>ion-col:nth-of-type(4)", "Answer 4 spaced review quadrants")
     spaced_review_skip_button       = (By.CSS_SELECTOR, "ion-footer>ion-button", "Skip button in spaced review")
 
-    spaced_review_continue_button       = (By.CSS_SELECTOR, "ion-footer ion-button", "Skip button in spaced review")
+    spaced_review_continue_button       = (By.CSS_SELECTOR, "ion-footer ion-button", "Continue button in spaced review")
     spaced_review_mine_works_too_button = (By.CSS_SELECTOR, "ion-footer>ion-toolbar>ion-row>ion-button", "Mine works too button in spaced review")
     spaced_review_got_it_button         = (By.CSS_SELECTOR, "ion-toolbar ion-button:nth-of-type(2)", "Got it button in spaced review")
     spaced_review_start_button          = (By.CSS_SELECTOR, "app-spaced-review-card>div>ion-card>div:nth-of-type(2)>div:nth-of-type(3)>button", "Start button on spaced review card")
     spaced_review_heart1                = (By.CSS_SELECTOR, "app-spaced-review>ion-header>ion-toolbar>ion-item>ion-icon:nth-of-type(1)", "First heart in Spaced Review (lastone marked")
+    
+    spaced_review_soundbite                         = (By.CSS_SELECTOR, "app-spaced-review>ion-content>div>app-soundbite", "Sound bites component")
+    spaced_review_soundbite_answer                  = (By.CSS_SELECTOR, "app-spaced-review>ion-content>div>app-soundbite>div>div>ion-row>ion-col>ion-buttons>app-audio>ion-button", "Sound bites answer button")
+    spaced_review_soundbite_check_button            = (By.CSS_SELECTOR, "app-spaced-review>ion-content>div>app-soundbite>div>ion-footer>ion-toolbar>ion-row>ion-button", "Sound bites check answer button")
+    spaced_review_soundbite_mine_works_too_button   = (By.CSS_SELECTOR, "app-spaced-review>ion-content>div>app-soundbite>div>ion-footer>ion-toolbar>ion-row:nth-of-type(2)>ion-button", "Mine works too button in soundbite activity spaced review")
+    spaced_review_type_or_say_input                 = (By.CSS_SELECTOR, "app-spaced-review>ion-content>div>app-typing>div>div>div>ion-card>ion-item>ion-textarea>div>textarea", "Type or say input")
+    spaced_review_type_or_say_check                 = (By.CSS_SELECTOR, "app-spaced-review>ion-content>div>app-typing>div>div>ion-grid>ion-row>ion-col>ion-button", "Spaced review type or say check button")
+    spaced_review_typing_continue_button            = (By.CSS_SELECTOR, "app-spaced-review>ion-content>div>app-typing>div>div>ion-grid>ion-row>ion-col>ion-button", "Continue button is different for typing? Same selector as check though, just makes it more clear")
 
+    move_up_one_day_button  = (By.CSS_SELECTOR, "app-home-learn-tab>div>div>app-for-you-group>app-spaced-review-card>ion-button", "Move up one day button")
+    
     session_summary_text = (By.CSS_SELECTOR, "app-session-summary>ion-card>ion-card-header>h4", "Message to user when spaced review finishes, used in Hearts test")
 
 

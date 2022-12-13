@@ -1,14 +1,11 @@
 from tests.embark_test_classes import VisualEmbarkStageTest
-from selenium.webdriver.common.keys import Keys
-from time import sleep
-import random
 from sessions.embark_user import test_user_02
 from selenium.webdriver.common.by import By
 
 # TODO for improving this test: See if we can actually get the src attribute of the icons. Right now it's just 
 # checking whether a user is kicked out after getting 6 questions wrong in a row.
 
-class TestVocabSpacedReview(VisualEmbarkStageTest):
+class TestVocabSpacedReviewHearts(VisualEmbarkStageTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)
@@ -21,7 +18,7 @@ class TestVocabSpacedReview(VisualEmbarkStageTest):
         self.word_pairs_reverse["el día"] = self.word_pairs_reverse["día"]
         self.heartIcons = {"full": "assets/icon/filled.svg","half": "assets/icon/half-filled.svg","empty": "assets/icon/empty.svg"}
 
-    def test_vocab_spaced_review(self):
+    def test_vocab_spaced_review_hearts(self):
         e = self.elements
         self.load_user(test_user_02)
         self.login("spanish")
@@ -38,8 +35,6 @@ class TestVocabSpacedReview(VisualEmbarkStageTest):
         self.click(e.task_page_back_button)
         self.click(e.back_button)
         self.click(e.spaced_review_start_button)
-
-        heartStates = 6
 
         done = False
         while not done:
@@ -73,22 +68,22 @@ class TestVocabSpacedReview(VisualEmbarkStageTest):
 
 
     def markWords(self, target):
-            e = self.elements
-            if target == "mastered":
-                target_name = "checkmark-done-circle"
-            elif target == "discovered":
-                target_name = "checkmark-circle-outline"
-            else:
-                target_name = "ellipse-outline"
-            base_sel_1 = "app-task-study-list>ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item:nth-of-type("
-            base_sel_2 = ")>ion-icon:nth-of-type(3)"
-            base_label = "Discovered button in vocab list "
-            for i in range(6):
-                sel = (By.CSS_SELECTOR, base_sel_1 + str(i+2) + base_sel_2, base_label + str(i+1))
+        e = self.elements
+        if target == "mastered":
+            target_name = "checkmark-done-circle"
+        elif target == "discovered":
+            target_name = "checkmark-circle-outline"
+        else:
+            target_name = "ellipse-outline"
+        base_sel_1 = "app-task-study-list>ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item:nth-of-type("
+        base_sel_2 = ")>ion-icon:nth-of-type(3)"
+        base_label = "Discovered button in vocab list "
+        for i in range(6):
+            sel = (By.CSS_SELECTOR, base_sel_1 + str(i+2) + base_sel_2, base_label + str(i+1))
+            name = self.get_element(sel).get_attribute("name")
+            while name != target_name:
+                self.click(sel)
                 name = self.get_element(sel).get_attribute("name")
-                while name != target_name:
-                    self.click(sel)
-                    name = self.get_element(sel).get_attribute("name")
 
     def answerCorrect(self, prompt):
         e = self.elements
