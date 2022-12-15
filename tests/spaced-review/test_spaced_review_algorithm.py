@@ -117,7 +117,6 @@ class TestVocabSpacedReviewAlgorithm(VisualEmbarkStageTest):
 
 
     def markWords(self, target):
-        e = self.elements
         if target == "mastered":
             target_name = "checkmark-done-circle"
         elif target == "discovered":

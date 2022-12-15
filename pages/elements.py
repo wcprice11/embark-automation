@@ -312,6 +312,7 @@ class Elements:
     spaced_review_mine_works_too_button = (By.CSS_SELECTOR, "ion-footer>ion-toolbar>ion-row>ion-button", "Mine works too button in spaced review")
     spaced_review_got_it_button         = (By.CSS_SELECTOR, "ion-toolbar ion-button:nth-of-type(2)", "Got it button in spaced review")
     spaced_review_start_button          = (By.CSS_SELECTOR, "app-spaced-review-card>div>ion-card>div:nth-of-type(2)>div:nth-of-type(3)>button", "Start button on spaced review card")
+    spaced_review_number_to_do          = (By.CSS_SELECTOR, "#today-fraction", "Number of items left on spaced review card")
     spaced_review_heart1                = (By.CSS_SELECTOR, "app-spaced-review>ion-header>ion-toolbar>ion-item>ion-icon:nth-of-type(1)", "First heart in Spaced Review (lastone marked")
     
     spaced_review_soundbite                         = (By.CSS_SELECTOR, "app-spaced-review>ion-content>div>app-soundbite", "Sound bites component")

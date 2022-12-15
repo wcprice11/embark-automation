@@ -15,6 +15,9 @@ class TestDiscoverToSpacedReview(VisualEmbarkStageTest):
         self.word_pairs_reverse["el día"] = self.word_pairs_reverse["día"]
 
     def test_discover_to_spaced_review(self):
+
+        # TODO: This is currently the same as the Vocab Discover spaced review test. Feel free to add more to make sure it's all validated.
+
         e = self.elements
         self.load_user(test_user_02)
         self.login("spanish")
@@ -46,9 +49,11 @@ class TestDiscoverToSpacedReview(VisualEmbarkStageTest):
         native_selectors = [e.vocab_discover_quiz_native_1, e.vocab_discover_quiz_native_2, e.vocab_discover_quiz_native_3, e.vocab_discover_quiz_native_4, e.vocab_discover_quiz_native_5, e.vocab_discover_quiz_native_6]
         target_selectors = [e.vocab_discover_quiz_target_1, e.vocab_discover_quiz_target_2, e.vocab_discover_quiz_target_3, e.vocab_discover_quiz_target_4, e.vocab_discover_quiz_target_5, e.vocab_discover_quiz_target_6]
         skip_set = set()
+        track_set = set()
         for i in range(6):
             for j in range(6):
                 if j not in skip_set:
+                    curPrompt = self.get_element(target_selectors[j]).text
                     if self.word_pairs[self.get_element(native_selectors[i]).text] == self.get_element(target_selectors[j]).text:
                         self.click(native_selectors[i])
                         self.click(target_selectors[j])
