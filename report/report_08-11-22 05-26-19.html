@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test report</title>
+    <meta name="generator" content="HTMLTestRunner 1.0.18"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="script.js"></script>
+    <style>
+        
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+<div class='heading'>
+    <h1 style="margin-left:1ex;">Test report</h1>
+    
+    <p class='attribute'><strong>Start Time : </strong> 2022-11-08 17:26:19</p>
+    
+    <p class='attribute'><strong>Duration : </strong> 0:01:57.188671</p>
+    
+    <p class='attribute'><strong>Status : </strong> Error 1</p>
+    
+    <p class='attribute'><strong>Description : </strong> HTMLTestReport</p>
+    
+    <p class='attribute'><strong>Tested By : </strong> Christian Price</p>
+    
+</div>
+<div>
+    <p id='show_detail_line'><b>Show</b>
+        <button><a href='javascript:showCase(0)' style="color:#660066;">Summary</a></button>
+        <button><a href='javascript:showCase(1)' style="color:#660066;">Failed</a></button>
+        <button><a href='javascript:showCase(2)' style="color:#660066;">Passed</a></button>
+        <button><a href='javascript:showCase(3)' style="color:#660066;">All</a></button>
+    </p>
+    <table id='result_table'>
+        <colgroup>
+            <col align='left'/>
+            <col align='right'/>
+            <col align='right'/>
+            <col align='right'/>
+            <col align='right'/>
+            <col align='right'/>
+        </colgroup>
+        <tr id='header_row'>
+            <td>Test Group/Test case</td>
+            <td>Count</td>
+            <td>Pass</td>
+            <td>Fail</td>
+            <td>Error</td>
+            <td>View</td>
+        </tr>
+        
+        <tr class='errorClass' style="font-weight:bold;color:white;">
+            <td><a href="javascript:showClassDetail('c1','1')">tests.discover.test_quiz_me.TestQuizMe</a></td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>
+                <button><a href="javascript:showClassDetail('c1','1')"
+                           style="color:#660066;">Detail</a></button>
+            </td>
+        </tr>
+            
+            <tr id="ft1.1" class='none'>
+                <td class='errorCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_ft1.1')">test_quiz_me</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_ft1.1')" style="color:#660066;">
+                                ERROR
+                            </a></button>
+                        <div id='div_ft1.1' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_ft1.1').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;">Traceback (most recent call last):
+  File "C:\Users\warnicka\embark-automation\tests\discover\test_quiz_me.py", line 42, in test_quiz_me
+    self.validate_element_text(e.lesson_discover_flashcard_text, "la familia")
+  File "C:\Users\warnicka\embark-automation\tests\embark_tests.py", line 35, in validate_element_text
+    test = self.get_element(element).text
+  File "C:\Users\warnicka\embark-automation\tests\embark_tests.py", line 56, in get_element
+    self.find(element)
+  File "C:\Users\warnicka\embark-automation\tests\embark_tests.py", line 47, in find
+    self.assertTrue(self._find(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
+  File "C:\Users\warnicka\embark-automation\sessions\embark_session.py", line 84, in _find
+    ActionChains(self.driver).move_to_element(elem).perform()
+  File "C:\Python310\lib\site-packages\selenium\webdriver\common\action_chains.py", line 78, in perform
+    self.w3c_actions.perform()
+  File "C:\Python310\lib\site-packages\selenium\webdriver\common\actions\action_builder.py", line 88, in perform
+    self.driver.execute(Command.W3C_ACTIONS, enc)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.MoveTargetOutOfBoundsException: Message: move target out of bounds
+  (Session info: chrome=107.0.5304.88)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00FCACD3+2075859]
+	Ordinal0 [0x00F5EE61+1633889]
+	Ordinal0 [0x00E5B680+571008]
+	Ordinal0 [0x00EC38E6+997606]
+	Ordinal0 [0x00EA731C+881436]
+	Ordinal0 [0x00EBB56A+963946]
+	Ordinal0 [0x00EA7136+880950]
+	Ordinal0 [0x00E7FEFD+720637]
+	Ordinal0 [0x00E80F3F+724799]
+	GetHandleVerifier [0x0127EED2+2769538]
+	GetHandleVerifier [0x01270D95+2711877]
+	GetHandleVerifier [0x0105A03A+521194]
+	GetHandleVerifier [0x01058DA0+516432]
+	Ordinal0 [0x00F6682C+1665068]
+	Ordinal0 [0x00F6B128+1683752]
+	Ordinal0 [0x00F6B215+1683989]
+	Ordinal0 [0x00F76484+1729668]
+	BaseThreadInitThunk [0x752F6739+25]
+	RtlGetFullPathName_UEx [0x77178FEF+1215]
+	RtlGetFullPathName_UEx [0x77178FBD+1165]
+
+</pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+        
+
+        <tr id='total_row'>
+            <td>Total</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</div>
+<br><br>
+<div id='ending'><b>Time Elapsed: </b>0:01:57.188671</div>
+</body>
+</html>

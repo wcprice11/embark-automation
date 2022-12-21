@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test report</title>
+    <meta name="generator" content="HTMLTestRunner 1.0.18"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="script.js"></script>
+    <style>
+        
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+<div class='heading'>
+    <h1 style="margin-left:1ex;">Test report</h1>
+    
+    <p class='attribute'><strong>Start Time : </strong> 2022-11-18 09:47:38</p>
+    
+    <p class='attribute'><strong>Duration : </strong> 0:03:06.145156</p>
+    
+    <p class='attribute'><strong>Status : </strong> Error 2</p>
+    
+    <p class='attribute'><strong>Description : </strong> HTMLTestReport</p>
+    
+    <p class='attribute'><strong>Tested By : </strong> Christian Price</p>
+    
+</div>
+<div>
+    <p id='show_detail_line'><b>Show</b>
+        <button><a href='javascript:showCase(0)' style="color:#660066;">Summary</a></button>
+        <button><a href='javascript:showCase(1)' style="color:#660066;">Failed</a></button>
+        <button><a href='javascript:showCase(2)' style="color:#660066;">Passed</a></button>
+        <button><a href='javascript:showCase(3)' style="color:#660066;">All</a></button>
+    </p>
+    <table id='result_table'>
+        <colgroup>
+            <col align='left'/>
+            <col align='right'/>
+            <col align='right'/>
+            <col align='right'/>
+            <col align='right'/>
+            <col align='right'/>
+        </colgroup>
+        <tr id='header_row'>
+            <td>Test Group/Test case</td>
+            <td>Count</td>
+            <td>Pass</td>
+            <td>Fail</td>
+            <td>Error</td>
+            <td>View</td>
+        </tr>
+        
+        <tr class='errorClass' style="font-weight:bold;color:white;">
+            <td><a href="javascript:showClassDetail('c1','2')">tests.discover.test_vocab_spaced_review.TestVocabSpacedReview</a></td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>2</td>
+            <td>
+                <button><a href="javascript:showClassDetail('c1','2')"
+                           style="color:#660066;">Detail</a></button>
+            </td>
+        </tr>
+            
+            <tr id="ft1.1" class='none'>
+                <td class='errorCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_ft1.1')">test_vocab_spaced_review</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_ft1.1')" style="color:#660066;">
+                                ERROR
+                            </a></button>
+                        <div id='div_ft1.1' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_ft1.1').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;">Traceback (most recent call last):
+  File "C:\Users\warnicka\embark-automation\tests\discover\test_vocab_spaced_review.py", line 39, in test_vocab_spaced_review
+    self.click(e.vocab_concept_list_discovered_button_1)
+  File "C:\Users\warnicka\embark-automation\tests\embark_tests.py", line 50, in click
+    self.assertTrue(self._click(element[0:2], time), f"couldn't find element {element[2]} by {element[0:2]}. This is likely an out of date CSS Selector")
+  File "C:\Users\warnicka\embark-automation\sessions\embark_session.py", line 92, in _click
+    self._find(element, time)
+  File "C:\Users\warnicka\embark-automation\sessions\embark_session.py", line 85, in _find
+    ActionChains(self.driver).move_to_element(elem).perform()
+  File "C:\Python310\lib\site-packages\selenium\webdriver\common\action_chains.py", line 78, in perform
+    self.w3c_actions.perform()
+  File "C:\Python310\lib\site-packages\selenium\webdriver\common\actions\action_builder.py", line 88, in perform
+    self.driver.execute(Command.W3C_ACTIONS, enc)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: disconnected: not connected to DevTools
+  (failed to check if window was closed: disconnected: unable to connect to renderer)
+  (Session info: chrome=107.0.5304.107)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0069ACD3+2075859]
+	Ordinal0 [0x0062EE61+1633889]
+	Ordinal0 [0x0052B7BD+571325]
+	Ordinal0 [0x0051DDAD+515501]
+	Ordinal0 [0x0053185D+596061]
+	Ordinal0 [0x0058B93B+964923]
+	Ordinal0 [0x00577136+880950]
+	Ordinal0 [0x0054FEFD+720637]
+	Ordinal0 [0x00550F3F+724799]
+	GetHandleVerifier [0x0094EED2+2769538]
+	GetHandleVerifier [0x00940D95+2711877]
+	GetHandleVerifier [0x0072A03A+521194]
+	GetHandleVerifier [0x00728DA0+516432]
+	Ordinal0 [0x0063682C+1665068]
+	Ordinal0 [0x0063B128+1683752]
+	Ordinal0 [0x0063B215+1683989]
+	Ordinal0 [0x00646484+1729668]
+	BaseThreadInitThunk [0x76326739+25]
+	RtlGetFullPathName_UEx [0x771F8FEF+1215]
+	RtlGetFullPathName_UEx [0x771F8FBD+1165]
+
+</pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+            <tr id="ft1.2" class='none'>
+                <td class='errorCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_ft1.2')">test_vocab_spaced_review</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_ft1.2')" style="color:#660066;">
+                                ERROR
+                            </a></button>
+                        <div id='div_ft1.2' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_ft1.2').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;">Traceback (most recent call last):
+  File "C:\Users\warnicka\embark-automation\tests\embark_tests.py", line 15, in tearDown
+    self.save_screenshot(f"./report/{self.id()}.png")
+  File "C:\Users\warnicka\embark-automation\sessions\embark_session.py", line 45, in save_screenshot
+    self.driver.save_screenshot(filename=filename)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 952, in save_screenshot
+    return self.get_screenshot_as_file(filename)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 927, in get_screenshot_as_file
+    png = self.get_screenshot_as_png()
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 963, in get_screenshot_as_png
+    return b64decode(self.get_screenshot_as_base64().encode('ascii'))
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 975, in get_screenshot_as_base64
+    return self.execute(Command.SCREENSHOT)['value']
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: disconnected: unable to connect to renderer
+  (failed to check if window was closed: disconnected: unable to connect to renderer)
+  (Session info: chrome=107.0.5304.107)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0069ACD3+2075859]
+	Ordinal0 [0x0062EE61+1633889]
+	Ordinal0 [0x0052B7BD+571325]
+	Ordinal0 [0x0051C91B+510235]
+	Ordinal0 [0x0051C728+509736]
+	Ordinal0 [0x0052CC23+576547]
+	Ordinal0 [0x0058ACD8+961752]
+	Ordinal0 [0x00577136+880950]
+	Ordinal0 [0x0054FEFD+720637]
+	Ordinal0 [0x00550F3F+724799]
+	GetHandleVerifier [0x0094EED2+2769538]
+	GetHandleVerifier [0x00940D95+2711877]
+	GetHandleVerifier [0x0072A03A+521194]
+	GetHandleVerifier [0x00728DA0+516432]
+	Ordinal0 [0x0063682C+1665068]
+	Ordinal0 [0x0063B128+1683752]
+	Ordinal0 [0x0063B215+1683989]
+	Ordinal0 [0x00646484+1729668]
+	BaseThreadInitThunk [0x76326739+25]
+	RtlGetFullPathName_UEx [0x771F8FEF+1215]
+	RtlGetFullPathName_UEx [0x771F8FBD+1165]
+
+</pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+        
+
+        <tr id='total_row'>
+            <td>Total</td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>2</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</div>
+<br><br>
+<div id='ending'><b>Time Elapsed: </b>0:03:06.145156</div>
+</body>
+</html>

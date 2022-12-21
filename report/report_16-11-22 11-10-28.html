@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test report</title>
+    <meta name="generator" content="HTMLTestRunner 1.0.18"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="script.js"></script>
+    <style>
+        
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+<div class='heading'>
+    <h1 style="margin-left:1ex;">Test report</h1>
+    
+    <p class='attribute'><strong>Start Time : </strong> 2022-11-16 11:10:28</p>
+    
+    <p class='attribute'><strong>Duration : </strong> 0:00:39.362628</p>
+    
+    <p class='attribute'><strong>Status : </strong> Error 2</p>
+    
+    <p class='attribute'><strong>Description : </strong> HTMLTestReport</p>
+    
+    <p class='attribute'><strong>Tested By : </strong> Christian Price</p>
+    
+</div>
+<div>
+    <p id='show_detail_line'><b>Show</b>
+        <button><a href='javascript:showCase(0)' style="color:#660066;">Summary</a></button>
+        <button><a href='javascript:showCase(1)' style="color:#660066;">Failed</a></button>
+        <button><a href='javascript:showCase(2)' style="color:#660066;">Passed</a></button>
+        <button><a href='javascript:showCase(3)' style="color:#660066;">All</a></button>
+    </p>
+    <table id='result_table'>
+        <colgroup>
+            <col align='left'/>
+            <col align='right'/>
+            <col align='right'/>
+            <col align='right'/>
+            <col align='right'/>
+            <col align='right'/>
+        </colgroup>
+        <tr id='header_row'>
+            <td>Test Group/Test case</td>
+            <td>Count</td>
+            <td>Pass</td>
+            <td>Fail</td>
+            <td>Error</td>
+            <td>View</td>
+        </tr>
+        
+        <tr class='errorClass' style="font-weight:bold;color:white;">
+            <td><a href="javascript:showClassDetail('c1','2')">tests.discover.test_vocab_spaced_review.TestVocabSpacedReview</a></td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>2</td>
+            <td>
+                <button><a href="javascript:showClassDetail('c1','2')"
+                           style="color:#660066;">Detail</a></button>
+            </td>
+        </tr>
+            
+            <tr id="ft1.1" class='none'>
+                <td class='errorCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_ft1.1')">test_vocab_spaced_review</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_ft1.1')" style="color:#660066;">
+                                ERROR
+                            </a></button>
+                        <div id='div_ft1.1' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_ft1.1').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;">Traceback (most recent call last):
+  File "C:\Users\warnicka\embark-automation\tests\discover\test_vocab_spaced_review.py", line 40, in test_vocab_spaced_review
+    if word_pairs[self.get_element(native_selectors[i]).text] == self.get_element(target_selectors[j]).text:
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 84, in text
+    return self._execute(Command.GET_ELEMENT_TEXT)['value']
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=107.0.5304.107)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x011DACD3+2075859]
+	Ordinal0 [0x0116EE61+1633889]
+	Ordinal0 [0x0106B7BD+571325]
+	Ordinal0 [0x01052E1A+470554]
+	Ordinal0 [0x010BAA0B+895499]
+	Ordinal0 [0x010CAC96+961686]
+	Ordinal0 [0x010B7136+880950]
+	Ordinal0 [0x0108FEFD+720637]
+	Ordinal0 [0x01090F3F+724799]
+	GetHandleVerifier [0x0148EED2+2769538]
+	GetHandleVerifier [0x01480D95+2711877]
+	GetHandleVerifier [0x0126A03A+521194]
+	GetHandleVerifier [0x01268DA0+516432]
+	Ordinal0 [0x0117682C+1665068]
+	Ordinal0 [0x0117B128+1683752]
+	Ordinal0 [0x0117B215+1683989]
+	Ordinal0 [0x01186484+1729668]
+	BaseThreadInitThunk [0x76326739+25]
+	RtlGetFullPathName_UEx [0x771F8FEF+1215]
+	RtlGetFullPathName_UEx [0x771F8FBD+1165]
+
+</pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+            <tr id="ft1.2" class='none'>
+                <td class='errorCase'>
+                    <div class='testcase'>
+                        <a class="popup_link" onfocus='this.blur();'
+                           href="javascript:showTestDetail('div_ft1.2')">test_vocab_spaced_review</a>
+                    </div>
+                </td>
+                <td colspan='5' align='center'>
+                    <div>
+                        <!--css div popup start-->
+                        <button>
+                            <a class="popup_link" onfocus='this.blur();'
+                               href="javascript:showTestDetail('div_ft1.2')" style="color:#660066;">
+                                ERROR
+                            </a></button>
+                        <div id='div_ft1.2' class="popup_window">
+                            <div style='text-align: right; color:red;cursor:pointer'>
+                                <a onfocus='this.blur();'
+                                   onclick="document.getElementById('div_ft1.2').style.display = 'none'; "
+                                   style="color:red;">
+                                    [x]</a>
+                            </div>
+                            <pre></pre>
+                            <pre style="color: red;">Traceback (most recent call last):
+  File "C:\Users\warnicka\embark-automation\tests\embark_tests.py", line 15, in tearDown
+    self.save_screenshot(f"./report/{self.id()}.png")
+  File "C:\Users\warnicka\embark-automation\sessions\embark_session.py", line 45, in save_screenshot
+    self.driver.save_screenshot(filename=filename)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 952, in save_screenshot
+    return self.get_screenshot_as_file(filename)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 927, in get_screenshot_as_file
+    png = self.get_screenshot_as_png()
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 963, in get_screenshot_as_png
+    return b64decode(self.get_screenshot_as_base64().encode('ascii'))
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 975, in get_screenshot_as_base64
+    return self.execute(Command.SCREENSHOT)['value']
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python310\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=107.0.5304.107)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x011DACD3+2075859]
+	Ordinal0 [0x0116EE61+1633889]
+	Ordinal0 [0x0106B7BD+571325]
+	Ordinal0 [0x01052E1A+470554]
+	Ordinal0 [0x010BAA0B+895499]
+	Ordinal0 [0x010CAC96+961686]
+	Ordinal0 [0x010B7136+880950]
+	Ordinal0 [0x0108FEFD+720637]
+	Ordinal0 [0x01090F3F+724799]
+	GetHandleVerifier [0x0148EED2+2769538]
+	GetHandleVerifier [0x01480D95+2711877]
+	GetHandleVerifier [0x0126A03A+521194]
+	GetHandleVerifier [0x01268DA0+516432]
+	Ordinal0 [0x0117682C+1665068]
+	Ordinal0 [0x0117B128+1683752]
+	Ordinal0 [0x0117B215+1683989]
+	Ordinal0 [0x01186484+1729668]
+	BaseThreadInitThunk [0x76326739+25]
+	RtlGetFullPathName_UEx [0x771F8FEF+1215]
+	RtlGetFullPathName_UEx [0x771F8FBD+1165]
+
+</pre>
+                        </div>
+                        <!--css div popup end-->
+                    </div>
+                </td>
+            </tr>
+            
+        
+
+        <tr id='total_row'>
+            <td>Total</td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>2</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</div>
+<br><br>
+<div id='ending'><b>Time Elapsed: </b>0:00:39.362628</div>
+</body>
+</html>
