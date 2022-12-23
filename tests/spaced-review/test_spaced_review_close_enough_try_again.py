@@ -3,11 +3,9 @@ from sessions.embark_user import test_user_02
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 
-# TODO for improving this test: See if we can actually get the src attribute of the icons. Right now it's just 
-# checking whether a user is kicked out after getting 6 questions wrong in a row.
-# Also: Test Phrases algorithm
+# TODO: Find out if there's actually a "mine works too" button
 
-class TestVocabSpacedReviewAlgorithm(VisualEmbarkStageTest):
+class TestVocabSpacedReviewCloseEnoughTryAgain(VisualEmbarkStageTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)
@@ -20,7 +18,7 @@ class TestVocabSpacedReviewAlgorithm(VisualEmbarkStageTest):
         self.word_pairs_reverse["el día"] = self.word_pairs_reverse["día"]
         self.word_pairs_mod = {v: k for k, v in self.word_pairs_reverse.items()}
 
-    def test_vocab_spaced_review_algorithm(self):
+    def test_spaced_review_close_enough_try_again(self):
         e = self.elements
         self.load_user(test_user_02)
         self.login("spanish")
@@ -38,12 +36,10 @@ class TestVocabSpacedReviewAlgorithm(VisualEmbarkStageTest):
         self.click(e.back_button)
         self.wait_for_element_to_be_clickable(e.spaced_review_start_button)
         self.click(e.spaced_review_start_button)
-        self.validate_element_text(e.spaced_review_quadrants_prompt, "la iglesia")
-
-        self.answerCorrect("iglesia")
+        
+        self.answerCorrect("la iglesia")
 
         self.click(e.spaced_review_continue_button)
-
         self.wait_for_text_in_element(e.spaced_review_continue_button, "Done")
         self.click(e.spaced_review_continue_button)
 
@@ -71,12 +67,12 @@ class TestVocabSpacedReviewAlgorithm(VisualEmbarkStageTest):
         if "inactive-incorrect-card" in checkClass:
             self.click(e.spaced_review_mine_works_too_button)
         self.click(e.spaced_review_continue_button)
-                
-        # Strange thing here - before pressing Move Up One Day again, the typing activity shows up. Not sure why.
 
         action = ActionChains(self.driver)
         textarea = self.get_element(e.spaced_review_type_or_say_input)
-        ActionChains(self.driver).move_to_element(textarea).send_keys("la iglesia").perform()
+        ActionChains(self.driver).move_to_element(textarea).send_keys("la igleia").perform()
+        self.wait_for_element_to_be_clickable(e.spaced_review_type_or_say_close_enough)
+        self.click(e.spaced_review_type_or_say_close_enough)
         self.wait_for_element_to_be_clickable(e.spaced_review_type_or_say_check)
         self.click(e.spaced_review_type_or_say_check)
         self.wait_for_element_to_be_clickable(e.spaced_review_typing_continue_button)
