@@ -325,6 +325,7 @@ class Elements:
     spaced_review_start_button          = (By.CSS_SELECTOR, "app-spaced-review-card>div>ion-card>div:nth-of-type(2)>div:nth-of-type(3)>button", "Start button on spaced review card")
     spaced_review_number_to_do          = (By.CSS_SELECTOR, "#today-fraction", "Number of items left on spaced review card")
     spaced_review_heart1                = (By.CSS_SELECTOR, "app-spaced-review>ion-header>ion-toolbar>ion-item>ion-icon:nth-of-type(1)", "First heart in Spaced Review (lastone marked")
+    typing_mine_works_too               = (By.CSS_SELECTOR, "app-typing>div>div>div>ion-card:nth-of-type(2)>ion-row>ion-button", "Mine works too button for typing activity (in spaced review)")
     
     spaced_review_soundbite                         = (By.CSS_SELECTOR, "app-spaced-review>ion-content>div>app-soundbite", "Sound bites component")
     spaced_review_soundbite_answer                  = (By.CSS_SELECTOR, "app-spaced-review>ion-content>div>app-soundbite>div>div>ion-row>ion-col>ion-buttons>app-audio>ion-button", "Sound bites answer button")
