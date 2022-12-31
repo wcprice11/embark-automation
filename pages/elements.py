@@ -228,6 +228,14 @@ class Elements:
     lesson_pass_off_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(3)>ion-button", "lesson page button (og: spanish alphabet)")
     alphabet_first_letter   = (By.CSS_SELECTOR, "#alphabet-grid>button:first-of-type", "First card on alphabet lesson (og: spanish alphabet 'a')")
 
+    task_page_search_button                 = (By.CSS_SELECTOR, "app-task-study-list>app-header>div>ion-header>ion-toolbar>div>ion-grid>ion-row>ion-col:nth-of-type(3)>div>ion-icon", "Search button on header of task pages")
+    task_page_search_input                  = (By.CSS_SELECTOR, "app-task-study-list>app-header>div>ion-header>ion-toolbar>div>div>ion-input>input", "Search input on header of task pages")
+    task_page_search_no_results             = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>div>h3", "Search input on header of task pages")
+    task_page_search_try_a_new_search       = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>div>h4", "Search input on header of task pages")
+    task_page_search_clear_button           = (By.CSS_SELECTOR, "app-task-study-list>app-header>div>ion-header>ion-toolbar>div>div>div:nth-of-type(2)>ion-icon", "Search clear button on header of task pages")
+    task_page_search_result_1_target_text   = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>app-concept-list>span>ion-item>div>div>div>span", "First task page search result target text")
+    task_page_search_result_1_native_text   = (By.CSS_SELECTOR, "app-task-study-list>ion-content>div>div>app-concept-list>span>ion-item>div>div>div>span:nth-of-type(2)", "First task page search result native text")
+
     vocab_most_common_label     = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>div", "Most Common header")
     vocab_first_word            = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item>div>div>span", "First word in vocab list")
     vocab_first_word_play       = (By.CSS_SELECTOR, "ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item>ion-icon", "Play button for first word in vocab list")
