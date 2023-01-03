@@ -1,10 +1,10 @@
-from tests.embark_test_classes import VisualEmbarkStageTest
+from tests.embark_test_classes import VisualEmbarkRCTest
 from time import sleep
 from selenium.webdriver.common.keys import Keys
 import random
 from sessions.embark_user import test_user_02
 
-class TestVocabSearch(VisualEmbarkStageTest):
+class TestVocabSearch(VisualEmbarkRCTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)
