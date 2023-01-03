@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 import random
 from sessions.embark_user import test_user_02
 
-class TestTaskPageSearch(VisualEmbarkStageTest):
+class TestPhraseSearch(VisualEmbarkStageTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)
@@ -52,7 +52,7 @@ class TestTaskPageSearch(VisualEmbarkStageTest):
         self.word_pairs.update(pairs_with_articles)
         self.word_pairs.update(pairs_with_articles_reverse)
 
-    def test_task_page_search(self):
+    def test_phrase_search(self):
         e = self.elements
         self.load_user(test_user_02)
         self.login("spanish")
@@ -66,13 +66,13 @@ class TestTaskPageSearch(VisualEmbarkStageTest):
         self.wait_for_text_in_element(e.page_title, "Meet Someone")
         self.validate_element_text(e.lesson_section_title, "Essentials")
         self.validate_element_text(e.lesson_card, "Vocabulary")
-        self.click(e.lesson_card)
+        self.click(e.lesson_card_phrases)
 
         self.click(e.task_page_search_button)
         self.fill(e.task_page_search_input, "asdfasdf")
         self.validate_element_text(e.task_page_search_no_results, "No Results")
         self.validate_element_text(e.task_page_search_try_a_new_search, "Try a new search.")
         self.click(e.task_page_search_clear_button)
-        self.fill(e.task_page_search_input, "mis")
-        self.validate_element_text(e.task_page_search_result_1_target_text, "Élder (misionero)")
-        self.validate_element_text(e.task_page_search_result_1_native_text, "Elder")
+        self.fill(e.task_page_search_input, "H")
+        self.validate_element_text(e.task_page_search_result_1_target_text, "Hola.")
+        self.validate_element_text(e.task_page_search_result_1_native_text, "Hello.")
