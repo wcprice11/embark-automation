@@ -10,7 +10,7 @@ class Driver(webdriver.Chrome):
         os_type = "mac_arm64"
         match platform.system():
             case "Linux":
-                os_type = "linux_arm64"
+                os_type = "linux64"
             case "Windows":
                 os_type = "win64"
             case "Darwin":
