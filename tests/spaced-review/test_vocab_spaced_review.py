@@ -1,8 +1,17 @@
-from tests.embark_test_classes import VisualEmbarkStageTest
+from tests.embark_test_classes import VisualEmbarkRCTest
 from selenium.webdriver.common.by import By
 import random
 from sessions.embark_user import test_user_02
-class TestDiscoverToSpacedReview(VisualEmbarkStageTest):
+
+'''
+This test currently:
+1. Navigates to Meet Someone > Vocab and does the first quiz
+2. Goes to Spaced Review from the task page and goes through the first day. 
+3. It chooses randomly whether to get a question right or wrong, and handles the situation accordingly.
+
+'''
+
+class TestDiscoverToSpacedReview(VisualEmbarkRCTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)
@@ -43,20 +52,27 @@ class TestDiscoverToSpacedReview(VisualEmbarkStageTest):
         self.click(e.vocab_discover_take_quiz_button)
 
         # Take first Spanish vocab quiz. This is super slow, working on speeding it up
-        native_selectors = [e.vocab_discover_quiz_native_1, e.vocab_discover_quiz_native_2, e.vocab_discover_quiz_native_3, e.vocab_discover_quiz_native_4, e.vocab_discover_quiz_native_5, e.vocab_discover_quiz_native_6]
-        target_selectors = [e.vocab_discover_quiz_target_1, e.vocab_discover_quiz_target_2, e.vocab_discover_quiz_target_3, e.vocab_discover_quiz_target_4, e.vocab_discover_quiz_target_5, e.vocab_discover_quiz_target_6]
+        base_native_selector_1 = "app-matching-quiz>div:nth-of-type("
+        base_native_selector_2 = ")"
+        base_native_descriptor_1 = "Native language item "
+        base_native_descriptor_2 = " in quiz"
+        base_target_selector_1 = "app-matching-quiz>div:nth-of-type("
+        base_target_selector_2 = ")"
+        base_target_descriptor_1 = "Target language item "
+        base_target_descriptor_2 = " in quiz"
         skip_set = set()
+        word_pairs = {"church":"iglesia", "companion (male)":"compañero", "companion (female)":"compañera", "city":"ciudad", "Elder":"Élder (misionero)", "day":"día"}
         for i in range(6):
             for j in range(6):
                 if j not in skip_set:
-                    if self.word_pairs[self.get_element(native_selectors[i]).text] == self.get_element(target_selectors[j]).text:
-                        self.click(native_selectors[i])
-                        self.click(target_selectors[j])
+                    native_selector = (By.CSS_SELECTOR, base_native_selector_1 + str(i+1) + base_native_selector_2, base_native_descriptor_1 + str(i+1) + base_native_descriptor_2)
+                    target_selector = (By.CSS_SELECTOR, base_target_selector_1 + str(j+7) + base_target_selector_2, base_target_descriptor_1 + str(j+7) + base_target_descriptor_2)
+                    if word_pairs[self.get_element(native_selector).text] == self.get_element(target_selector).text:
+                        self.click(native_selector)
+                        self.click(target_selector)
                         skip_set.add(j)
-        self.wait_for_text_in_element(e.vocab_discover_right_arrow, "Continue")
         self.click(e.vocab_discover_right_arrow)
         self.wait_for_text_in_element(e.lesson_discover_flashcard_text, "la familia")
-        self.find(e.lesson_discover_toolbar)
         self.click(e.close_button)
 
         # Spaced review section

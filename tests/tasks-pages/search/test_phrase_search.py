@@ -1,8 +1,12 @@
 from tests.embark_test_classes import VisualEmbarkRCTest
-from time import sleep
-from selenium.webdriver.common.keys import Keys
-import random
 from sessions.embark_user import test_user_02
+
+'''
+This test currently: 
+1. Navigates to Meet Someone > Vocab.
+2. Types in a nonsense search and checks that there are no results.
+3. Types in a search and checks that results are present.
+'''
 
 class TestPhraseSearch(VisualEmbarkRCTest):
 

@@ -40,8 +40,6 @@ class TestQuizMe(VisualEmbarkRCTest):
 
         # Take first Spanish vocab quiz. This is super slow, see if we can speed it up
         word_pairs = {"church":"iglesia", "companion (male)":"compañero", "companion (female)":"compañera", "city":"ciudad", "Elder":"Élder (misionero)", "day":"día"}
-        # native_selectors = [e.vocab_discover_quiz_native_1, e.vocab_discover_quiz_native_2, e.vocab_discover_quiz_native_3, e.vocab_discover_quiz_native_4, e.vocab_discover_quiz_native_5, e.vocab_discover_quiz_native_6]
-        # target_selectors = [e.vocab_discover_quiz_target_1, e.vocab_discover_quiz_target_2, e.vocab_discover_quiz_target_3, e.vocab_discover_quiz_target_4, e.vocab_discover_quiz_target_5, e.vocab_discover_quiz_target_6]
         base_native_selector_1 = "app-matching-quiz>div:nth-of-type("
         base_native_selector_2 = ")"
         base_native_descriptor_1 = "Native language item "
