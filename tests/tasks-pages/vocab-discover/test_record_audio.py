@@ -1,6 +1,19 @@
-from tests.embark_test_classes import EmbarkStageTest
+from tests.embark_test_classes import VisualEmbarkRCTest
 
-class TestRecordAudio(EmbarkStageTest):
+'''
+This test currently:
+1. Navigates to Meet Someone > Vocabulary
+2. Goes to Flashcards
+3. On the first flashcard, clicks Record and checks that the icon is correct
+4. Clicks it again and checks that the icon is correct
+
+Ideas for future use:
+1. Find a way to actually detect audio/detect a file being attached to the Audio component. 
+Detecting actual audio playing is one of Selenium's big drawbacks, so we may use a different
+tool in the future to accomplish this.
+'''
+
+class TestRecordAudio(VisualEmbarkRCTest):
     def test_record_audio(self):
         e = self.elements
         self.login("spanish")

@@ -1,9 +1,18 @@
-from tests.embark_test_classes import EmbarkStageTest
+from tests.embark_test_classes import VisualEmbarkRCTest
+from selenium.webdriver.common.by import By
+
+'''
+This test:
+1. Navigates to Meet Someone > Vocab and clears progress.
+2. Goes to Discover and takes the first quiz.
+3. Goes back to the task page and navigates to Spaced Review (from the task page itself).
+4. Goes through the first day of Spaced Review, getting each question correct.
+'''
 
 from time import sleep
 import random
 from sessions.embark_user import test_user_02
-class TestVocabSpacedReview(EmbarkStageTest):
+class TestVocabSpacedReview(VisualEmbarkRCTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)
@@ -32,7 +41,7 @@ class TestVocabSpacedReview(EmbarkStageTest):
         self.click(e.lesson_card)
         self.wait_for_element_to_be_clickable(e.lesson_discover_button)
 
-        self.clearProgress()       
+        self.markWords("")       
 
         # Move to quiz
         self.click(e.lesson_discover_button)
@@ -46,20 +55,27 @@ class TestVocabSpacedReview(EmbarkStageTest):
         self.click(e.vocab_discover_take_quiz_button)
 
         # Take first Spanish vocab quiz. This is super slow, working on speeding it up
-        native_selectors = [e.vocab_discover_quiz_native_1, e.vocab_discover_quiz_native_2, e.vocab_discover_quiz_native_3, e.vocab_discover_quiz_native_4, e.vocab_discover_quiz_native_5, e.vocab_discover_quiz_native_6]
-        target_selectors = [e.vocab_discover_quiz_target_1, e.vocab_discover_quiz_target_2, e.vocab_discover_quiz_target_3, e.vocab_discover_quiz_target_4, e.vocab_discover_quiz_target_5, e.vocab_discover_quiz_target_6]
+        word_pairs = {"church":"iglesia", "companion (male)":"compañero", "companion (female)":"compañera", "city":"ciudad", "Elder":"Élder (misionero)", "day":"día"}
+        base_native_selector_1 = "app-matching-quiz>div:nth-of-type("
+        base_native_selector_2 = ")"
+        base_native_descriptor_1 = "Native language item "
+        base_native_descriptor_2 = " in quiz"
+        base_target_selector_1 = "app-matching-quiz>div:nth-of-type("
+        base_target_selector_2 = ")"
+        base_target_descriptor_1 = "Target language item "
+        base_target_descriptor_2 = " in quiz"
         skip_set = set()
         for i in range(6):
             for j in range(6):
                 if j not in skip_set:
-                    if self.word_pairs[self.get_element(native_selectors[i]).text] == self.get_element(target_selectors[j]).text:
-                        self.click(native_selectors[i])
-                        self.click(target_selectors[j])
+                    native_selector = (By.CSS_SELECTOR, base_native_selector_1 + str(i+1) + base_native_selector_2, base_native_descriptor_1 + str(i+1) + base_native_descriptor_2)
+                    target_selector = (By.CSS_SELECTOR, base_target_selector_1 + str(j+7) + base_target_selector_2, base_target_descriptor_1 + str(j+7) + base_target_descriptor_2)
+                    if word_pairs[self.get_element(native_selector).text] == self.get_element(target_selector).text:
+                        self.click(native_selector)
+                        self.click(target_selector)
                         skip_set.add(j)
-        self.wait_for_text_in_element(e.vocab_discover_right_arrow, "Continue")
         self.click(e.vocab_discover_right_arrow)
         self.wait_for_text_in_element(e.lesson_discover_flashcard_text, "la familia")
-        self.find(e.lesson_discover_toolbar)
         self.click(e.close_button)
         
         # Spaced review section
@@ -97,7 +113,7 @@ class TestVocabSpacedReview(EmbarkStageTest):
         self.wait_for_text_in_element(e.spaced_review_continue_button, "Done")
         self.click(e.spaced_review_continue_button)
         
-        self.clearProgress()
+        self.markWords("")
 
     def answerCorrect(self, prompt):
         e = self.elements
@@ -123,29 +139,20 @@ class TestVocabSpacedReview(EmbarkStageTest):
         elif self.word_pairs_reverse[prompt] == self.answer4:
             self.click(e.spaced_review_quadrants_answer1)
 
-    def clearProgress(self):
-        e = self.elements
-        name = self.get_element(e.vocab_concept_list_discovered_1).get_attribute("name")
-        while name != "ellipse-outline":
-            self.click(e.vocab_concept_list_discovered_button_1)
-            name = self.get_element(e.vocab_concept_list_discovered_1).get_attribute("name")
-        name = self.get_element(e.vocab_concept_list_discovered_2).get_attribute("name")
-        while name != "ellipse-outline":
-            self.click(e.vocab_concept_list_discovered_button_2)
-            name = self.get_element(e.vocab_concept_list_discovered_2).get_attribute("name")
-        name = self.get_element(e.vocab_concept_list_discovered_3).get_attribute("name")
-        while name != "ellipse-outline":
-            self.click(e.vocab_concept_list_discovered_button_3)
-            name = self.get_element(e.vocab_concept_list_discovered_3).get_attribute("name")
-        name = self.get_element(e.vocab_concept_list_discovered_4).get_attribute("name")
-        while name != "ellipse-outline":
-            self.click(e.vocab_concept_list_discovered_button_4)
-            name = self.get_element(e.vocab_concept_list_discovered_4).get_attribute("name")
-        name = self.get_element(e.vocab_concept_list_discovered_5).get_attribute("name")
-        while name != "ellipse-outline":
-            self.click(e.vocab_concept_list_discovered_button_5)
-            name = self.get_element(e.vocab_concept_list_discovered_5).get_attribute("name")
-        name = self.get_element(e.vocab_concept_list_discovered_6).get_attribute("name")
-        while name != "ellipse-outline":
-            self.click(e.vocab_concept_list_discovered_button_6)
-            name = self.get_element(e.vocab_concept_list_discovered_6).get_attribute("name")
+    
+    def markWords(self, target):
+        if target == "mastered":
+            target_name = "checkmark-done-circle"
+        elif target == "discovered":
+            target_name = "checkmark-circle-outline"
+        else:
+            target_name = "ellipse-outline"
+        base_sel_1 = "app-task-study-list>ion-content>div>div>div>div:nth-of-type(3)>app-concept-list>ion-card>ion-item:nth-of-type("
+        base_sel_2 = ")>ion-icon:nth-of-type(3)"
+        base_label = "Discovered button in vocab list "
+        for i in range(6):
+            sel = (By.CSS_SELECTOR, base_sel_1 + str(i+2) + base_sel_2, base_label + str(i+1))
+            name = self.get_element(sel).get_attribute("name")
+            while name != target_name:
+                self.click(sel)
+                name = self.get_element(sel).get_attribute("name")
