@@ -58,6 +58,7 @@ class SessionMixIn:
 
     def load_branch(self, branch):
         self.branch = branch
+        # FIX_ME update elements and urls as well
 
 
     # Driver Control
