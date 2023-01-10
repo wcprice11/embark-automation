@@ -1,10 +1,14 @@
-from tests.embark_test_classes import VisualEmbarkStageTest
-from time import sleep
-from selenium.webdriver.common.keys import Keys
-import random
+from tests.embark_test_classes import VisualEmbarkRCTest
 from sessions.embark_user import test_user_02
 
-class TestVocabSearch(VisualEmbarkStageTest):
+'''
+This test currently: 
+1. Navigates to Meet Someone > Phrases.
+2. Types in a nonsense search and checks that there are no results.
+3. Types in a search and checks that results are present.
+'''
+
+class TestVocabSearch(VisualEmbarkRCTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)

@@ -223,8 +223,8 @@ class Elements:
 
 
     # Lesson Discover
-    lesson_discover_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(1)>ion-button", "lesson page discover button (og: spanish alphabet)")
-    lesson_practice_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(2)>ion-button", "lesson page button (og: spanish alphabet)")
+    lesson_discover_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(1)>div>ion-button", "lesson page discover button (og: spanish alphabet)")
+    lesson_practice_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(2)>div>ion-button", "lesson page button (og: spanish alphabet)")
     lesson_pass_off_button  = (By.CSS_SELECTOR, "app-task-nav-button:nth-of-type(3)>ion-button", "lesson page button (og: spanish alphabet)")
     alphabet_first_letter   = (By.CSS_SELECTOR, "#alphabet-grid>button:first-of-type", "First card on alphabet lesson (og: spanish alphabet 'a')")
 
@@ -301,7 +301,7 @@ class Elements:
     lesson_discover_flashcards          = (By.CSS_SELECTOR, "ion-content h1", "Flashcards info card title (og: spanish alphabet discover)")
     lesson_discover_flashcards_start    = (By.CSS_SELECTOR, "ion-footer>ion-button", "Flashcards start button (og: spanish alphabet discover)")
     lesson_discover_flashcard_text      = (By.CSS_SELECTOR, "app-discover>ion-content>div>swiper>div", "Flashcard text")
-    lesson_discover_toolbar             = (By.CSS_SELECTOR, "app-activity-tool-bar", "Toolbar in flashcards")
+    lesson_discover_toolbar             = (By.CSS_SELECTOR, "app-discover>ion-content>div>swiper>div>div>div>div>div>div>app-activity-tool-bar", "Toolbar in flashcards")
     
     lesson_practice_multiple_choice         = (By.CSS_SELECTOR, "app-pick-activity>ion-content>div>div:nth-of-type(2)>app-study-list-card", "First option on pick activity page, in this case multiple choice")
     lesson_practice_fill_in_blank           = (By.CSS_SELECTOR, "div>div:nth-of-type(2)>app-study-list-card>ion-card", "First option on pick activity page")
@@ -313,9 +313,18 @@ class Elements:
     lesson_practice_got_it_button           = (By.CSS_SELECTOR, "app-quadrants>div>ion-footer>ion-toolbar>ion-row>ion-button:nth-of-type(2)", "Got it button in lesson practice")
     lesson_practice_header_progress_numbers = (By.CSS_SELECTOR, "app-activity-wrapper>app-progress-header>div>ion-header>ion-toolbar>div>app-progress-bar>div>p", "Toolbar in lesson practice")
     
-    lesson_practice_type_or_say             = (By.CSS_SELECTOR, "app-pick-activity>ion-content>div>div:nth-of-type(2)>app-study-list-card:nth-of-type(3)", "Third option on pick activity page, in this case type and say")
-    lesson_practice_type_or_say_prompt      = (By.CSS_SELECTOR, "app-typing>div>div>ion-toolbar>ion-title", "Prompt in type or say")
-    lesson_practice_type_or_say_input       = (By.CSS_SELECTOR, "app-typing>div>div>div>ion-card>ion-item>ion-textarea", "Type or say input")
+    lesson_practice_activity_feedback   = (By.CSS_SELECTOR, "app-activity-wrapper>div>ion-content>div>div>ion-card>div>div", "Practice feedback top text")
+    lesson_practice_activity_continue   = (By.CSS_SELECTOR, "app-activity-wrapper>div>ion-content>div>div>ion-card>div>div:nth-of-type(3)>ion-button", "Practice feedback continue button")
+    lesson_practice_close_button        = (By.CSS_SELECTOR, "app-activity-wrapper>div>ion-content>div>ion-footer>ion-button", "Practice feedback continue button")
+    
+    lesson_practice_type_or_say                     = (By.CSS_SELECTOR, "app-pick-activity>ion-content>div>div:nth-of-type(2)>app-study-list-card:nth-of-type(3)>ion-card", "Third option on pick activity page, in this case type and say")
+    lesson_practice_type_or_say_prompt              = (By.CSS_SELECTOR, "app-typing>div>div>ion-toolbar>ion-title", "Prompt in type or say")
+    lesson_practice_type_or_say_input               = (By.CSS_SELECTOR, "app-typing>div>div>div>ion-card>ion-item>ion-textarea", "Type or say input")
+    lesson_practice_type_or_say_input_clear_button  = (By.CSS_SELECTOR, "app-typing>div>div>div>ion-card>ion-item>span>ion-icon", "Type or say input clear button")
+    lesson_practice_type_or_say_check               = (By.CSS_SELECTOR, "app-typing>div>div>ion-grid>ion-row>ion-col>ion-button", "Type or say check button")
+    lesson_practice_type_or_say_mine_works_too      = (By.CSS_SELECTOR, "app-typing>div>div>div>ion-card:nth-of-type(2)>ion-row>ion-button", "Type or say check button")
+    lesson_practice_type_or_say_try_again           = (By.CSS_SELECTOR, "app-typing>div>div>div>ion-card:nth-of-type(2)>ion-row>ion-button:nth-of-type(2)", "Type or say try again button")
+    lesson_practice_type_or_say_continue            = (By.CSS_SELECTOR, "app-typing>div>div>ion-grid>ion-row>ion-col>ion-button", "Type or say continue button")
 
     lesson_unscramble_prompt        = (By.CSS_SELECTOR, "app-unscramble-activity>div>ion-header>span", "Unscramble prompt")
     lesson_unscramble_check_button  = (By.CSS_SELECTOR, "app-unscramble-activity>div>ion-footer>ion-toolbar>ion-row>ion-button", "Unscramble prompt")

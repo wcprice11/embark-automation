@@ -1,10 +1,21 @@
-from tests.embark_test_classes import VisualEmbarkStageTest
+from tests.embark_test_classes import VisualEmbarkRCTest
 from time import sleep
-from selenium.webdriver.common.keys import Keys
 import random
 from sessions.embark_user import test_user_02
+from selenium.webdriver.common.action_chains import ActionChains
 
-class TestVocabPractice(VisualEmbarkStageTest):
+'''
+Currently, this test:
+1. Navigates to Meet Someone > Vocab > Practice
+2. Does the Multiple Choice practice
+3. Randomly chooses which questions to get right and wrong, and which path to take to deal with it
+
+Future improvements:
+1. Make tests for the other practice options. The typing one is mostly here, but it has issues so
+we can leave it for later.
+'''
+
+class TestVocabPractice(VisualEmbarkRCTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)
@@ -101,37 +112,56 @@ class TestVocabPractice(VisualEmbarkStageTest):
             self.click(e.spaced_review_continue_button)
             
 
-        # TODO: Make tests for the other Practice sections. Typing isn't working and I'm not sure about 
-        # the ones with sound other than randomly clicking, which doesn't seem super helpful.
+        feedback_text = self.get_element(e.lesson_practice_activity_feedback).text
+        if feedback_text == "Congratulations!":
+            self.click(e.lesson_practice_activity_continue)
+        else:
+            self.click(e.lesson_practice_close_button)
         
+        # The code below had issues with returning to an input to put the correct answer, which is odd. 
+        # We'll try and get it working later.
+
+        # self.wait_for_element_to_be_clickable(e.lesson_practice_type_or_say)
         # self.click(e.lesson_practice_type_or_say)
         # self.click(e.start_button)
         # done = False
         # while not done:
         #     prompt = self.get_element(e.lesson_practice_type_or_say_prompt).text
         #     answerCorrect = random.randint(0, 1)
-        #     mineWorksToo = random.randint(0, 2)
+        #     mineWorksToo = random.randint(0, 1)
         #     sleep(1)
         #     if answerCorrect == 1:
-        #         # self.fill(e.lesson_practice_type_or_say_input, self.word_pairs[prompt])
-        #         self.get_element(e.lesson_practice_type_or_say_input).send_keys(self.word_pairs[prompt])
+        #         action = ActionChains(self.driver)
+        #         textarea = self.get_element(e.lesson_practice_type_or_say_input)
+        #         answer = self.word_pairs[prompt]
+        #         move = ActionChains(self.driver).move_to_element(textarea)
+        #         move.send_keys(answer).perform()
+        #         self.click(e.lesson_practice_type_or_say_check)
         #     else:
-        #         # self.fill(e.lesson_practice_type_or_say_input, "Nonsense")
-        #         self.get_element(e.lesson_practice_type_or_say_input).send_keys("Nonsense")
+        #         action = ActionChains(self.driver)
+        #         textarea = self.get_element(e.lesson_practice_type_or_say_input)
+        #         ActionChains(self.driver).move_to_element(textarea).send_keys("Nonsense").perform()
+        #         self.click(e.lesson_practice_type_or_say_check)
         #         if mineWorksToo == 0:
-        #             self.click(e.lesson_practice_mine_works_too_button)
+        #             self.click(e.lesson_practice_type_or_say_mine_works_too)
         #         elif mineWorksToo == 1:
-        #             self.click(e.lesson_practice_got_it_button)
-        #         elif mineWorksToo == 2:
-        #             self.fill(self.word_pairs[prompt])
-        #     self.click(e.spaced_review_continue_button)
+        #             self.click(e.lesson_practice_type_or_say_try_again)
+        #             action = ActionChains(self.driver)
+        #             textarea = self.get_element(e.lesson_practice_type_or_say_input)
+        #             # ActionChains(self.driver).move_to_element(textarea).send_keys(self.word_pairs[prompt]).perform()
+        #             answer = self.word_pairs[prompt]
+        #             move = ActionChains(self.driver).move_to_element(textarea)
+        #             self.click(e.lesson_practice_type_or_say_input_clear_button)
+        #             move.send_keys(answer).perform()
+        #             self.click(e.lesson_practice_type_or_say_check)
+        #     self.click(e.lesson_practice_type_or_say_continue)
         #     completionNumbers = self.get_element(e.lesson_practice_header_progress_numbers).text
         #     slashpos = completionNumbers.index('/')
         #     completed = completionNumbers[0:slashpos]
         #     total = completionNumbers[slashpos+1:]
         #     if completed == total:
         #         done = True
-        #     self.click(e.spaced_review_continue_button)
+        # self.click(e.lesson_practice_activity_continue)
 
     def answerCorrect(self, prompt):
         e = self.elements
