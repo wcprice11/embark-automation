@@ -1,8 +1,22 @@
-from tests.embark_test_classes import VisualEmbarkStageTest
+from tests.embark_test_classes import VisualEmbarkRCTest
 from selenium.webdriver.common.by import By
 import random
 from sessions.embark_user import test_user_02
-class TestSpacedReviewProgressSaves(VisualEmbarkStageTest):
+
+'''
+This test:
+1. Navigates to Meet Someone > Vocab. 
+2. Marks the first 6 words as Discovered.
+3. Navigates back to the main page and goes to Spaced Review.
+4. Gets all the questions correct.
+5. Checks that progress on the Spaced Review card is correct.
+
+Ideas for future improvement:
+1. We could try refreshing or logging out. It's doing all it needs to for now.
+'''
+
+
+class TestSpacedReviewProgressSaves(VisualEmbarkRCTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)
@@ -54,7 +68,7 @@ class TestSpacedReviewProgressSaves(VisualEmbarkStageTest):
         self.wait_for_text_in_element(e.spaced_review_continue_button, "Done")
         self.click(e.spaced_review_continue_button)
 
-        self.validate_element_text(e.spaced_review_number_to_do, "6 / 6 Questions")
+        self.validate_element_text(e.spaced_review_number_to_do, "0 / 0 Questions")
 
         self.click(e.recommended_meet_someone_lesson)
         self.validate_element_text(e.lesson_card, "Vocabulary")
