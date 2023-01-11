@@ -326,8 +326,9 @@ class Elements:
     lesson_practice_type_or_say_try_again           = (By.CSS_SELECTOR, "app-typing>div>div>div>ion-card:nth-of-type(2)>ion-row>ion-button:nth-of-type(2)", "Type or say try again button")
     lesson_practice_type_or_say_continue            = (By.CSS_SELECTOR, "app-typing>div>div>ion-grid>ion-row>ion-col>ion-button", "Type or say continue button")
 
-    lesson_unscramble_prompt        = (By.CSS_SELECTOR, "app-unscramble-activity>div>ion-header>span", "Unscramble prompt")
-    lesson_unscramble_check_button  = (By.CSS_SELECTOR, "app-unscramble-activity>div>ion-footer>ion-toolbar>ion-row>ion-button", "Unscramble prompt")
+    lesson_unscramble_prompt            = (By.CSS_SELECTOR, "app-unscramble-activity>div>ion-header>span", "Unscramble prompt")
+    lesson_unscramble_check_button      = (By.CSS_SELECTOR, "app-unscramble-activity>div>ion-footer>ion-toolbar>ion-row>ion-button", "Unscramble prompt")
+    lesson_unscramble_complete_button   = (By.CSS_SELECTOR, "app-activity-wrapper>div>ion-content>div>div>ion-card>div>div:nth-of-type(3)>ion-button", "Unscramble complete button")
 
     spaced_review_quadrants_prompt  = (By.CSS_SELECTOR, "app-quadrants>div>ion-header", "Prompt word in quadrants for Spaced Review")
     spaced_review_quadrants_answer1 = (By.CSS_SELECTOR, "app-quadrants>div>div>ion-grid>ion-row>ion-col", "Answer 1 spaced review quadrants")

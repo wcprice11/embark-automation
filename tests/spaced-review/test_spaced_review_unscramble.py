@@ -1,13 +1,22 @@
-from tests.embark_test_classes import EmbarkRCTest
+from tests.embark_test_classes import VisualEmbarkRCTest
 from sessions.embark_user import test_user_02
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.action_chains import ActionChains
-import string
 import re
+
+'''
+Currently, this test:
+1. Navigates to Meet Someone > Phrases.
+2. Navigates to Practice > Unscramble, since Unscramble isn't currently showing up in Spaced Review.
+3. Gets all the answers correct and finishes.
+
+Ideas for future improvement:
+1. Once Unscramble gets into Spaced Review, of course do it there.
+2. Get the answers wrong - put in the wrong order and make sure it behaves right.
+'''
 
 # Currently, this test just checks unscramble in the Practice section. Due to a but, unscramble currently doesn't show up in 
 
-class TestVocabSpacedReviewAlgorithm(EmbarkRCTest):
+class TestVocabSpacedReviewAlgorithm(VisualEmbarkRCTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)
@@ -76,12 +85,15 @@ class TestVocabSpacedReviewAlgorithm(EmbarkRCTest):
                 if not found:
                     self.fail("Couldn't find word: " + word + ". Candidate list: " + str(wordlist))
             self.click(e.lesson_unscramble_check_button)
+            completionNumbers = self.get_element(e.lesson_practice_header_progress_numbers).text
+            slashpos = completionNumbers.index('/')
+            completed = completionNumbers[0:slashpos]
+            total = completionNumbers[slashpos+1:]
+            if completed == total:
+                done = True
             self.click(e.lesson_unscramble_check_button)
 
-            # self.fail(str(self.get_element(e.lesson_unscramble_prompt).size))
-            if self.get_element(e.lesson_unscramble_prompt) is None:
-                done = True
-
+        self.click(e.lesson_unscramble_complete_button)
         self.click(e.pick_activity_back_button)
         self.click(e.pick_activity_back_button)
         self.markWords("")
