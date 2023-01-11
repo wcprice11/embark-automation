@@ -1,9 +1,9 @@
-from tests.embark_test_classes import VisualEmbarkStageTest
+from tests.embark_test_classes import EmbarkRCTest
 from sessions.embark_user import test_user_02
 
 # From card https://trello.com/c/n9G3Lf42/1310-deleting-or-adding-topics-quickly-has-a-chance-to-crash-add-words-completely-ld1310
 
-class TestAddTopics(VisualEmbarkStageTest):
+class TestAddTopics(EmbarkRCTest):
 
     def test_add_topics(self):
         oneDeleted = False

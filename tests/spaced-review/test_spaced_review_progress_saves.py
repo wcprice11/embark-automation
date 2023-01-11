@@ -1,6 +1,5 @@
 from tests.embark_test_classes import VisualEmbarkRCTest
 from selenium.webdriver.common.by import By
-import random
 from sessions.embark_user import test_user_02
 
 '''

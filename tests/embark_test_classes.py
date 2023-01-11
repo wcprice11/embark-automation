@@ -115,10 +115,12 @@ class EmbarkProdTest(EmbarkTest):
     def setUpVars(self):
         self.load_branch(web_prod)
 
+# To be removed
 class VisualEmbarkStageTest(BasicVisualStageSession, EmbarkTest):
     def setUpVars(self):
         self.load_branch(web_stage)
 
+# To be removed
 class EmbarkStageTest(EmbarkTest):
     def setUpVars(self):
         self.load_branch(web_stage)
@@ -131,6 +133,7 @@ class EmbarkRCTest(EmbarkTest):
     def setUpVars(self):
         self.load_branch(web_rc)
 
+# To be removed
 class EmbarkDevTest(EmbarkTest):
     def setUpVars(self):
         self.load_branch(web_dev)

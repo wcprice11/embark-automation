@@ -1,6 +1,6 @@
-from tests.embark_test_classes import EmbarkStageTest
+from tests.embark_test_classes import EmbarkRCTest
 
-class TestSwitchBetweenLanguages(EmbarkStageTest):
+class TestSwitchBetweenLanguages(EmbarkRCTest):
     def test_switch_between_languages(self):
         e = self.elements
         self.login("spanish")

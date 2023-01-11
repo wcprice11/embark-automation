@@ -1,4 +1,4 @@
-from tests.embark_test_classes import VisualEmbarkStageTest
+from tests.embark_test_classes import EmbarkRCTest
 from sessions.embark_user import test_user_02
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
@@ -7,7 +7,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 # checking whether a user is kicked out after getting 6 questions wrong in a row.
 # Also: Test Phrases algorithm
 
-class TestVocabSpacedReviewPhraseTyping(VisualEmbarkStageTest):
+class TestVocabSpacedReviewPhraseTyping(EmbarkRCTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)
