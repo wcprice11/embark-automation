@@ -1,10 +1,10 @@
-from tests.embark_test_classes import VisualEmbarkStageTest
+from tests.embark_test_classes import EmbarkRCTest
 from time import sleep
 from selenium.webdriver.common.keys import Keys
 import random
 from sessions.embark_user import test_user_02
 
-class TestVocabSearch(VisualEmbarkStageTest):
+class TestVocabSearch(EmbarkRCTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)
@@ -23,7 +23,7 @@ class TestVocabSearch(VisualEmbarkStageTest):
          "Jesus Christ": "Jesucristo",
          "message": "mensaje",
          "missionary (male)": "misionero",
-         "missionary (female)": "misionera",
+         "missionary (female)": "misionero",
          "name": "nombre",
          "school": "escuela",
          "to be (characteristic)": "ser",

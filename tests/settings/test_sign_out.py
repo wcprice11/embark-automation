@@ -1,6 +1,6 @@
-from tests.embark_test_classes import EmbarkStageTest, EmbarkProdTest
+from tests.embark_test_classes import EmbarkRCTest, EmbarkProdTest
 
-class TestLogoutStage(EmbarkStageTest):
+class TestLogoutRC(EmbarkRCTest):
     def test_logout_button(self):
         e = self.elements
         self.login("french")

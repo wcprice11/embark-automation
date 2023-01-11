@@ -22,19 +22,8 @@ class TestProdLogin(EmbarkProdTest):
         self.validate_url_contains(self.urls.ONBOARDING)
 
 
-class TestStageLogin(EmbarkStageTest):
-    def test_macro_login(self):
-        self.assertTrue(self.login(), "login macro failed")
-        self.validate_url_contains(self.urls.ONBOARDING)
-
-
 class TestRCLogin(EmbarkRCTest):
     def test_macro_login(self):
         self.assertTrue(self.login(), "login macro failed")
         self.validate_url_contains(self.urls.ONBOARDING)
 
-
-class TestDevLogin(EmbarkDevTest):
-    def test_macro_login(self):
-        self.assertTrue(self.login(), "login macro failed")
-        self.validate_url_contains(self.urls.ONBOARDING)

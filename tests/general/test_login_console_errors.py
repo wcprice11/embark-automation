@@ -1,9 +1,9 @@
-from tests.embark_test_classes import EmbarkProdTest
+from tests.embark_test_classes import EmbarkRCTest
 from list_of_languages import languages, core_languages
 from random import randint
 
 # This will fail if any SEVERE console errors are found after the initial authentication.
-class TestCatchConsoleErrors(EmbarkProdTest):
+class TestCatchConsoleErrors(EmbarkRCTest):
     def test_sample_all_languages(self):
         e = self.elements
         langs = []

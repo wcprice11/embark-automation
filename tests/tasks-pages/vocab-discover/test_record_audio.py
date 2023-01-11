@@ -1,6 +1,6 @@
-from tests.embark_test_classes import EmbarkStageTest
+from tests.embark_test_classes import EmbarkRCTest
 
-class TestRecordAudio(EmbarkStageTest):
+class TestRecordAudio(EmbarkRCTest):
     def test_record_audio(self):
         e = self.elements
         self.login("spanish")

@@ -1,4 +1,4 @@
-from tests.embark_test_classes import VisualEmbarkStageTest
+from tests.embark_test_classes import EmbarkRCTest
 from sessions.embark_user import test_user_02
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
@@ -7,7 +7,7 @@ import re
 
 # Currently, this test just checks unscramble in the Practice section. Due to a but, unscramble currently doesn't show up in 
 
-class TestVocabSpacedReviewAlgorithm(VisualEmbarkStageTest):
+class TestVocabSpacedReviewAlgorithm(EmbarkRCTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)

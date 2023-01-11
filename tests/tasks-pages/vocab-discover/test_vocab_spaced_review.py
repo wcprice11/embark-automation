@@ -1,9 +1,9 @@
-from tests.embark_test_classes import EmbarkStageTest
+from tests.embark_test_classes import EmbarkRCTest
 
 from time import sleep
 import random
 from sessions.embark_user import test_user_02
-class TestVocabSpacedReview(EmbarkStageTest):
+class TestVocabSpacedReview(EmbarkRCTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)

@@ -1,11 +1,11 @@
-from tests.embark_test_classes import VisualEmbarkStageTest
+from tests.embark_test_classes import EmbarkRCTest
 from sessions.embark_user import test_user_02
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 
 # TODO: Find out if there's actually a "mine works too" button
 
-class TestVocabSpacedReviewCloseEnoughTryAgain(VisualEmbarkStageTest):
+class TestVocabSpacedReviewCloseEnoughTryAgain(EmbarkRCTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)
@@ -159,7 +159,7 @@ class TestVocabSpacedReviewCloseEnoughTryAgain(VisualEmbarkStageTest):
             else:
                 self.failureException("Didn't find correct answer")
 
-    def answerInorrect(self, prompt):
+    def answerIncorrect(self, prompt):
         e = self.elements
         if self.word_pairs_reverse[prompt] == self.answer1:
             self.click(e.spaced_review_quadrants_answer2)

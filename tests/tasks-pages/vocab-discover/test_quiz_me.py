@@ -1,5 +1,5 @@
-from tests.embark_test_classes import EmbarkStageTest
-class TestQuizMe(EmbarkStageTest):
+from tests.embark_test_classes import EmbarkRCTest
+class TestQuizMe(EmbarkRCTest):
     def test_quiz_me(self):
         e = self.elements
         self.login("spanish")

@@ -1,11 +1,11 @@
-from tests.embark_test_classes import VisualEmbarkStageTest
+from tests.embark_test_classes import EmbarkRCTest
 from sessions.embark_user import test_user_02
 from selenium.webdriver.common.by import By
 
 # TODO for improving this test: See if we can actually get the src attribute of the icons. Right now it's just 
 # checking whether a user is kicked out after getting 6 questions wrong in a row.
 
-class TestVocabSpacedReviewHearts(VisualEmbarkStageTest):
+class TestVocabSpacedReviewHearts(EmbarkRCTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)
@@ -46,7 +46,7 @@ class TestVocabSpacedReviewHearts(VisualEmbarkStageTest):
             self.answer2 = self.get_element(e.spaced_review_quadrants_answer2).text
             self.answer3 = self.get_element(e.spaced_review_quadrants_answer3).text
             self.answer4 = self.get_element(e.spaced_review_quadrants_answer4).text
-            self.answerInorrect(prompt)
+            self.answerIncorrect(prompt)
             self.answerCorrect(prompt)
             
             buttonText = self.get_element(e.spaced_review_continue_button).text
@@ -98,7 +98,7 @@ class TestVocabSpacedReviewHearts(VisualEmbarkStageTest):
         else:
             self.failureException("Didn't find correct answer")
 
-    def answerInorrect(self, prompt):
+    def answerIncorrect(self, prompt):
         e = self.elements
         if self.word_pairs_reverse[prompt] == self.answer1:
             self.click(e.spaced_review_quadrants_answer2)

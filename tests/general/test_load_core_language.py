@@ -1,7 +1,7 @@
 
-from tests.embark_test_classes import EmbarkProdTest
+from tests.embark_test_classes import EmbarkRCTest
 
-class TestProdLoadCoreLanguage(EmbarkProdTest):
+class TestLoadCoreLanguage(EmbarkRCTest):
     def test_settings_menu_says_core_language(self):
         self.login("spanish")
         self.wait_for_element_to_be_clickable(self.elements.whats_new_card_close_button)
