@@ -1,7 +1,7 @@
 # Search
-from tests.embark_test_classes import EmbarkStageTest
+from tests.embark_test_classes import EmbarkRCTest
 
-class TestSearchPage(EmbarkStageTest):
+class TestSearchPage(EmbarkRCTest):
     def test_search_page(self):
         e = self.elements
         self.login("spanish")

@@ -1,9 +1,9 @@
 from tests.embark_test_classes import *
 
 
-class TestStageSettings(EmbarkStageTest):
+class TestRCSettings(EmbarkRCTest):
 
-    def test_stage_settings_validation(self):
+    def test_rc_settings_validation(self):
         u = self.urls
         e = self.elements
         self.assertTrue(self.login())
@@ -33,7 +33,7 @@ class TestStageSettings(EmbarkStageTest):
         elem = self.get_element(e.about_button)
         self.validate_text(elem.text, "About")
 
-    def test_stage_logout(self):
+    def test_rc_logout(self):
         self.assertTrue(self.login("spanish"))
         self.click(self.elements.whats_new_card_close_button)
 

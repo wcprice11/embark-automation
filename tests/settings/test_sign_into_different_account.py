@@ -1,7 +1,7 @@
-from tests.embark_test_classes import EmbarkStageTest
+from tests.embark_test_classes import EmbarkRCTest
 from sessions.embark_user import test_user_02
 
-class TestSignIntoDifferentAccount(EmbarkStageTest):
+class TestSignIntoDifferentAccount(EmbarkRCTest):
     def test_sign_into_different_account(self):
 
         # TODO: This file opens and closes the browser window because for some reason it doesn't actually fully logout on logout. 

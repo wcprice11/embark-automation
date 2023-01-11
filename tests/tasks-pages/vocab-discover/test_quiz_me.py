@@ -1,4 +1,4 @@
-from tests.embark_test_classes import VisualEmbarkRCTest
+from tests.embark_test_classes import EmbarkRCTest
 from selenium.webdriver.common.by import By
 
 '''
@@ -11,7 +11,7 @@ Right now, this test:
 Future ideas: Get questions wrong and make sure behavior is correct
 '''
 
-class TestQuizMe(VisualEmbarkRCTest):
+class TestQuizMe(EmbarkRCTest):
     def test_quiz_me(self):
         e = self.elements
         self.login("spanish")

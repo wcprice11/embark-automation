@@ -1,7 +1,7 @@
-from tests.embark_test_classes import EmbarkStageTest
+from tests.embark_test_classes import EmbarkRCTest
 from selenium.webdriver.common.keys import Keys
 
-class TestSound(EmbarkStageTest):
+class TestSound(EmbarkRCTest):
     def test_sound(self):
         e = self.elements
         self.login("spanish")

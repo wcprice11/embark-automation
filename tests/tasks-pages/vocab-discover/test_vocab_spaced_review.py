@@ -1,4 +1,4 @@
-from tests.embark_test_classes import VisualEmbarkRCTest
+from tests.embark_test_classes import EmbarkRCTest
 from selenium.webdriver.common.by import By
 
 '''
@@ -12,7 +12,7 @@ This test:
 from time import sleep
 import random
 from sessions.embark_user import test_user_02
-class TestVocabSpacedReview(VisualEmbarkRCTest):
+class TestVocabSpacedReview(EmbarkRCTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)

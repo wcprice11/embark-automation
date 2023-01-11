@@ -1,8 +1,8 @@
-from tests.embark_test_classes import VisualEmbarkStageTest
+from tests.embark_test_classes import EmbarkRCTest
 from selenium.webdriver.common.by import By
 import random
 from sessions.embark_user import test_user_02
-class TestSpacedReviewProgressSaves(VisualEmbarkStageTest):
+class TestSpacedReviewProgressSaves(EmbarkRCTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)

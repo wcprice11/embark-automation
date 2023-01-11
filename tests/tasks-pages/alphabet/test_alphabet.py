@@ -1,7 +1,7 @@
-from tests.embark_test_classes import EmbarkStageTest
+from tests.embark_test_classes import EmbarkRCTest
 from selenium.webdriver.common.keys import Keys
 from time import sleep
-class TestStageDiscoverAlphabet(EmbarkStageTest):
+class TestRCDiscoverAlphabet(EmbarkRCTest):
     def test_alphabet_discover_symbol_view(self):
         e = self.elements
         self.login("spanish")
