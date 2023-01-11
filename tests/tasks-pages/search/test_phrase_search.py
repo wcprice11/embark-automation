@@ -1,4 +1,4 @@
-from tests.embark_test_classes import VisualEmbarkRCTest
+from tests.embark_test_classes import EmbarkRCTest
 from sessions.embark_user import test_user_02
 
 '''
@@ -8,7 +8,7 @@ This test currently:
 3. Types in a search and checks that results are present.
 '''
 
-class TestPhraseSearch(VisualEmbarkRCTest):
+class TestPhraseSearch(EmbarkRCTest):
 
     def __init__(self, methodName: str) -> None:
         super().__init__(methodName)

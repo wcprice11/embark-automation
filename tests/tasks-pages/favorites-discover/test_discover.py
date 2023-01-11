@@ -1,6 +1,6 @@
-from tests.embark_test_classes import EmbarkStageTest
+from tests.embark_test_classes import EmbarkRCTest
 from time import sleep
-class TestStageDiscoverVocab(EmbarkStageTest):
+class TestRCDiscoverVocab(EmbarkRCTest):
     def test_vocab_discover(self):
         e = self.elements
         self.login("spanish")

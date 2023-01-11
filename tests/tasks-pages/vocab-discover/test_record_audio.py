@@ -1,4 +1,4 @@
-from tests.embark_test_classes import VisualEmbarkRCTest
+from tests.embark_test_classes import EmbarkRCTest
 
 '''
 This test currently:
@@ -13,7 +13,7 @@ Detecting actual audio playing is one of Selenium's big drawbacks, so we may use
 tool in the future to accomplish this.
 '''
 
-class TestRecordAudio(VisualEmbarkRCTest):
+class TestRecordAudio(EmbarkRCTest):
     def test_record_audio(self):
         e = self.elements
         self.login("spanish")

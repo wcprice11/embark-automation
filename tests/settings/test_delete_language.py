@@ -1,6 +1,6 @@
-from tests.embark_test_classes import EmbarkStageTest
+from tests.embark_test_classes import EmbarkRCTest
 
-class TestDeleteLanguage(EmbarkStageTest):
+class TestDeleteLanguage(EmbarkRCTest):
     def test_delete_language(self):
         e = self.elements
         self.login("spanish")
